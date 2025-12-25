@@ -1,24 +1,24 @@
-// src/pages/About.jsx
+// src/pages/Consulting.jsx
 import "../components/GlassLayout.css";
 
-const About = () => (
+const Consulting = () => (
   <main className="bg-accent1 section-padding">
     <div className="wrapper">
       <div style={{ maxWidth: "60rem" }}>
       <div className="gradient-rounded-text-box" style={{ marginBottom: "1.5rem" }}>
-        About Us
+        Consulting
       </div>
         <h1 className="heading-2 text-gradient" style={{ marginBottom: "1.25rem" }}>
-          Pioneering Practical Digital Excellence
+          One Partner for Strategy & Execution
         </h1>
         <p className="desc">
-          PHPD exists to bridge strategy, finance, and technology for founders who
-          want disciplined, predictable growth. Every engagement is designed to
-          connect high‑level decisions with the day‑to‑day systems your team uses.
+          PHPD’s consulting track focuses on designing the right growth model,
+          operating system, and metrics stack for your company. Then the tech and
+          financial systems are implemented to support that design.
         </p>
       </div>
     </div>
   </main>
 );
 
-export default About;
+export default Consulting;
