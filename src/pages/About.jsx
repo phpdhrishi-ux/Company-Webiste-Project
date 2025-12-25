@@ -14,7 +14,7 @@ const About = () => (
         <p className="desc">
           PHPD exists to bridge strategy, finance, and technology for founders who
           want disciplined, predictable growth. Every engagement is designed to
-          connect high‑level decisions with the day‑to‑day systems your team uses.
+          connect high‑level decisions with the day‑to‑day systems your team uses. Mahesh Samale
         </p>
       </div>
     </div>
