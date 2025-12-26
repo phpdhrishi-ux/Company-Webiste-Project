@@ -1,4 +1,3 @@
-// src/pages/Services.jsx
 import { useState } from "react";
 import "../components/GlassLayout.css";
 
@@ -99,17 +98,6 @@ const SERVICES = [
       "Leadership enablement and coaching",
     ],
   },
-  // === Add new services here later ===
-  // {
-  //   key: "Consulting",
-  //   label: "Consulting",
-  //   body: "Short description shown on card.",
-  //   intro: "Longer intro used inside the popup modal.",
-  //   items: [
-  //     "Detail 1",
-  //     "Detail 2",
-  //   ],
-  // },
 ];
 
 const Services = () => {
@@ -128,6 +116,7 @@ const Services = () => {
         className="bg-radial-overlay"
         style={{ position: "absolute", inset: 0, opacity: 0.6 }}
       />
+
       <div className="wrapper" style={{ position: "relative", zIndex: 1 }}>
         <div
           className="gradient-rounded-text-box"
@@ -162,7 +151,7 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Glassmorphism modal popup */}
+      {/* Glassmorphism modal popup (responsive) */}
       {activeService && (
         <div
           role="dialog"
@@ -184,47 +173,19 @@ const Services = () => {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            style={{
-              maxWidth: "70rem",
-              width: "100%",
-              borderRadius: "1.75rem",
-              backgroundColor: "rgba(255,255,255,0.96)",
-              backdropFilter: "blur(18px)",
-              WebkitBackdropFilter: "blur(18px)",
-              boxShadow:
-                "0 30px 80px rgba(15,23,42,0.25), 0 0 0 1px rgba(148,163,184,0.35)",
-              border: "1px solid rgba(148,163,184,0.4)",
-              padding: "2.25rem 2.25rem 2rem",
-              position: "relative",
-            }}
+            className="services-modal"
           >
             {/* Close icon */}
             <button
               type="button"
               onClick={closeModal}
               aria-label="Close"
-              style={{
-                position: "absolute",
-                top: "1.25rem",
-                right: "1.25rem",
-                width: "2.1rem",
-                height: "2.1rem",
-                borderRadius: "9999px",
-                border: "1px solid rgba(148,163,184,0.6)",
-                backgroundColor: "#ffffff",
-                color: "#4b5563",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "1.1rem",
-                boxShadow: "0 8px 18px rgba(15,23,42,0.15)",
-              }}
+              className="services-modal-close"
             >
               ×
             </button>
 
-            {/* Top pill + heading using your theme */}
+            {/* Top pill + heading */}
             <div style={{ marginBottom: "1.75rem" }}>
               <div
                 className="gradient-rounded-text-box"
@@ -261,15 +222,9 @@ const Services = () => {
               What We Offer
             </h3>
 
-            {/* Inner detail cards – same card style as rest of site */}
+            {/* Inner detail cards */}
             <div
-              style={{
-                display: "grid",
-                gridTemplateColumns:
-                  "repeat(auto-fit, minmax(220px, 1fr))",
-                gap: "1.5rem",
-                marginBottom: "2rem",
-              }}
+              className="services-modal-grid"
             >
               {activeService.items.map((item) => (
                 <div key={item} className="card">
@@ -283,7 +238,7 @@ const Services = () => {
               ))}
             </div>
 
-            {/* Back button – styled pill */}
+            {/* Back button */}
             <div style={{ textAlign: "center" }}>
               <button
                 type="button"

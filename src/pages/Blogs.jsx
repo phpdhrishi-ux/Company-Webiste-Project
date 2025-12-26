@@ -1,9 +1,8 @@
-// src/pages/Blogs.jsx
+import { useState } from "react";
 import "../components/GlassLayout.css";
 
 const BLOG_CATEGORIES = ["All", "Strategy", "Technology", "Hiring", "Product"];
 
-// Start with a few demo posts; add/remove anytime
 const BLOG_POSTS = [
   {
     id: "ats-automation",
@@ -82,24 +81,9 @@ const Blogs = () => {
           </p>
         </section>
 
-        {/* Category pill filter – like Alfox “All” pill */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-start",
-            marginBottom: "2.5rem",
-          }}
-        >
-          <div
-            style={{
-              display: "inline-flex",
-              padding: "0.25rem",
-              borderRadius: "9999px",
-              backgroundColor: "#ffffff",
-              boxShadow: "0 14px 40px rgba(15,23,42,0.12)",
-              gap: "0.4rem",
-            }}
-          >
+        {/* Category pill filter */}
+        <div className="blog-filter-row">
+          <div className="blog-filter-shell">
             {BLOG_CATEGORIES.map((cat) => {
               const active = cat === activeCategory;
               return (
@@ -107,34 +91,8 @@ const Blogs = () => {
                   key={cat}
                   type="button"
                   onClick={() => setActiveCategory(cat)}
-                  style={{
-                    padding: "0.55rem 1.5rem",
-                    borderRadius: "9999px",
-                    border: "none",
-                    fontSize: "0.85rem",
-                    fontWeight: 500,
-                    cursor: "pointer",
-                    backgroundColor: active
-                      ? "var(--bg-accent3)"
-                      : "transparent",
-                    color: active ? "#ffffff" : "#111827",
-                    boxShadow: active
-                      ? "0 12px 30px rgba(124,58,237,0.55)"
-                      : "none",
-                    transition:
-                      "background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease",
-                    transform: active ? "translateY(-1px)" : "translateY(0)",
-                  }}
-                  onMouseOver={(e) => {
-                    if (!active) {
-                      e.currentTarget.style.backgroundColor = "#f3f4f6";
-                    }
-                  }}
-                  onMouseOut={(e) => {
-                    if (!active) {
-                      e.currentTarget.style.backgroundColor = "transparent";
-                    }
-                  }}
+                  className="blog-filter-pill"
+                  data-active={active ? "true" : "false"}
                 >
                   {cat}
                 </button>
@@ -145,13 +103,7 @@ const Blogs = () => {
 
         {/* Grid of posts */}
         {visiblePosts.length > 0 ? (
-          <section
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              gap: "2rem",
-            }}
-          >
+          <section className="blog-grid">
             {visiblePosts.map((post) => (
               <BlogCard key={post.id} post={post} />
             ))}
@@ -179,124 +131,37 @@ const Blogs = () => {
   );
 };
 
-import { useState } from "react";
-
 const BlogCard = ({ post }) => (
   <article
-    className="card"
-    style={{
-      padding: 0,
-      overflow: "hidden",
-      borderRadius: "1.4rem",
-      display: "flex",
-      flexDirection: "column",
-      height: "100%",
-    }}
+    className="card blog-card"
   >
     {/* Image */}
-    <div
-      style={{
-        position: "relative",
-        paddingTop: "60%",
-        overflow: "hidden",
-        borderTopLeftRadius: "1.4rem",
-        borderTopRightRadius: "1.4rem",
-      }}
-    >
+    <div className="blog-card-image-wrap">
       <img
         src={post.image}
         alt={post.title}
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          transition: "transform 0.5s ease",
-        }}
         className="blog-image"
       />
     </div>
 
     {/* Content */}
-    <div
-      style={{
-        padding: "1.3rem 1.4rem 1.4rem",
-        display: "flex",
-        flexDirection: "column",
-        gap: "0.5rem",
-        flexGrow: 1,
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.4rem",
-          fontSize: "0.78rem",
-          color: "#6b7280",
-        }}
-      >
-        <span
-          style={{
-            display: "inline-flex",
-            padding: "0.2rem 0.7rem",
-            borderRadius: "9999px",
-            backgroundColor: "rgba(124,58,237,0.08)",
-            color: "#4c1d95",
-            fontWeight: 500,
-          }}
-        >
-          {post.category}
-        </span>
+    <div className="blog-card-body">
+      <div className="blog-meta">
+        <span className="blog-meta-pill">{post.category}</span>
         <span>•</span>
         <span>{post.date}</span>
         <span>•</span>
         <span>{post.readTime}</span>
       </div>
 
-      <h3
-        style={{
-          fontSize: "1.02rem",
-          fontWeight: 700,
-          color: "#111827",
-        }}
-      >
-        {post.title}
-      </h3>
+      <h3 className="blog-title">{post.title}</h3>
 
-      <p
-        className="desc"
-        style={{
-          fontSize: "0.85rem",
-          color: "#4b5563",
-          marginBottom: "0.25rem",
-        }}
-      >
-        {post.excerpt}
-      </p>
+      <p className="desc blog-excerpt">{post.excerpt}</p>
 
       <div style={{ marginTop: "auto", paddingTop: "0.6rem" }}>
         <a
           href={post.url}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.25rem",
-            fontSize: "0.85rem",
-            fontWeight: 500,
-            color: "#4c1d95",
-            textDecoration: "none",
-            transition: "color 0.2s ease, transform 0.2s ease",
-          }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.color = "#7c3aed";
-            e.currentTarget.style.transform = "translateX(2px)";
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.color = "#4c1d95";
-            e.currentTarget.style.transform = "translateX(0)";
-          }}
+          className="blog-link"
         >
           Read article
           <span style={{ fontSize: "1rem" }}>↗</span>
