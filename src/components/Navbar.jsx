@@ -75,14 +75,6 @@ const Navbar = () => {
                     {label}
                   </NavLink>
                 ))}
-
-                <NavLink
-                  to="/contact"
-                  className="mobile-menu-item mobile-contact-row"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Contact
-                </NavLink>
               </nav>
 
               <NavLink

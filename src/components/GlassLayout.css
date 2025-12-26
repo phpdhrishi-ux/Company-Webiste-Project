@@ -708,3 +708,31 @@ body {
     grid-template-columns: 1fr;
   }
 }
+/* ===== Contact layout ===== */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.05fr);
+  gap: 2rem;
+}
+
+.contact-grid-row {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 0.8rem;
+}
+
+/* Stack cards and fields on smaller screens */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid section {
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-grid-row {
+    grid-template-columns: 1fr;
+  }
+}

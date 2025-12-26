@@ -39,13 +39,7 @@ const Contact = () => (
       </div>
 
       {/* Two cards: info + form */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "minmax(0, 1.05fr) minmax(0, 1.05fr)",
-          gap: "2rem",
-        }}
-      >
+      <div className="contact-grid">
         {/* LEFT CARD – info */}
         <section
           className="card"
@@ -166,13 +160,7 @@ const Contact = () => (
               />
             </LightField>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1.1fr 0.9fr",
-                gap: "0.8rem",
-              }}
-            >
+            <div className="contact-grid-row">
               <LightField>
                 <input
                   type="email"
@@ -218,20 +206,6 @@ const Contact = () => (
           </form>
         </section>
       </div>
-
-      {/* Mobile stacking */}
-      <style>
-        {`
-          @media (max-width: 900px) {
-            .wrapper > div:last-child {
-              display: block !important;
-            }
-            .wrapper > div:last-child > section {
-              margin-bottom: 1.5rem;
-            }
-          }
-        `}
-      </style>
     </div>
   </main>
 );
