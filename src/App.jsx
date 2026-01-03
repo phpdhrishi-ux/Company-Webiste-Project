@@ -11,6 +11,8 @@ import Industries from "./pages/Industries";
 import ITDevelopment from "./pages/ITDevelopment";
 import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
+import Products from "./pages/Products";
+import Testimonials from "./pages/Testimonials";
 
 import "./index.css";
 import Blogs from "./pages/Blogs";
@@ -30,12 +32,13 @@ function App() {
 
       {/* main grows to push footer down */}
       <main
-        style={{
-          flex: 1,
-          paddingTop: "4.5rem", // height of navbar
-          backgroundColor: "var(--bg-main)",
-        }}
-      >
+  style={{
+    flex: 1,
+    paddingTop: "4rem", // reduced from 4.5rem
+    backgroundColor: "var(--bg-main)",
+  }}
+>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -46,6 +49,8 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/testimonials" element={<Testimonials />} />
         </Routes>
       </main>
 

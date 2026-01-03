@@ -1,17 +1,27 @@
-// src/pages/Home.jsx
 import { useEffect } from "react";
-import { FaBrain, FaRocket, FaHandshake } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import {
+  FaBrain,
+  FaRocket,
+  FaHandshake,
+  FaMobileAlt,
+  FaLaptopCode,
+  FaRobot,
+  FaChartLine,
+  FaCalculator,
+  FaUsers,
+} from "react-icons/fa";
 import "../components/GlassLayout.css";
 
 const Home = () => {
   const rotatingServices = [
-    "AI Strategy & Automation",
-    "vCIO / vCFO Leadership",
-    "Full‑stack Product Delivery",
+    "IT Strategy & Automation",
+    "vCIO/vCTO Leadership",
+    "Fullstack Product Delivery",
     "Ops Dashboards & Tooling",
   ];
 
-  // cursor-follow spotlight effect
+  // Cursor-follow spotlight (same idea as your existing Home)
   useEffect(() => {
     const hero = document.getElementById("phpd-hero");
     const spotlight = document.querySelector(".phpd-spotlight");
@@ -32,6 +42,7 @@ const Home = () => {
 
     hero.addEventListener("pointermove", handleMove);
     hero.addEventListener("pointerleave", handleLeave);
+
     return () => {
       hero.removeEventListener("pointermove", handleMove);
       hero.removeEventListener("pointerleave", handleLeave);
@@ -43,285 +54,335 @@ const Home = () => {
       {/* HERO */}
       <section
         id="phpd-hero"
-        className="relative"
         style={{
-          height: "100vh",
+          minHeight: "100vh",
           position: "relative",
           overflow: "hidden",
-          backgroundColor: "#ffffff",
+          background:
+            "radial-gradient(900px 520px at 15% 10%, rgba(124,58,237,0.12), transparent 60%), radial-gradient(900px 520px at 85% 0%, rgba(34,211,238,0.10), transparent 60%), #fafbff",
         }}
       >
-        {/* cursor-follow spotlight */}
-        <div
-          className="phpd-spotlight"
-          style={{
-            position: "absolute",
-            inset: "-40%",
-            pointerEvents: "none",
-            background:
-              "radial-gradient(circle at var(--x,50%) var(--y,50%), rgba(124,58,237,0.16), transparent 55%), radial-gradient(circle at calc(100% - var(--x,50%)) calc(100% - var(--y,50%)), rgba(56,189,248,0.10), transparent 60%)",
-            mixBlendMode: "multiply",
-            transition: "background-position 0.15s ease-out",
-            zIndex: 0,
-          }}
-        />
+        {/* Cursor glow */}
+        <div className="phpd-spotlight" />
 
-        {/* subtle grid */}
+        {/* Subtle grid */}
         <div
           style={{
             position: "absolute",
             inset: "10% 6%",
             borderRadius: "32px",
             backgroundImage:
-              "linear-gradient(to right, rgba(226,232,240,0.9) 1px, transparent 1px), linear-gradient(to bottom, rgba(226,232,240,0.9) 1px, transparent 1px)",
+              "linear-gradient(to right, rgba(226,232,240,0.65) 1px, transparent 1px), linear-gradient(to bottom, rgba(226,232,240,0.65) 1px, transparent 1px)",
             backgroundSize: "40px 40px",
-            opacity: 0.6,
+            opacity: 0.35,
             zIndex: 0,
           }}
         />
 
-        {/* content */}
         <div
           style={{
             position: "relative",
             zIndex: 1,
-            height: "100%",
+            minHeight: "100vh",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            padding: "0 1.5rem",
+            padding: "0 1.25rem",
           }}
         >
-          <div style={{ maxWidth: "72rem", textAlign: "center" }}>
-            {/* gradient pill like About Us */}
-            <div
-              className="gradient-rounded-text-box"
-              style={{
-                margin: "0 auto 1.25rem",
-                maxWidth: "fit-content",
-                paddingInline: "1.4rem",
-              }}
-            >
-              AI &amp; Business Consultancy
-            </div>
-
-            {/* main heading using text-gradient */}
-            <h1
-              className="heading-1 text-gradient"
-              style={{ marginBottom: "0.6rem" }}
-            >
-              Design. Align. Scale.
-            </h1>
-
-            {/* rotating services line */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: "0.35rem",
-                alignItems: "center",
-                marginBottom: "1.6rem",
-                fontSize: "0.95rem",
-                color: "#4B5563",
-              }}
-            >
-              <span style={{ opacity: 0.85 }}>AI‑first partner for</span>
+          <div className="wrapper" style={{ maxWidth: "72rem" }}>
+            <div style={{ textAlign: "center", maxWidth: "62rem", margin: "0 auto" }}>
               <div
+                className="gradient-rounded-text-box"
                 style={{
-                  position: "relative",
-                  height: "1.4em",
-                  overflow: "hidden",
-                  minWidth: "15rem",
-                  textAlign: "left",
+                  margin: "0 auto 1.35rem",
+                  maxWidth: "fit-content",
+                  paddingInline: "1.5rem",
                 }}
               >
-                {rotatingServices.map((item, index) => (
-                  <span
-                    key={item}
-                    style={{
-                      position: "absolute",
-                      left: 0,
-                      right: 0,
-                      top: "100%",
-                      opacity: 0,
-                      color: "#7C3AED",
-                      fontWeight: 600,
-                      whiteSpace: "nowrap",
-                      animation: `heroRotate ${
-                        rotatingServices.length * 2.4
-                      }s linear infinite`,
-                      animationDelay: `${index * 2.4}s`,
-                    }}
-                  >
-                    {item}
-                  </span>
-                ))}
+                Strategic Business Consulting, HRM, Internal Audit & Technology Solutions
+              </div>
+
+              <h1
+                className="heading-1 text-gradient"
+                data-text="Helping Businesses Build Structure, Control, and Scalable Growth"
+                style={{
+                  margin: 0,
+                  fontSize: "clamp(2.4rem, 5.2vw, 5rem)",
+                  fontWeight: 800,
+                  lineHeight: 1.06,
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                Helping Businesses Build Structure, Control, and Scalable Growth
+              </h1>
+
+              {/* Built for + rotating text (NO conflict)
+              <div
+                style={{
+                  marginTop: "1rem",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "0.6rem",
+                  flexWrap: "wrap",
+                  color: "#4B5563",
+                  fontSize: "1.05rem",
+                }}
+              >
+                <span style={{ opacity: 0.95 }}>Built for</span>
+
+                <span
+                  style={{
+                    position: "relative",
+                    height: "1.55em",
+                    overflow: "hidden",
+                    width: "min(22rem, 90vw)",
+                    display: "inline-block",
+                    verticalAlign: "bottom",
+                  }}
+                >
+                  {rotatingServices.map((item, index) => (
+                    <span
+                      key={item}
+                      style={{
+                        position: "absolute",
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        transform: "translateY(120%)",
+                        opacity: 0,
+                        color: "#7C3AED",
+                        fontWeight: 700,
+                        whiteSpace: "nowrap",
+                        textAlign: "center",
+                        animation: `heroSwap ${rotatingServices.length * 2.6}s ease-in-out infinite`,
+                        animationDelay: `${index * 2.6}s`,
+                      }}
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </span>
+              </div> */}
+
+              <p className="desc" style={{ margin: "1.2rem auto 0", maxWidth: "46rem" }}>
+                Integrated Consulting for Strategy, People, Process, and Technology
+              </p>
+
+              <div
+                style={{
+                  marginTop: "2rem",
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: "0.9rem",
+                  flexWrap: "wrap",
+                }}
+              >
+                <Link to="/contact" className="primary-btn" style={{ padding: "0.95rem 2.1rem" }}>
+                  Start a Strategic Consultation Today
+                </Link>
+                <Link to="/services" className="secondary-btn" style={{ padding: "0.95rem 2.1rem" }}>
+                  Our Consulting & Technology Services
+                </Link>
+              </div>
+
+              <div
+                style={{
+                  marginTop: "1.6rem",
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: "0.9rem",
+                  flexWrap: "wrap",
+                  color: "#6B7280",
+                  fontSize: "0.92rem",
+                }}
+              >
+                <span
+                  style={{
+                    padding: "0.45rem 0.9rem",
+                    borderRadius: "999px",
+                    background: "rgba(255,255,255,0.65)",
+                    border: "1px solid rgba(226,232,240,0.9)",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  Pune, India • Remote delivery
+                </span>
+                <span
+                  style={{
+                    padding: "0.45rem 0.9rem",
+                    borderRadius: "999px",
+                    background: "rgba(255,255,255,0.65)",
+                    border: "1px solid rgba(226,232,240,0.9)",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  Typical response: 24–48 hours
+                </span>
+              </div>
+
+              <div
+                style={{
+                  marginTop: "2.2rem",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                  gap: "1rem",
+                }}
+              >
+                <HeroStat
+                  icon={FaBrain}
+                  label="Integrated consulting"
+                  value="Strategy, people, process & technology"
+                />
+                <HeroStat
+                  icon={FaRocket}
+                  label="Governance & control"
+                  value="HR, SOPs, audit & compliance readiness"
+                />
+                <HeroStat
+                  icon={FaHandshake}
+                  label="Long-term advisory partner"
+                  value="Scalable systems for startups & SMEs"
+                />
               </div>
             </div>
-
-            <p className="desc" style={{ marginBottom: "2rem" }}>
-              PHPD connects consulting, virtual CIO/CFO leadership, and
-              full‑stack development into one execution system — so your
-              business scales without chaos.
-            </p>
-
-            {/* CTAs */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: "1rem",
-                marginBottom: "2.4rem",
-              }}
-            >
-              <a href="/contact" className="primary-btn">
-                Book Strategy Call
-              </a>
-              <a href="/services" className="secondary-btn">
-                Explore Services
-              </a>
-            </div>
-
-            {/* experience stats */}
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center",
-                gap: "1.5rem",
-                fontSize: "0.9rem",
-              }}
-            >
-              <HeroStat
-                icon={<FaBrain size={20} />}
-                label="AI‑driven roadmaps"
-                value="Strategy + execution in one stack"
-              />
-              <HeroStat
-                icon={<FaRocket size={20} />}
-                label="Ships, not slides"
-                value="Dashboards, automations & tools in production"
-              />
-              <HeroStat
-                icon={<FaHandshake size={20} />}
-                label="Founder‑side partner"
-                value="Decisions tied to P&L, not vanity metrics"
-              />
-            </div>
           </div>
         </div>
       </section>
 
-      {/* ABOUT STRIP (unchanged) */}
+      {/* ABOUT STRIP (aligned, minimal shadow) */}
       <section className="bg-accent2 section-padding">
-        <div className="wrapper grid-2" style={{ alignItems: "center" }}>
-          <div
-            style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
-          >
-            <div className="gradient-rounded-text-box">About Us</div>
-            <h2
-              className="heading-2 text-gradient"
-              style={{ marginBottom: "1rem" }}
-            >
-              Strategic Digital &amp; Business Partner
-            </h2>
-            <p className="desc">
-              PHPD connects business design, finance, and engineering into one
-              execution system. Instead of random tools, you get a roadmap that
-              covers growth, systems, and visibility.
-            </p>
-            <ul
-              className="desc"
-              style={{ paddingLeft: "1.25rem", margin: 0 }}
-            >
-              <li>Integrated consulting + tech &amp; finance execution</li>
-              <li>Productised vCIO / vCFO offerings</li>
-              <li>Custom internal tools and automation for ops</li>
-            </ul>
-          </div>
-          <div style={{ position: "relative", minHeight: "260px" }}>
-            <img
-              src="https://www.alfoxai.com/static/media/landing-aboutus.44bb40d04a00c4a82dc5.webp"
-              alt="Team"
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                borderRadius: "1rem",
-                boxShadow: "0 25px 50px rgba(0,0,0,0.5)",
-              }}
-            />
+        <div className="wrapper">
+          <div className="grid-2" style={{ alignItems: "center", gap: "3rem" }}>
+            <div>
+              <div className="gradient-rounded-text-box" style={{ marginBottom: "1.25rem" }}>
+                Intro
+              </div>
+              <h2 className="heading-2 text-gradient" style={{ marginBottom: "1rem" }}>
+                Integrated Consulting for Strategy, People, Process, and Technology
+              </h2>
+              <p className="desc" style={{ marginBottom: "1rem" }}>
+                PHPD helps businesses build structure and confidence through strategy, governance, documentation,
+                finance control, and technology delivery—so growth stays compliant, repeatable, and scalable.
+              </p>
+              <ul className="desc" style={{ paddingLeft: "1.1rem", margin: 0 }}>
+                <li>Integrated consulting across Strategy, People, Process & Technology</li>
+                <li>Strong focus on Governance, HR, SOPs & Audit</li>
+                <li>Long-term advisory partnership approach</li>
+              </ul>
+            </div>
+
+            <div style={{ position: "relative", minHeight: "280px" }}>
+              <img
+                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Team collaborating on product and engineering"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  minHeight: "280px",
+                  objectFit: "cover",
+                  borderRadius: "1.25rem",
+                  boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
+                }}
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SERVICES OVERVIEW (unchanged) */}
-      <section
-        className="bg-accent1 section-padding"
-        style={{ position: "relative" }}
-      >
-        <div
-          className="bg-radial-overlay"
-          style={{ position: "absolute", inset: 0, opacity: 0.6 }}
-        />
+      {/* SERVICES (2 main cards like your reference) */}
+      <section className="bg-accent1 section-padding" style={{ position: "relative" }}>
+        <div className="bg-radial-overlay" style={{ position: "absolute", inset: 0, opacity: 0.5 }} />
+
         <div className="wrapper" style={{ position: "relative", zIndex: 1 }}>
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <div
-              className="gradient-rounded-text-box"
-              style={{ margin: "0 auto 1.25rem" }}
-            >
-              Our Specialized Solutions
+            <div className="gradient-rounded-text-box" style={{ margin: "0 auto 1.25rem" }}>
+              Our Consulting & Technology Services
             </div>
-            <h2
-              className="heading-2 text-gradient"
-              style={{ marginBottom: "1rem" }}
-            >
-              Comprehensive Digital Services
+            <h2 className="heading-2 text-gradient" style={{ marginBottom: "0.75rem" }}>
+              Our Consulting & Technology Services
             </h2>
-            <p
-              className="desc"
-              style={{ maxWidth: "40rem", margin: "0 auto" }}
-            >
-              From growth consulting to IT delivery, PHPD offers modular
-              services that can plug into your current stage and stack.
+            <p className="desc" style={{ maxWidth: "44rem", margin: "0 auto" }}>
+              Build your business with structure and confidence—across strategy, people, compliance, finance controls,
+              governance, and digital execution.
             </p>
           </div>
 
-          <div className="grid-2">
-            <ServiceCard
-              title="Business & Growth Consulting"
-              description="Clarify offers, pricing, funnels, and operations so execution becomes repeatable instead of hero‑based."
-              bullets={[
-                "Positioning & offer design",
-                "Sales & ops workflows",
-                "Metrics & review cadence",
+          {/* Responsive 2-col grid (stacks on mobile) */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: "1.5rem",
+              alignItems: "stretch",
+            }}
+          >
+            <ShowcaseCard
+              title="Business Consulting"
+              subtitle="Strategy, HRM, Audit, SOPs, Finance & Governance"
+              image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=70"
+              description="Structured consulting for sustainable and compliant growth—build clear processes, role clarity, strong controls, and decision-ready numbers."
+              to="/consulting"
+              cta="Explore Business Consulting"
+              keyServices={[
+                {
+                  icon: FaChartLine,
+                  title: "Business Strategy & Operations",
+                  text: "Business strategy, growth planning, and operational optimization for consistent execution.",
+                },
+                {
+                  icon: FaUsers,
+                  title: "HRM & People Process Consulting",
+                  text: "HR policy design, lifecycle processes, onboarding, and performance management frameworks.",
+                },
+                {
+                  icon: FaHandshake,
+                  title: "Internal Audit & Governance",
+                  text: "Strengthening internal controls, risk mitigation, and governance frameworks for stability.",
+                },
+                // {
+                //   icon: FaBrain,
+                //   title: "SOP Drafting & Documentation",
+                //   text: "Audit-aligned SOP drafting, policy & procedure development, compliance-ready documentation.",
+                // },
+                // {
+                //   icon: FaCalculator,
+                //   title: "Accounting & Finance Consulting",
+                //   text: "Budgeting, reporting, profitability insights, and finance controls to stay disciplined.",
+                // },
+                // {
+                //   icon: FaRocket,
+                //   title: "vCIO & vCFO Services",
+                //   text: "Strategic leadership without full-time overhead—roadmaps, governance, controls, and readiness.",
+                // },
               ]}
             />
-            <ServiceCard
-              title="Virtual CIO (vCIO)"
-              description="Technology leadership without a full‑time hire. Architecture, tools, and automation aligned with the P&L."
-              bullets={[
-                "IT roadmap & stack",
-                "Security & compliance view",
-                "Automation & integration strategy",
-              ]}
-            />
-            <ServiceCard
-              title="Virtual CFO (vCFO)"
-              description="Get real‑time visibility into cash, runway, and unit economics so decisions stay calm and data‑driven."
-              bullets={[
-                "Forecasting & budgeting",
-                "Management dashboards",
-                "Finance process design",
-              ]}
-            />
-            <ServiceCard
-              title="Software & Automation"
-              description="Internal tools, admin portals, and automations that remove repetitive manual work from your core team."
-              bullets={[
-                "Internal dashboards",
-                "Custom admin portals",
-                "Ops automation flows",
+
+            <ShowcaseCard
+              title="IT Development & Digital Solutions"
+              subtitle="Web, Mobile, Automation, AI & Integrations"
+              image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=70"
+              description="Custom software development that supports growth—web & mobile apps, internal tools, dashboards, AI automations, and system integrations."
+              to="/it-development"
+              cta="Explore IT Development"
+              keyServices={[
+                {
+                  icon: FaMobileAlt,
+                  title: "Web & Mobile Application Development",
+                  text: "Modern, responsive apps engineered for performance, stability, and a clean user experience.",
+                },
+                {
+                  icon: FaLaptopCode,
+                  title: "Custom Software Development",
+                  text: "Internal tools, admin panels, portals, and workflow systems aligned to your operations.",
+                },
+                {
+                  icon: FaRobot,
+                  title: "AI & Automation",
+                  text: "Chatbots, process automations, and AI-assisted workflows to remove repetitive manual work.",
+                },
               ]}
             />
           </div>
@@ -331,60 +392,163 @@ const Home = () => {
   );
 };
 
-const HeroStat = ({ icon, label, value }) => (
+const HeroStat = ({ icon: Icon, label, value }) => (
   <div
     style={{
       display: "flex",
       alignItems: "center",
-      gap: "0.6rem",
-      padding: "0.6rem 0.9rem",
+      gap: "0.75rem",
+      padding: "0.9rem 1rem",
       borderRadius: "999px",
-      background: "rgba(248,250,252,0.96)",
-      border: "1px solid rgba(209,213,219,0.9)",
-      minWidth: "210px",
-      justifyContent: "flex-start",
+      background: "rgba(255,255,255,0.9)",
+      border: "1px solid rgba(209,213,219,0.75)",
+      minWidth: "240px",
+      boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
     }}
   >
     <span
       style={{
         display: "inline-flex",
+        width: "34px",
+        height: "34px",
         alignItems: "center",
         justifyContent: "center",
-        width: "30px",
-        height: "30px",
         borderRadius: "999px",
-        background:
-          "linear-gradient(135deg, #4c1d95, #7c3aed, #22d3ee)",
+        background: "linear-gradient(135deg, #4c1d95, #7c3aed, #22d3ee)",
         color: "#F9FAFB",
+        flexShrink: 0,
       }}
     >
-      {icon}
+      <Icon size={18} />
     </span>
+
     <div style={{ textAlign: "left" }}>
-      <div style={{ fontWeight: 600, fontSize: "0.85rem", color: "#111827" }}>
-        {label}
-      </div>
-      <div style={{ fontSize: "0.8rem", color: "#4B5563" }}>{value}</div>
+      <div style={{ fontWeight: 600, fontSize: "0.9rem", color: "#111827" }}>{label}</div>
+      <div style={{ fontSize: "0.82rem", color: "#4B5563" }}>{value}</div>
     </div>
   </div>
 );
 
-const ServiceCard = ({ title, description, bullets }) => (
-  <article className="card">
-    <h3
-      className="heading-3"
-      style={{ marginBottom: "0.75rem", fontWeight: 600 }}
+const ShowcaseCard = ({ title, subtitle, image, description, keyServices, to, cta }) => (
+  <article
+    style={{
+      borderRadius: "1.5rem",
+      overflow: "hidden",
+      background: "linear-gradient(180deg, rgba(255,255,255,0.96), rgba(237,238,245,0.92))",
+      border: "1px solid rgba(124,58,237,0.18)",
+      boxShadow: "0 10px 26px rgba(2,6,23,0.08)",
+      display: "flex",
+      flexDirection: "column",
+      height: "100%", // ✅ ensures it stretches to the row height in the grid
+    }}
+  >
+    {/* Image header */}
+    <div style={{ position: "relative", paddingTop: "40%", overflow: "hidden" }}>
+      <img
+        src={image}
+        alt={`${title} cover`}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          transform: "scale(1.02)",
+        }}
+      />
+
+      {/* Theme overlay (purple tint, not black) */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(180deg, rgba(124,58,237,0.10) 0%, rgba(124,58,237,0.18) 55%, rgba(15,23,42,0.10) 100%)",
+        }}
+      />
+
+      {/* top glow line */}
+      <div
+        style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
+          bottom: 0,
+          height: "2px",
+          background:
+            "linear-gradient(90deg, rgba(34,211,238,0.0), rgba(124,58,237,0.85), rgba(34,211,238,0.0))",
+          opacity: 0.9,
+        }}
+      />
+    </div>
+
+    {/* Body */}
+    <div
+      style={{
+        padding: "1.7rem 1.6rem 1.5rem",
+        color: "#0f172a",
+        display: "flex",
+        flexDirection: "column",
+        flex: 1, // ✅ body fills remaining height
+      }}
     >
-      {title}
-    </h3>
-    <p className="desc" style={{ marginBottom: "1rem" }}>
-      {description}
-    </p>
-    <ul className="desc" style={{ paddingLeft: "1.1rem" }}>
-      {bullets.map((b) => (
-        <li key={b}>{b}</li>
-      ))}
-    </ul>
+      <h3 style={{ margin: 0, fontSize: "1.8rem", fontWeight: 700, color: "#111827" }}>{title}</h3>
+      <p style={{ margin: "0.5rem 0 0", color: "#4b5563", fontWeight: 600 }}>{subtitle}</p>
+
+      <p style={{ marginTop: "1rem", color: "#4b5563", lineHeight: 1.75 }}>{description}</p>
+
+      {/* This block can grow, while button stays bottom */}
+      <div style={{ marginTop: "1.4rem" }}>
+        <div style={{ fontWeight: 700, color: "#111827", marginBottom: "0.9rem" }}>
+          Key Services:
+        </div>
+
+        <div style={{ display: "grid", gap: "1rem" }}>
+          {keyServices.map(({ icon: Icon, title: t, text }) => (
+            <div key={t} style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
+              <span
+                style={{
+                  width: "36px",
+                  height: "36px",
+                  borderRadius: "12px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: "rgba(124,58,237,0.12)",
+                  border: "1px solid rgba(124,58,237,0.22)",
+                  color: "#4c1d95",
+                  flexShrink: 0,
+                }}
+              >
+                <Icon size={16} />
+              </span>
+
+              <div>
+                <div style={{ fontWeight: 700, color: "#111827", marginBottom: "0.2rem" }}>{t}</div>
+                <div style={{ color: "#4b5563", fontSize: "0.95rem", lineHeight: 1.65 }}>{text}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ✅ Bottom button (forces equal visual height + aligned buttons) */}
+      <div style={{ marginTop: "auto", paddingTop: "1.5rem" }}>
+        <Link
+          to={to}
+          className="primary-btn"
+          style={{
+            width: "100%",
+            justifyContent: "center",
+            textDecoration: "none",
+            padding: "0.95rem 1.4rem",
+            borderRadius: "9999px",
+          }}
+        >
+          Read more ↗
+        </Link>
+      </div>
+    </div>
   </article>
 );
 
