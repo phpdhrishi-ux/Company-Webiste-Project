@@ -54,7 +54,7 @@ const Testimonials = () => {
                   style={{
                     minWidth: "380px",
                     padding: "1.75rem",
-                    borderRadius: "1.5rem",
+                    borderRadius: "0.375rem",
                     background: "rgba(255,255,255,0.92)",
                     backdropFilter: "blur(20px)",
                     border: "1px solid rgba(124,58,237,0.2)",

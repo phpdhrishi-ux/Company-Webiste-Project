@@ -1,86 +1,85 @@
 import { Link } from "react-router-dom";
 import {
-  FaLaptopCode,
-  FaMobileAlt,
-  FaRobot,
   FaGlobe,
   FaShoppingCart,
-  FaChartLine,
+  FaMobileAlt,
   FaApple,
-  FaAndroid,
   FaReact,
-  FaCogs,
+  FaRobot,
   FaComments,
-  FaHeadset,
+  FaCogs,
+  FaLaptopCode,
+  FaChartLine,
+  FaCloud,
+  FaShieldAlt,
 } from "react-icons/fa";
 import "../components/GlassLayout.css";
 
 const ITDevelopment = () => {
   const cards = [
     {
-      title: "Web Development",
-      subtitle: "From Websites to Web Apps",
+      title: "Digital Solutions",
+      subtitle: "Web, mobile, automation",
       description:
-        "From responsive websites to complex web applications, we create digital experiences that captivate your audience and drive business growth.",
+        "Practical digital solutions built around your business goals—fast delivery, clean UX, and scalable foundations.",
       image:
         "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=70",
-      cta: "Explore Web Development",
-      to: "/contact",
-      items: [
-        {
-          icon: FaShoppingCart,
-          title: "E-commerce Development",
-          text: "Build and scale your online store with custom features that enhance the shopping experience.",
-        },
-        {
-          icon: FaGlobe,
-          title: "Responsive Web Design",
-          text: "Mobile-optimized websites that look great on any device for a seamless experience.",
-        },
+      to: "/services/it-development/digital-solutions",
+      points: [
+        { icon: FaLaptopCode, text: "Internal tools & dashboards" },
+        { icon: FaChartLine, text: "Integrations & workflows" },
       ],
     },
     {
-      title: "Mobile App Development",
-      subtitle: "Native & Cross‑Platform Apps",
+      title: "Custom Software",
+      subtitle: "Systems made for you",
       description:
-        "We build native and cross-platform mobile apps that connect you with your customers wherever they are, delivering exceptional user experiences.",
+        "Custom software to streamline operations, reduce manual work, and support growth with reliable architecture.",
       image:
-        "https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1400&q=70",
-      cta: "Explore Mobile App Development",
-      to: "/contact",
-      items: [
-        {
-          icon: FaApple,
-          title: "Native iOS Development",
-          text: "Swift-based iOS apps engineered for performance, quality, and platform best practices.",
-        },
-        {
-          icon: FaReact,
-          title: "Cross‑Platform Apps",
-          text: "React Native apps to ship faster with consistent UX across iOS and Android.",
-        },
+        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=70",
+      to: "/services/it-development/custom-software-development",
+      points: [
+        { icon: FaCogs, text: "Automation & APIs" },
+        { icon: FaShieldAlt, text: "Secure, scalable builds" },
       ],
     },
     {
-      title: "AI Development",
-      subtitle: "Chatbots, Voicebots & Automation",
+      title: "Web App Development",
+      subtitle: "Websites to web apps",
       description:
-        "We integrate AI into your workflows to reduce support load, improve conversion, and unlock automation across business operations.",
+        "Responsive websites and modern web apps that load fast, look premium, and convert visitors into customers.",
       image:
-        "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=70",
-      cta: "Explore AI Development",
-      to: "/contact",
-      items: [
-        {
-          icon: FaComments,
-          title: "AI Chatbots",
-          text: "Support, lead capture, and internal assistants connected to your data and tools.",
-        },
-        {
-          icon: FaCogs,
-          title: "Automations & Integrations",
-          text: "Workflow automation with APIs, CRMs, ticketing tools, and custom dashboards.",
-        },
+        "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=70",
+      to: "/services/it-development/web-app-development",
+      points: [
+        { icon: FaShoppingCart, text: "E-commerce & portals" },
+        { icon: FaGlobe, text: "Responsive UI/UX" },
+      ],
+    },
+    {
+      title: "ERP / CRM Development",
+      subtitle: "Process & data control",
+      description:
+        "ERP/CRM solutions that connect teams, track work, improve visibility, and keep operations consistent.",
+      image:
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=70",
+      to: "/services/it-development/erp-crm-development",
+      points: [
+        { icon: FaCogs, text: "Modules & workflows" },
+        { icon: FaChartLine, text: "Reporting & insights" },
+      ],
+    },
+    {
+      title: "Cloud Solutions",
+      subtitle: "Deploy, scale, secure",
+      description:
+        "Cloud-ready systems with secure deployments, monitoring, and performance optimization for scale.",
+      image:
+        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=70",
+      to: "/services/it-development/cloud-solutions",
+      points: [
+        { icon: FaCloud, text: "Cloud deployment & hosting" },
+        { icon: FaShieldAlt, text: "Security & monitoring" },
       ],
     },
   ];
@@ -106,45 +105,48 @@ const ITDevelopment = () => {
           </p>
         </div>
 
-        {/* Cards */}
+        {/* 5 cards => 3 + 2 rows naturally on desktop */}
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: "1.6rem",
+            gap: "1.5rem",
             alignItems: "stretch",
+            maxWidth: "80rem",
+            margin: "0 auto",
           }}
         >
           {cards.map((card) => (
             <article key={card.title} className="service-showcase-card">
-              {/* Image header */}
-              <div className="service-showcase-media">
-                <img src={card.image} alt={`${card.title} cover`} className="service-showcase-img" />
+              <div className="service-showcase-media" style={{ paddingTop: "32%" }}>
+                <img src={card.image} alt={card.title} className="service-showcase-img" />
                 <div className="service-showcase-overlay" />
               </div>
 
-              {/* Body */}
               <div className="service-showcase-body">
-                <h3 className="service-showcase-title">{card.title}</h3>
+                <h3
+                  className="service-showcase-title"
+                  style={{ fontSize: "25px", fontWeight: 400, lineHeight: 1.2 }}
+                >
+                  {card.title}
+                </h3>
+
                 <p className="service-showcase-subtitle">{card.subtitle}</p>
 
-                <p className="desc" style={{ marginTop: "0.9rem" }}>
+                <p className="desc" style={{ marginTop: "0.75rem" }}>
                   {card.description}
                 </p>
 
-                <div style={{ marginTop: "1.4rem" }}>
-                  <div className="service-showcase-key-label">Key Services:</div>
-
-                  <div style={{ display: "grid", gap: "1rem", marginTop: "0.9rem" }}>
-                    {card.items.map((it) => (
-                      <KeyRow key={it.title} icon={it.icon} title={it.title} text={it.text} />
-                    ))}
-                  </div>
+                {/* Key points */}
+                <div style={{ marginTop: "1rem", display: "grid", gap: "0.55rem" }}>
+                  {card.points.map((p) => (
+                    <KeyPoint key={p.text} icon={p.icon} text={p.text} />
+                  ))}
                 </div>
 
-                <div style={{ marginTop: "1.5rem" }}>
+                <div style={{ marginTop: "1.1rem" }}>
                   <Link to={card.to} className="service-showcase-cta">
-                    {card.cta} <span className="service-showcase-cta-arrow">»</span>
+                    Read more →
                   </Link>
                 </div>
               </div>
@@ -156,17 +158,15 @@ const ITDevelopment = () => {
   );
 };
 
-const KeyRow = ({ icon: Icon, title, text }) => (
-  <div className="service-showcase-keyrow">
-    <span className="service-showcase-iconbox">
-      <Icon size={16} />
-    </span>
-
-    <div>
-      <div className="service-showcase-keytitle">{title}</div>
-      <div className="service-showcase-keytext">{text}</div>
+const KeyPoint = ({ icon: Icon, text }) => {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "0.55rem" }}>
+      <span className="service-showcase-iconbox" style={{ width: 30, height: 30 }}>
+        <Icon size={14} />
+      </span>
+      <span style={{ fontSize: "0.92rem", fontWeight: 400, color: "var(--phpd-muted)" }}>{text}</span>
     </div>
-  </div>
-);
+  );
+};
 
 export default ITDevelopment;
