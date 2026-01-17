@@ -287,7 +287,7 @@ const Contact = () => {
                     style={{
                       marginTop: "1.2rem",
                       width: "100%",
-                      borderRadius: "0.8rem",
+                      borderRadius: "9999px",
                       borderWidth: 0,
                       fontSize: "0.95rem",
                       justifyContent: "center",
@@ -297,7 +297,7 @@ const Contact = () => {
                     }}
                   >
                     {loading ? 'Sending...' : 'Send Message'}
-                    {!loading && <span style={{ fontSize: "1rem" }}>↗</span>}
+                    {!loading && <span style={{ fontSize: "1rem" }}></span>}
                   </button>
                 </form>
               </>

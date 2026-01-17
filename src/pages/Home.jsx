@@ -1,14 +1,30 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import {
   FaBrain,
   FaRocket,
   FaHandshake,
   FaUserCircle,
 } from "react-icons/fa";
+import homePageMeeting from "../assets/home_page_meeting.png";
 import "../components/GlassLayout.css";
 
+
 const Home = () => {
+
+  const scrollRef = useRef(null);
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      // Scroll by one full card width
+      const scrollTo = direction === "left" 
+        ? scrollLeft - clientWidth 
+        : scrollLeft + clientWidth;
+      
+      scrollRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
+    }
+  };
   const testimonials = [
     {
       name: "Mahavir Khater",
@@ -87,7 +103,7 @@ const Home = () => {
         >
           <div style={{ maxWidth: "72rem", width: "100%" }}>
             <div className="gradient-rounded-text-box" style={{ margin: "0 auto 1.35rem", maxWidth: "fit-content", fontSize: "0.9rem" }}>
-              Strategic Business Consulting, HRM, Internal Audit & Technology Solutions
+            Consulting • HRM • Audit • Technology
             </div>
 
             <h1 className="heading-1 text-gradient" style={{ margin: 0, fontSize: "clamp(2rem, 6vw, 3.5rem)", fontWeight: 700, lineHeight: 1.1 }}>
@@ -99,54 +115,61 @@ const Home = () => {
             </p>
 
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem", marginTop: "2rem" }}>
-              <Link
-                to="/contact"
-                className="primary-btn"
-                style={{
-                  padding: "0.6rem 2.5rem",
-                  minWidth: "260px",
-                  borderRadius: "9999px",
-                  fontSize: "0.95rem",
-                  background: "linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%)",
-                  boxShadow: "0 4px 15px rgba(124, 58, 237, 0.3)",
-                  border: "none",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                Start a Strategic Consultation Today
-              </Link>
-              <Link
-                to="/services"
-                style={{
-                  padding: "0.6rem 2.5rem",
-                  minWidth: "260px",
-                  borderRadius: "9999px",
-                  fontSize: "0.95rem",
-                  fontWeight: "500",
-                  border: "2px solid #7c3aed",
-                  color: "#7c3aed",
-                  backgroundColor: "rgba(255, 255, 255, 0.6)",
-                  backdropFilter: "blur(8px)",
-                  textDecoration: "none",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  transition: "all 0.2s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#7c3aed";
-                  e.currentTarget.style.color = "#ffffff";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.6)";
-                  e.currentTarget.style.color = "#7c3aed";
-                }}
-              >
-                Our Consulting & Technology Services
-              </Link>
-            </div>
+  <Link
+    to="/contact"
+    className="primary-btn"
+    style={{
+      height: "52px", // Fixed height for consistency
+      padding: "0 2.5rem", // Removed vertical padding to let height/flex handle it
+      minWidth: "280px",
+      borderRadius: "9999px",
+      fontSize: "0.95rem",
+      background: "linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%)",
+      boxShadow: "0 4px 15px rgba(124, 58, 237, 0.3)",
+      border: "2px solid transparent", // Added transparent border to match total height of the second button
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      textDecoration: "none",
+      color: "#ffffff",
+      boxSizing: "border-box" // Ensures border is included in height
+    }}
+  >
+    Start a Strategic Consultation Today
+  </Link>
+  
+  <Link
+    to="/services"
+    style={{
+      height: "52px", // Matching fixed height
+      padding: "0 2.5rem",
+      minWidth: "280px",
+      borderRadius: "9999px",
+      fontSize: "0.95rem",
+      fontWeight: "500",
+      border: "2px solid #7c3aed",
+      color: "#7c3aed",
+      backgroundColor: "rgba(255, 255, 255, 0.6)",
+      backdropFilter: "blur(8px)",
+      textDecoration: "none",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      transition: "all 0.2s ease",
+      boxSizing: "border-box"
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.backgroundColor = "#7c3aed";
+      e.currentTarget.style.color = "#ffffff";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.6)";
+      e.currentTarget.style.color = "#7c3aed";
+    }}
+  >
+    Our Consulting & Technology Services
+  </Link>
+</div>
 
             <div style={{ marginTop: "3rem", display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem" }}>
               <HeroStat icon={FaBrain} label="Integrated consulting" value="Strategy, people & process" />
@@ -158,52 +181,53 @@ const Home = () => {
       </section>
 
       {/* INTRO SECTION - ADDED AS IT WAS */}
-      <section className="bg-accent2 section-padding">
-        <div className="wrapper">
-          <div className="grid-2" style={{ alignItems: "flex-end", gap: "3rem" }}>
-            <div style={{ maxWidth: "32rem" }}>
-              <div className="gradient-rounded-text-box" style={{ marginBottom: "1.5rem" }}>Intro</div>
-              <h2 className="heading-2 text-gradient" style={{ marginBottom: "2rem" }}>
-                Integrated Consulting for Strategy, People, Process, and Technology
-              </h2>
-              <p className="desc" style={{ marginBottom: "1.25rem", lineHeight: 1.7 }}>
-                PHPD helps businesses build structure and confidence through strategy, governance, documentation,
-                finance control, and technology delivery—so growth stays compliant, repeatable, and scalable.
-              </p>
-              <ul className="desc" style={{ paddingLeft: "1.1rem", margin: 0, lineHeight: 1.65 }}>
-                <li>Integrated consulting across Strategy, People, Process & Technology</li>
-                <li>Strong focus on Governance, HR, SOPs & Audit</li>
-                <li>Long-term advisory partnership approach</li>
-              </ul>
-            </div>
-
-            <div style={{ height: "22rem", position: "relative" }}>
-              <img
-                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Team collaborating"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: "50% 100%",
-                  borderRadius: "1.25rem",
-                  boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
-                }}
-              />
-            </div>
-          </div>
+<section className="bg-accent2" style={{ padding: "4rem 0 1rem 0" }}> {/* Reduced bottom padding */}
+  <div className="wrapper">
+    <div className="grid-2" style={{ alignItems: "center", gap: "2rem" }}>
+      <div style={{ maxWidth: "32rem" }}>
+        <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+           <div className="gradient-rounded-text-box" style={{ display: "inline-block" }}>Intro</div>
         </div>
-      </section>
+        <h2 className="heading-2 text-gradient" style={{ marginBottom: "1.5rem", textAlign: "center" }}>
+          Integrated Consulting for Strategy, People, Process, and Technology
+        </h2>
+
+        <p className="desc" style={{ marginBottom: "1.25rem", lineHeight: 1.7 }}>
+        PHPD helps businesses build structure and confidence through strategy, governance, 
+        documentation, finance control, and technology delivery—so growth stays compliant, repeatable,
+         and scalable. Integrated consulting across Strategy, People, Process & Technology, Strong focus on
+          Governance, HR, SOPs & Audit, Long-term advisory partnership approach
+        </p>
+      </div>
+
+      <div style={{ width: "100%", height: "auto", position: "relative" }}>
+        <img
+          src={homePageMeeting}
+          alt="Team collaborating"
+          style={{
+            width: "100%",
+            height: "auto",
+            maxHeight: "450px", // Slightly reduced max height
+            objectFit: "cover", // Changed to cover for a cleaner look on mobile
+            borderRadius: "1.25rem",
+            boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
+            display: "block" // Removes bottom gap
+          }}
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* SERVICES SHOWCASE */}
-      <section className="bg-accent1 section-padding" style={{ position: "relative" }}>
-        <div className="wrapper">
-          <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-            <h2 className="heading-2 text-gradient">Our Consulting & Technology Services</h2>
-            <p className="desc" style={{ maxWidth: "44rem", margin: "0 auto" }}>
-              Build your business with structure and confidence across every growth stage.
-            </p>
-          </div>
+      <section className="bg-accent1" style={{ padding: "1rem 0 4rem 0", position: "relative" }}> {/* Reduced top padding */}
+  <div className="wrapper">
+    <div style={{ textAlign: "center", marginBottom: "3rem" }}> {/* Reduced bottom margin */}
+      <h2 className="heading-2 text-gradient">Our Consulting & Technology Services</h2>
+      <p className="desc" style={{ maxWidth: "44rem", margin: "0.5rem auto 0" }}>
+        Build your business with structure and confidence across every growth stage.
+      </p>
+    </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2rem" }}>
             <ShowcaseCard
@@ -231,28 +255,59 @@ const Home = () => {
         </div>
       </section>
 
-      {/* TESTIMONIALS SLIDER - SMOOTHER ANIMATION */}
-      <section className="bg-accent1 section-padding" style={{ overflow: "hidden" }}>
-        <div className="wrapper">
-          <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
-             <div className="gradient-rounded-text-box" style={{ margin: "0 auto 1.25rem" }}>Testimonials</div>
-            <h2 className="heading-2 text-gradient">What Our Clients Say</h2>
-          </div>
-          
-          <div style={{ display: "flex", width: "fit-content", gap: "1.5rem", animation: "scroll-left 60s linear infinite" }}>
-            {[...testimonials, ...testimonials, ...testimonials].map((t, i) => (
-              <TestimonialCard key={i} t={t} />
-            ))}
-          </div>
-        </div>
+{/* TESTIMONIALS SECTION */}
+<section className="section-padding" style={{ overflow: "hidden", background: "#f8fafc", paddingBottom: "2rem" }}>
+  <div className="wrapper">
+    
+    {/* Centered Header Container */}
+    <div style={{ 
+      display: "flex", 
+      flexDirection: "column", 
+      alignItems: "center",    
+      textAlign: "center",     
+      marginBottom: "2rem", // Reduced from 3rem
+      gap: "1rem"
+    }}>
+      <div className="gradient-rounded-text-box" style={{ margin: "0 auto" }}>
+        Testimonials
+      </div>
+      <h2 className="heading-2" style={{ margin: 0 }}>What Our Clients Say</h2>
+    </div>
 
-        <style jsx>{`
-          @keyframes scroll-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-33.33%); }
-          }
-        `}</style>
-      </section>
+    {/* The Scroll Container */}
+    <div className="testimonial-grid-container" ref={scrollRef} style={{ marginBottom: "2rem" }}>
+      {testimonials.map((t, idx) => (
+        <TestimonialCard key={idx} t={t} />
+      ))}
+    </div>
+
+    {/* Navigation Buttons Centered */}
+    <div style={{ 
+      display: "flex", 
+      justifyContent: "center", 
+      alignItems: "center", 
+      gap: "1.5rem", 
+      marginTop: "1rem" 
+    }}>
+      <button 
+        onClick={() => scroll("left")} 
+        className="nav-btn" 
+        style={{ cursor: "pointer" }}
+        aria-label="Previous"
+      >
+        &#8592;
+      </button>
+      <button 
+        onClick={() => scroll("right")} 
+        className="nav-btn" 
+        style={{ cursor: "pointer" }}
+        aria-label="Next"
+      >
+        &#8594;
+      </button>
+    </div>
+  </div>
+</section>
     </>
   );
 };
@@ -305,25 +360,39 @@ const ShowcaseCard = ({ title, subtitle, image, description, to }) => {
   );
 };
 
-const TestimonialCard = ({ t }) => (
-  <div style={{
-    minWidth: "320px",
-    padding: "1.5rem",
-    background: "rgba(255,255,255,0.9)",
-    backdropFilter: "blur(10px)",
-    borderRadius: "12px",
-    border: "1px solid rgba(124,58,237,0.1)",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.03)"
-  }}>
-    <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1rem" }}>
-      <FaUserCircle size={40} color="#7c3aed" />
-      <div>
-        <h4 style={{ margin: 0, fontSize: "0.95rem", color: "#111827" }}>{t.name}</h4>
-        <p style={{ margin: 0, fontSize: "0.8rem", color: "#6b7280" }}>{t.role}</p>
+const TestimonialCard = ({ t }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div 
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="testimonial-card-item" 
+      style={{
+        padding: "2rem",
+        background: "white",
+        borderRadius: "16px",
+        border: `1px solid ${isHovered ? "#7c3aed" : "rgba(124,58,237,0.1)"}`,
+        boxShadow: isHovered 
+          ? "0 20px 40px rgba(124,58,237,0.12)" 
+          : "0 4px 12px rgba(0,0,0,0.03)",
+        transform: isHovered ? "translateY(-10px)" : "translateY(0)",
+        transition: "all 0.4s ease",
+        display: "flex",
+        flexDirection: "column",
+        textAlign: "left"
+      }}
+    >
+      <p style={{ fontStyle: "italic", marginBottom: "1.5rem", color: "#4b5563", lineHeight: "1.6" }}>
+        "{t.feedback}"
+      </p>
+      <div style={{ marginTop: "auto" }}>
+        <h4 style={{ margin: 0, color: "#111827", fontWeight: "600" }}>{t.name}</h4>
+        <p style={{ margin: 0, fontSize: "0.85rem", color: "#7c3aed" }}>{t.role}</p>
       </div>
     </div>
-    <p style={{ fontSize: "0.875rem", color: "#4b5563", fontStyle: "italic", lineHeight: 1.6 }}>"{t.feedback}"</p>
-  </div>
-);
+  );
+};
+
 
 export default Home;

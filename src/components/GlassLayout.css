@@ -1062,3 +1062,69 @@
      }
    }
    
+/* Center the container and handle the grid */
+.testimonial-grid-container {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+}
+
+.testimonial-grid-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+/* Card sizing for mobile */
+.testimonial-card-item {
+  flex: 0 0 100%; /* Shows one card at a time on mobile */
+  scroll-snap-align: center;
+}
+
+/* Desktop View: Keep it a static grid */
+@media (min-width: 1024px) {
+  .testimonial-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: visible;
+  }
+
+  .testimonial-card-item {
+    flex: none;
+  }
+
+  /* Optional: Hide buttons on desktop if you want a static 3-column grid */
+  /* .nav-btn { display: none; } */
+}
+
+/* Navigation Button Styling */
+.nav-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #7c3aed;
+  background: white;
+  color: #7c3aed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(124, 58, 237, 0.1);
+}
+
+.nav-btn:hover {
+  background: #7c3aed;
+  color: white;
+  transform: scale(1.1);
+}
+
+
+/* Helper to force minimal vertical spacing */
+.minimal-gap {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
