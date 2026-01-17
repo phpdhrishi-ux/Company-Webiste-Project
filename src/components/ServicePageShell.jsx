@@ -42,12 +42,22 @@ export default function ServicePageShell({
   intro,
   provides = [],
   helps = [],
-  helpGrid = [], // Array of {title, desc}
+  helpGrid = [], 
   brochureUrl = "/brochures/phpd-brochure.pdf",
   contactScriptUrl,
   serviceTag,
 }) {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  // ✅ Form state with Service field
+  const [form, setForm] = useState({ 
+    name: "", 
+    email: "", 
+    phone: "", 
+    company: "", 
+    industry: "", 
+    service: serviceTag || title, // ✅ Default to current service
+    message: "" 
+  });
+  
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
 
@@ -56,26 +66,31 @@ export default function ServicePageShell({
     if (!contactScriptUrl) return;
 
     setLoading(true);
+    
+    // ✅ Updated submission logic
     const queryString = new URLSearchParams({
       name: form.name,
       email: form.email,
       phone: form.phone || "",
-      message: `[Service: ${serviceTag || title}] ${form.message}`,
+      company: form.company,
+      industry: form.industry,
+      service: form.service, // ✅ Explicit Service data
+      message: form.message,
       timestamp: new Date().toLocaleString("en-IN"),
     }).toString();
 
     try {
       await fetch(`${contactScriptUrl}?${queryString}`, { method: "GET", mode: "no-cors" });
       setSent(true);
-      setForm({ name: "", email: "", phone: "", message: "" });
+      // Reset form but keep the service name
+      setForm({ name: "", email: "", phone: "", company: "", industry: "", service: serviceTag || title, message: "" });
     } finally {
       setLoading(false);
     }
   };
 
-  // Slimmer Download Button Style
   const downloadBtnStyle = {
-    padding: "0.6rem 2.5rem", // Reduced height (0.6rem)
+    padding: "0.6rem 2.5rem",
     fontWeight: "500",
     fontSize: "0.95rem",
     minWidth: "240px",
@@ -97,69 +112,25 @@ export default function ServicePageShell({
 
       <div className="wrapper" style={{ position: "relative", zIndex: 1, maxWidth: "72rem" }}>
         
-        {/* --- HERO SECTION --- */}
+        {/* HERO SECTION */}
         <div style={{ maxWidth: "56rem", marginBottom: "2.0rem" }}>
           <div className="gradient-rounded-text-box" style={{ marginBottom: "1.25rem" }}>
             {pill}
           </div>
-
-          <h1 className="heading-2 text-gradient" style={{ marginBottom: "0.75rem" }}>
-            {title}
-          </h1>
-
-          <p className="desc" style={{ margin: 0, maxWidth: "52rem" }}>
-            {intro}
-          </p>
-
-          <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "1.8rem" }}>
-            <a 
-              href={brochureUrl} 
-              download
-              style={downloadBtnStyle}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#7c3aed";
-                e.currentTarget.style.color = "#ffffff";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "transparent";
-                e.currentTarget.style.color = "#7c3aed";
-              }}
-            >
-              Download Brochure
-            </a>
-            {/* <a 
-              className="secondary-btn" 
-              href={`tel:${phone}`} 
-              style={{ 
-                borderRadius: '9999px', 
-                padding: '0.6rem 2rem', 
-                display: 'inline-flex', 
-                alignItems: 'center', 
-                justifyContent: 'center' 
-              }}
-            >
-              Call Us
-            </a> */}
+          <h1 className="heading-2 text-gradient" style={{ marginBottom: "0.75rem" }}>{title}</h1>
+          <p className="desc" style={{ margin: 0, maxWidth: "52rem" }}>{intro}</p>
+          <div style={{ marginTop: "1.8rem" }}>
+            <a href={brochureUrl} download style={downloadBtnStyle}>Download Brochure</a>
           </div>
         </div>
 
-        {/* --- HELP GRID SECTION (THE 6 CARDS) --- */}
+        {/* HELP GRID */}
         {helpGrid.length > 0 && (
           <section style={{ marginBottom: "3.0rem" }}>
-            <h2 style={{ 
-              color: "#7c3aed", 
-              textAlign: "center", 
-              fontSize: "1.5rem", // Small heading as requested
-              fontWeight: "700", 
-              marginBottom: "1.0rem" 
-            }}>
+            <h2 style={{ color: "#7c3aed", textAlign: "center", fontSize: "1.5rem", fontWeight: "700", marginBottom: "1.0rem" }}>
               Where we help you most
             </h2>
-            <div style={{ 
-              display: "grid", 
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", 
-              gap: "1.2rem" 
-            }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.2rem" }}>
               {helpGrid.map((item, index) => (
                 <GlowingServiceCard key={index} title={item.title} desc={item.desc} />
               ))}
@@ -167,51 +138,42 @@ export default function ServicePageShell({
           </section>
         )}
 
-        {/* --- BOTTOM CONTENT GRID --- */}
         <div className="grid-2" style={{ alignItems: "start", gap: "1.5rem" }}>
           
-          {/* LEFT: WHAT WE PROVIDE / HOW WE HELP */}
           <section className="card" style={{ borderRadius: "1.5rem", padding: "1.9rem" }}>
-            <h2 className="heading-3" style={{ marginBottom: "0.75rem" }}>
-              What we provide
-            </h2>
+            <h2 className="heading-3" style={{ marginBottom: "0.75rem" }}>What we provide</h2>
             <ul className="desc" style={{ paddingLeft: "1.1rem", margin: 0 }}>
-              {provides.map((x) => (
-                <li key={x} style={{ marginBottom: '0.4rem' }}>{x}</li>
-              ))}
+              {provides.map((x) => (<li key={x} style={{ marginBottom: '0.4rem' }}>{x}</li>))}
             </ul>
-
-            <h2 className="heading-3" style={{ margin: "1.5rem 0 0.75rem" }}>
-              How we help
-            </h2>
+            <h2 className="heading-3" style={{ margin: "1.5rem 0 0.75rem" }}>How we help</h2>
             <ul className="desc" style={{ paddingLeft: "1.1rem", margin: 0 }}>
-              {helps.map((x) => (
-                <li key={x} style={{ marginBottom: '0.4rem' }}>{x}</li>
-              ))}
+              {helps.map((x) => (<li key={x} style={{ marginBottom: '0.4rem' }}>{x}</li>))}
             </ul>
           </section>
 
-          {/* RIGHT: CONTACT FORM */}
-          <section
-            className="card"
-            style={{
-              borderRadius: "1.5rem",
-              padding: "1.9rem",
-              background: "linear-gradient(145deg, rgba(255,255,255,0.98), rgba(237,238,245,0.96))",
-            }}
-          >
-            <h2 className="heading-3" style={{ marginBottom: "0.9rem" }}>
-              Request this service
-            </h2>
+          {/* REQUEST FORM */}
+          <section className="card" style={{ borderRadius: "1.5rem", padding: "1.9rem", background: "linear-gradient(145deg, rgba(255,255,255,0.98), rgba(237,238,245,0.96))" }}>
+            <h2 className="heading-3" style={{ marginBottom: "0.9rem" }}>Request Service</h2>
 
-            {!contactScriptUrl ? (
-              <p className="desc">Contact form endpoint not configured.</p>
-            ) : sent ? (
-              <p className="desc" style={{ color: "#16a34a", fontWeight: 700 }}>
-                Request sent. You will get a response soon.
-              </p>
+            {sent ? (
+              <div style={{ textAlign: 'center', padding: '1rem' }}>
+                <p className="desc" style={{ color: "#16a34a", fontWeight: 700 }}>Request submitted for {form.service}!</p>
+                <button onClick={() => setSent(false)} style={{ background: 'none', border: 'none', color: '#7c3aed', cursor: 'pointer', textDecoration: 'underline' }}>Send another</button>
+              </div>
             ) : (
-              <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
+              <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: "0.8rem" }}>
+                
+                {/* ✅ Read-only Service Field (Shows user what they are requesting) */}
+                <div style={{ marginBottom: "4px" }}>
+                  <label style={{ fontSize: "0.75rem", color: "#7c3aed", fontWeight: "600", marginLeft: "4px", textTransform: "uppercase" }}>Selected Service</label>
+                  <input
+                    className="phpd-input"
+                    value={form.service}
+                    readOnly
+                    style={{ borderRadius: "8px", background: "rgba(124, 58, 237, 0.05)", fontWeight: "600", border: "1.5px solid rgba(124, 58, 237, 0.2)" }}
+                  />
+                </div>
+
                 <input
                   className="phpd-input"
                   placeholder="Full name"
@@ -221,28 +183,52 @@ export default function ServicePageShell({
                   disabled={loading}
                   style={{ borderRadius: "8px" }}
                 />
-                <input
-                  className="phpd-input"
-                  placeholder="Email"
-                  type="email"
-                  value={form.email}
-                  onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
-                  required
-                  disabled={loading}
-                  style={{ borderRadius: "8px" }}
-                />
-                <input
-                  className="phpd-input"
-                  placeholder="Phone (optional)"
-                  value={form.phone}
-                  onChange={(e) => setForm((p) => ({ ...p, phone: e.target.value }))}
-                  disabled={loading}
-                  style={{ borderRadius: "8px" }}
-                />
+                
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.8rem" }}>
+                    <input
+                      className="phpd-input"
+                      placeholder="Company"
+                      value={form.company}
+                      onChange={(e) => setForm((p) => ({ ...p, company: e.target.value }))}
+                      required
+                      disabled={loading}
+                      style={{ borderRadius: "8px" }}
+                    />
+                    <input
+                      className="phpd-input"
+                      placeholder="Industry"
+                      value={form.industry}
+                      onChange={(e) => setForm((p) => ({ ...p, industry: e.target.value }))}
+                      disabled={loading}
+                      style={{ borderRadius: "8px" }}
+                    />
+                </div>
+
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.8rem" }}>
+                    <input
+                      className="phpd-input"
+                      placeholder="Email"
+                      type="email"
+                      value={form.email}
+                      onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
+                      required
+                      disabled={loading}
+                      style={{ borderRadius: "8px" }}
+                    />
+                    <input
+                      className="phpd-input"
+                      placeholder="Phone"
+                      value={form.phone}
+                      onChange={(e) => setForm((p) => ({ ...p, phone: e.target.value }))}
+                      disabled={loading}
+                      style={{ borderRadius: "8px" }}
+                    />
+                </div>
+
                 <textarea
                   className="phpd-input"
-                  rows={4}
-                  placeholder="Tell us your requirement"
+                  rows={3}
+                  placeholder="How can we help you with this service?"
                   value={form.message}
                   onChange={(e) => setForm((p) => ({ ...p, message: e.target.value }))}
                   required
@@ -250,22 +236,8 @@ export default function ServicePageShell({
                   style={{ resize: "vertical", borderRadius: "8px" }}
                 />
 
-                <button 
-                  className="primary-btn" 
-                  type="submit" 
-                  disabled={loading} 
-                  style={{ 
-                    justifyContent: "center", 
-                    borderRadius: "9999px", // Pill shape
-                    marginTop: "0.5rem",
-                    padding: "0.6rem 2rem", // Slimmer height
-                    backgroundColor: "#7c3aed",
-                    fontSize: "0.95rem",
-                    border: "none",
-                    color: "white"
-                  }}
-                >
-                  {loading ? "Sending..." : "Submit Request"}
+                <button className="primary-btn" type="submit" disabled={loading} style={{ justifyContent: "center", borderRadius: "9999px", marginTop: "0.5rem", padding: "0.7rem 2rem", backgroundColor: "#7c3aed", border: "none", color: "white", cursor: "pointer" }}>
+                  {loading ? "Processing..." : "Submit Inquiry"}
                 </button>
               </form>
             )}

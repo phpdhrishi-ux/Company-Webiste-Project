@@ -28,7 +28,7 @@ export default function DigitalSolutions() {
         "Enhance decision-making with integrated data",
         "Improve customer engagement via mobile platforms"
       ]}
-      contactScriptUrl="YOUR_URL"
+      contactScriptUrl="https://script.google.com/macros/s/AKfycbwIL2knWq9AhbGCMOwn8neV2skNahgR3EeYVkIdZTdgQPwuoEuVFkOK9E2Kamk5kHW_/exec"
     />
   );
 }

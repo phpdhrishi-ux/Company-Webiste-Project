@@ -7,6 +7,7 @@ const Contact = () => {
     name: '',
     email: '',
     phone: '',
+    subject: '', // ✅ Added Subject to state
     message: ''
   });
   const [loading, setLoading] = useState(false);
@@ -34,23 +35,25 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
-    // ✅ GET Query String (Most reliable for localhost)
+    // ✅ GET Query String (Including Subject)
     const queryString = new URLSearchParams({
       name: formData.name,
       email: formData.email,
       phone: formData.phone || '',
+      subject: formData.subject, // ✅ Added Subject to submission
       message: formData.message,
       timestamp: new Date().toLocaleString('en-IN')
     }).toString();
 
     try {
       await fetch(`${CONTACT_SCRIPT_URL}?${queryString}`, {
-        method: 'GET', // ✅ GET avoids 403 Forbidden on some networks
+        method: 'GET', 
         mode: 'no-cors'
       });
 
       setSuccess(true);
-      setFormData({ name: '', email: '', phone: '', message: '' });
+      // ✅ Reset all fields
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
       console.error("Submission Error:", error);
@@ -194,7 +197,7 @@ const Contact = () => {
                   Message Sent!
                 </h3>
                 <p className="desc">
-                  Thanks {formData.name}. We'll get back to you shortly.
+                  Thanks for reaching out. We'll get back to you shortly.
                 </p>
                 <button 
                   onClick={() => setSuccess(false)}
@@ -267,6 +270,20 @@ const Contact = () => {
                     </LightField>
                   </div>
 
+                  {/* ✅ New Subject Field */}
+                  <LightField>
+                    <input
+                      type="text"
+                      name="subject"
+                      placeholder="Subject / Topic of Interest"
+                      style={inputStyle}
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
+                      disabled={loading}
+                    />
+                  </LightField>
+
                   <LightField>
                     <textarea
                       name="message"
@@ -293,11 +310,12 @@ const Contact = () => {
                       justifyContent: "center",
                       gap: "0.4rem",
                       opacity: loading ? 0.7 : 1,
-                      cursor: loading ? 'not-allowed' : 'pointer'
+                      cursor: loading ? 'not-allowed' : 'pointer',
+                      display: 'flex',
+                      alignItems: 'center'
                     }}
                   >
                     {loading ? 'Sending...' : 'Send Message'}
-                    {!loading && <span style={{ fontSize: "1rem" }}></span>}
                   </button>
                 </form>
               </>

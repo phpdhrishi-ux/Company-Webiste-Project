@@ -169,6 +169,7 @@ const Home = () => {
   >
     Our Consulting & Technology Services
   </Link>
+
 </div>
 
             <div style={{ marginTop: "3rem", display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem" }}>
@@ -223,7 +224,7 @@ const Home = () => {
       <section className="bg-accent1" style={{ padding: "1rem 0 4rem 0", position: "relative" }}> {/* Reduced top padding */}
   <div className="wrapper">
     <div style={{ textAlign: "center", marginBottom: "3rem" }}> {/* Reduced bottom margin */}
-      <h2 className="heading-2 text-gradient">Our Consulting & Technology Services</h2>
+      <h2 className="heading-2 text-gradient" style={{marginTop:"5rem"}}>Our Consulting & Technology Services</h2>
       <p className="desc" style={{ maxWidth: "44rem", margin: "0.5rem auto 0" }}>
         Build your business with structure and confidence across every growth stage.
       </p>

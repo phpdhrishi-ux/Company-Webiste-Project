@@ -28,7 +28,7 @@ export default function CloudSolutions() {
         "Reduce physical hardware overhead costs",
         "Future-proof your business technology"
       ]}
-      contactScriptUrl="YOUR_URL"
+      contactScriptUrl="https://script.google.com/macros/s/AKfycbwIL2knWq9AhbGCMOwn8neV2skNahgR3EeYVkIdZTdgQPwuoEuVFkOK9E2Kamk5kHW_/exec"
     />
   );
 }

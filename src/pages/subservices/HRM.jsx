@@ -28,7 +28,7 @@ export default function HRM() {
         "Maintain flexibility for project-based needs",
         "Build a structured hiring process"
       ]}
-      contactScriptUrl="YOUR_URL"
+      contactScriptUrl="https://script.google.com/macros/s/AKfycbwIL2knWq9AhbGCMOwn8neV2skNahgR3EeYVkIdZTdgQPwuoEuVFkOK9E2Kamk5kHW_/exec"
     />
   );
 }

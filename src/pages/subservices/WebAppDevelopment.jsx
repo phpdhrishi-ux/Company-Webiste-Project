@@ -28,7 +28,7 @@ export default function WebAppDevelopment() {
         "Streamline business-to-customer interactions",
         "Ensure cross-platform compatibility"
       ]}
-      contactScriptUrl="YOUR_URL"
+      contactScriptUrl="https://script.google.com/macros/s/AKfycbwIL2knWq9AhbGCMOwn8neV2skNahgR3EeYVkIdZTdgQPwuoEuVFkOK9E2Kamk5kHW_/exec"
     />
   );
 }

@@ -28,7 +28,7 @@ export default function AccountingFinance() {
         "Ensure audit and funding readiness",
         "Improve margins through cost control"
       ]}
-      contactScriptUrl="YOUR_URL"
+      contactScriptUrl="https://script.google.com/macros/s/AKfycbwIL2knWq9AhbGCMOwn8neV2skNahgR3EeYVkIdZTdgQPwuoEuVFkOK9E2Kamk5kHW_/exec"
     />
   );
 }

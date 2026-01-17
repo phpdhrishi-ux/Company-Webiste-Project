@@ -182,7 +182,7 @@ export default function Navbar() {
                       role="menuitem"
                       onClick={closeAll}
                     >
-                      {activeGroup.label} → View overview
+                      {activeGroup.label}
                     </NavLink>
 
                     <div className="phpd-nav__megaList">
@@ -275,7 +275,7 @@ export default function Navbar() {
                       {mobileActiveGroup === g.key && (
                         <div className="phpd-m__sub2">
                           <NavLink to={g.to} className="phpd-m__sublink" onClick={closeAll}>
-                            View {g.label} overview
+                          {g.label}  →
                           </NavLink>
                           {g.items.map((it) => (
                             <NavLink key={it.to} to={it.to} className="phpd-m__sublink" onClick={closeAll}>

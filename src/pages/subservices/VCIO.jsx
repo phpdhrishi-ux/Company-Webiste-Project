@@ -28,7 +28,7 @@ export default function VCIO() {
         "Optimize technology costs and efficiency",
         "Scale your tech stack reliably as you grow"
       ]}
-      contactScriptUrl="YOUR_URL"
+      contactScriptUrl="https://script.google.com/macros/s/AKfycbwIL2knWq9AhbGCMOwn8neV2skNahgR3EeYVkIdZTdgQPwuoEuVFkOK9E2Kamk5kHW_/exec"
     />
   );
 }
