@@ -95,7 +95,7 @@ const Contact = () => {
           </h1>
           <p className="desc">
             Whether you are starting a new project, modernising existing systems,
-            or exploring AI‑driven hiring workflows, PHPD can help you design,
+            or exploring AI‑driven hiring workflows, Zenrax can help you design,
             build, and ship with confidence.
           </p>
         </div>
@@ -134,7 +134,7 @@ const Contact = () => {
               }}
             >
               <InfoRow type="phone" title="Call Us" value="+91 98806 36948" />
-              <InfoRow type="email" title="Email" value="info@phpdhires.com" />
+              <InfoRow type="email" title="Email" value="info@Zenraxhires.com" />
               <InfoRow
                 type="location"
                 title="Location"

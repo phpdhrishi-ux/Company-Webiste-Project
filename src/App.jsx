@@ -15,6 +15,7 @@ import Products from "./pages/Products";
 import Testimonials from "./pages/Testimonials";
 import Blogs from "./pages/Blogs";
 import VCIOVCFO from "./pages/VCIOVCFO";
+import CareerPage from "./pages/CareerPage";
 
 
 // ✅ NEW: 12 sub-services imports
@@ -68,6 +69,7 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/vcio-vcfo" element={<VCIOVCFO />} />
+          <Route path="/career" element={<CareerPage/>}/>
 
 
           {/* ✅ NEW: 12 sub-services routes */}

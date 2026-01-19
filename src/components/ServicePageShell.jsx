@@ -9,7 +9,7 @@ const GlowingServiceCard = ({ title, desc }) => {
     background: "white",
     padding: "1.2rem",
     borderRadius: "12px",
-    border: isHovered ? "1.5px solid #7c3aed" : "1.5px solid #e5e7eb",
+    border: isHovered ? "1.5px solid #455bc8" : "1.5px solid #e5e7eb",
     boxShadow: isHovered ? "0 0 18px rgba(124, 58, 237, 0.2)" : "none",
     transform: isHovered ? "translateY(-3px)" : "translateY(0)",
     transition: "all 0.3s ease",
@@ -43,7 +43,7 @@ export default function ServicePageShell({
   provides = [],
   helps = [],
   helpGrid = [], 
-  brochureUrl = "/brochures/phpd-brochure.pdf",
+  brochureUrl = "/brochures/Zenrax-brochure.pdf",
   contactScriptUrl,
   serviceTag,
 }) {
@@ -96,8 +96,8 @@ export default function ServicePageShell({
     minWidth: "240px",
     justifyContent: "center",
     borderRadius: "9999px",
-    border: "2px solid #7c3aed",
-    color: "#7c3aed",
+    border: "2px solid #455bc8",
+    color: "#455bc8",
     backgroundColor: "transparent",
     textDecoration: "none",
     display: "inline-flex",
@@ -127,7 +127,7 @@ export default function ServicePageShell({
         {/* HELP GRID */}
         {helpGrid.length > 0 && (
           <section style={{ marginBottom: "3.0rem" }}>
-            <h2 style={{ color: "#7c3aed", textAlign: "center", fontSize: "1.5rem", fontWeight: "700", marginBottom: "1.0rem" }}>
+            <h2 style={{ color: "#455bc8", textAlign: "center", fontSize: "1.5rem", fontWeight: "700", marginBottom: "1.0rem" }}>
               Where we help you most
             </h2>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.2rem" }}>
@@ -158,24 +158,24 @@ export default function ServicePageShell({
             {sent ? (
               <div style={{ textAlign: 'center', padding: '1rem' }}>
                 <p className="desc" style={{ color: "#16a34a", fontWeight: 700 }}>Request submitted for {form.service}!</p>
-                <button onClick={() => setSent(false)} style={{ background: 'none', border: 'none', color: '#7c3aed', cursor: 'pointer', textDecoration: 'underline' }}>Send another</button>
+                <button onClick={() => setSent(false)} style={{ background: 'none', border: 'none', color: '#455bc8', cursor: 'pointer', textDecoration: 'underline' }}>Send another</button>
               </div>
             ) : (
               <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: "0.8rem" }}>
                 
                 {/* ✅ Read-only Service Field (Shows user what they are requesting) */}
                 <div style={{ marginBottom: "4px" }}>
-                  <label style={{ fontSize: "0.75rem", color: "#7c3aed", fontWeight: "600", marginLeft: "4px", textTransform: "uppercase" }}>Selected Service</label>
+                  <label style={{ fontSize: "0.75rem", color: "#455bc8", fontWeight: "600", marginLeft: "4px", textTransform: "uppercase" }}>Selected Service</label>
                   <input
-                    className="phpd-input"
+                    className="Zenrax-input"
                     value={form.service}
                     readOnly
-                    style={{ borderRadius: "8px", background: "rgba(124, 58, 237, 0.05)", fontWeight: "600", border: "1.5px solid rgba(124, 58, 237, 0.2)" }}
+                    style={{ borderRadius: "8px", background: "#ecedf6", fontWeight: "600", border: "1.5px solid #616fcb" }}
                   />
                 </div>
 
                 <input
-                  className="phpd-input"
+                  className="Zenrax-input"
                   placeholder="Full name"
                   value={form.name}
                   onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
@@ -186,7 +186,7 @@ export default function ServicePageShell({
                 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.8rem" }}>
                     <input
-                      className="phpd-input"
+                      className="Zenrax-input"
                       placeholder="Company"
                       value={form.company}
                       onChange={(e) => setForm((p) => ({ ...p, company: e.target.value }))}
@@ -195,7 +195,7 @@ export default function ServicePageShell({
                       style={{ borderRadius: "8px" }}
                     />
                     <input
-                      className="phpd-input"
+                      className="Zenrax-input"
                       placeholder="Industry"
                       value={form.industry}
                       onChange={(e) => setForm((p) => ({ ...p, industry: e.target.value }))}
@@ -206,7 +206,7 @@ export default function ServicePageShell({
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.8rem" }}>
                     <input
-                      className="phpd-input"
+                      className="Zenrax-input"
                       placeholder="Email"
                       type="email"
                       value={form.email}
@@ -216,7 +216,7 @@ export default function ServicePageShell({
                       style={{ borderRadius: "8px" }}
                     />
                     <input
-                      className="phpd-input"
+                      className="Zenrax-input"
                       placeholder="Phone"
                       value={form.phone}
                       onChange={(e) => setForm((p) => ({ ...p, phone: e.target.value }))}
@@ -226,7 +226,7 @@ export default function ServicePageShell({
                 </div>
 
                 <textarea
-                  className="phpd-input"
+                  className="Zenrax-input"
                   rows={3}
                   placeholder="How can we help you with this service?"
                   value={form.message}

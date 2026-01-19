@@ -1,29 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"); /* [web:262] */
 
 :root {
-  --phpd-brand: #7c3aed;
-  --phpd-brand2: #a855f7;
+  --Zenrax-brand: #455bc8;
+  --Zenrax-brand2: #93a2ff;
+  --Zenrax-light: #ecedf6;
 
-  --phpd-text: #0f172a;
-  --phpd-muted: #475569;
+  --Zenrax-text: #0f172a;
+  --Zenrax-muted: #475569;
 
-  --phpd-glass: rgba(255, 255, 255, 0.84);
-  --phpd-border: rgba(226, 232, 240, 0.92);
+  --Zenrax-glass: rgba(255, 255, 255, 0.84);
+  --Zenrax-border: rgba(226, 232, 240, 0.92);
 
-  --phpd-shadow: 0 10px 30px rgba(15, 23, 42, 0.10);
+  --Zenrax-shadow: 0 10px 30px rgba(15, 23, 42, 0.10);
 
-  --phpd-hover: rgba(124, 58, 237, 0.10);
-  --phpd-active: rgba(124, 58, 237, 0.12);
+  --Zenrax-hover: #ecedf6;
+  --Zenrax-active: #ecedf6;
 }
 
 /* Apply Poppins to navbar + mobile menu */
-.phpd-nav,
-.phpd-m {
+.Zenrax-nav,
+.Zenrax-m {
   font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
 /* fixed header */
-.phpd-nav {
+.Zenrax-nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -32,44 +33,44 @@
   padding: 12px 16px;
 }
 
-.phpd-nav__shell {
+.Zenrax-nav__shell {
   max-width: 1200px;
   margin: 0 auto;
 }
 
 /* pill bar */
-.phpd-nav__bar {
+.Zenrax-nav__bar {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 14px;
 
   border-radius: 9999px;
-  background: var(--phpd-glass);
+  background: var(--Zenrax-glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 
-  border: 1px solid var(--phpd-border);
-  box-shadow: var(--phpd-shadow);
+  border: 1px solid var(--Zenrax-border);
+  box-shadow: var(--Zenrax-shadow);
   padding: 10px 12px;
 }
 
 /* logo */
-.phpd-nav__logo {
+.Zenrax-nav__logo {
   display: inline-flex;
   align-items: center;
   padding: 6px 8px;
   border-radius: 9999px;
   text-decoration: none;
 }
-.phpd-nav__logo img {
+.Zenrax-nav__logo img {
   height: 28px;
   width: auto;
   display: block;
 }
 
 /* right cluster */
-.phpd-nav__right {
+.Zenrax-nav__right {
   display: inline-flex;
   align-items: center;
   justify-content: flex-end;
@@ -77,7 +78,7 @@
 }
 
 /* links (desktop) */
-.phpd-nav__links {
+.Zenrax-nav__links {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,7 +90,7 @@
 }
 
 /* link */
-.phpd-nav__link {
+.Zenrax-nav__link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -98,9 +99,9 @@
   border-radius: 9999px;
   text-decoration: none;
 
-  font-weight: 500;   /* ↓ was 600 */
-  font-size: 14px;    /* ↓ was 14.5 */
-  color: var(--phpd-muted);
+  font-weight: 500;   
+  font-size: 14px;    
+  color: var(--Zenrax-muted);
 
   border: 0;
   background: transparent;
@@ -109,41 +110,41 @@
   transition: background-color 140ms ease, color 140ms ease, transform 140ms ease;
 }
 
-.phpd-nav__link:hover {
-  background: var(--phpd-hover);
-  color: var(--phpd-brand);
+.Zenrax-nav__link:hover {
+  background: var(--Zenrax-hover);
+  color: var(--Zenrax-brand);
   transform: translateY(-1px);
 }
 
-.phpd-nav__link.active {
-  background: var(--phpd-active);
-  color: var(--phpd-brand);
+.Zenrax-nav__link.active {
+  background: var(--Zenrax-active);
+  color: var(--Zenrax-brand);
 }
 
 /* caret */
-.phpd-nav__caret {
+.Zenrax-nav__caret {
   margin-left: 15px;
   font-size: 12px;
   transition: transform 160ms ease;
 }
-.phpd-nav__caret.open {
+.Zenrax-nav__caret.open {
   transform: rotate(180deg);
 }
 
 /* dropdown wrapper */
-.phpd-nav__dd {
+.Zenrax-nav__dd {
   position: relative;
   display: inline-flex;
   align-items: center;
 }
 
 /* trigger button (looks like link) */
-.phpd-nav__ddTrigger {
+.Zenrax-nav__ddTrigger {
   padding-right: 10px;
 }
 
 /* dropdown menu */
-.phpd-nav__ddMenu {
+.Zenrax-nav__ddMenu {
   position: absolute;
   top: calc(100% + 10px);
   left: 50%;
@@ -154,8 +155,8 @@
   border-radius: 16px;
 
   background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(124, 58, 237, 0.16);
-  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.18);
+  border: 1px solid var(--Zenrax-light);
+  box-shadow: 0 18px 60px var(--Zenrax-light);
 
   opacity: 0;
   visibility: hidden;
@@ -166,7 +167,7 @@
 }
 
 /* IMPORTANT: a tiny invisible "bridge" to prevent mouseleave gap flicker */
-.phpd-nav__ddMenu::before {
+.Zenrax-nav__ddMenu::before {
   content: "";
   position: absolute;
   left: 0;
@@ -176,33 +177,33 @@
   background: transparent;
 }
 
-.phpd-nav__ddMenu.show {
+.Zenrax-nav__ddMenu.show {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
 }
 
-.phpd-nav__ddItem {
+.Zenrax-nav__ddItem {
   display: block;
   padding: 10px 12px;
   border-radius: 12px;
 
   text-decoration: none;
-  font-weight: 500;   /* ↓ was 650 */
-  font-size: 13.5px;  /* ↓ was 14 */
-  color: var(--phpd-text);
+  font-weight: 500;   
+  font-size: 13.5px;  
+  color: var(--Zenrax-text);
 
   transition: background-color 140ms ease, color 140ms ease;
 }
 
-.phpd-nav__ddItem:hover {
-  background: rgba(124, 58, 237, 0.10);
-  color: var(--phpd-brand);
+.Zenrax-nav__ddItem:hover {
+  background: var(--Zenrax-light);
+  color: var(--Zenrax-brand);
 }
 
 /* CTA */
-.phpd-nav__cta {
+.Zenrax-nav__cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -211,44 +212,46 @@
   border-radius: 9999px;
 
   text-decoration: none;
-  font-weight: 600; /* ↓ was 750 */
+  font-weight: 600; 
   font-size: 14px;
   color: #fff;
 
-  background: linear-gradient(135deg, var(--phpd-brand), var(--phpd-brand2));
+  /* Changed to solid brand color */
+  background: var(--Zenrax-brand);
   border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.22);
+  box-shadow: 0 12px 30px var(--Zenrax-light);
 
   transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
   white-space: nowrap;
 }
 
-.phpd-nav__cta:hover {
+.Zenrax-nav__cta:hover {
   transform: translateY(-1px);
-  filter: brightness(1.02);
-  box-shadow: 0 16px 40px rgba(124, 58, 237, 0.28);
+  filter: brightness(1.05);
+  box-shadow: 0 16px 40px var(--Zenrax-light);
 }
 
 /* hamburger */
-.phpd-nav__toggle {
+.Zenrax-nav__toggle {
   display: none;
   width: 44px;
   height: 44px;
   border-radius: 9999px;
 
-  border: 1px solid var(--phpd-border);
+  border: 1px solid var(--Zenrax-border);
   background: rgba(255, 255, 255, 0.70);
-  color: var(--phpd-text);
+  color: var(--Zenrax-text);
   cursor: pointer;
 
   transition: background-color 140ms ease;
 }
-.phpd-nav__toggle:hover {
-  background: rgba(124, 58, 237, 0.10);
+.Zenrax-nav__toggle:hover {
+  background: var(--Zenrax-light);
+  color: var(--Zenrax-brand);
 }
 
 /* mobile overlay */
-.phpd-m {
+.Zenrax-m {
   position: fixed;
   inset: 0;
   z-index: 1999;
@@ -256,12 +259,12 @@
   pointer-events: none;
   transition: opacity 160ms ease;
 }
-.phpd-m.open {
+.Zenrax-m.open {
   opacity: 1;
   pointer-events: auto;
 }
 
-.phpd-m__backdrop {
+.Zenrax-m__backdrop {
   position: absolute;
   inset: 0;
   background: rgba(15, 23, 42, 0.35);
@@ -269,7 +272,7 @@
 }
 
 /* ✅ merged: card layout + scroll */
-.phpd-m__card {
+.Zenrax-m__card {
   position: absolute;
   top: 72px;
   left: 50%;
@@ -280,7 +283,7 @@
 
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(124, 58, 237, 0.14);
+  border: 1px solid var(--Zenrax-light);
   box-shadow: 0 22px 70px rgba(15, 23, 42, 0.20);
 
   /* scroll */
@@ -288,33 +291,33 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
-  scrollbar-color: rgba(124,58,237,0.3) transparent;
+  scrollbar-color: var(--Zenrax-brand2) transparent;
 }
 
 /* Custom scrollbar */
-.phpd-m__card::-webkit-scrollbar {
+.Zenrax-m__card::-webkit-scrollbar {
   width: 4px;
 }
-.phpd-m__card::-webkit-scrollbar-track {
+.Zenrax-m__card::-webkit-scrollbar-track {
   background: transparent;
 }
-.phpd-m__card::-webkit-scrollbar-thumb {
-  background: rgba(124,58,237,0.3);
+.Zenrax-m__card::-webkit-scrollbar-thumb {
+  background: var(--Zenrax-brand2);
   border-radius: 2px;
 }
-.phpd-m__card::-webkit-scrollbar-thumb:hover {
-  background: rgba(124,58,237,0.5);
+.Zenrax-m__card::-webkit-scrollbar-thumb:hover {
+  background: var(--Zenrax-brand);
 }
 
-.phpd-m__list {
+.Zenrax-m__list {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 6px;
 }
 
-.phpd-m__link,
-.phpd-m__accordion {
+.Zenrax-m__link,
+.Zenrax-m__accordion {
   width: 100%;
   display: flex;
   align-items: center;
@@ -323,9 +326,9 @@
   padding: 12px 12px;
   border-radius: 14px;
 
-  font-weight: 600; /* ↓ was 750 */
+  font-weight: 600; 
   font-size: 14.5px;
-  color: var(--phpd-text);
+  color: var(--Zenrax-text);
   text-decoration: none;
 
   background: rgba(255, 255, 255, 0.75);
@@ -334,18 +337,18 @@
   transition: background-color 140ms ease, border-color 140ms ease;
 }
 
-.phpd-m__link:hover,
-.phpd-m__accordion:hover {
-  background: rgba(124, 58, 237, 0.08);
-  border-color: rgba(124, 58, 237, 0.18);
+.Zenrax-m__link:hover,
+.Zenrax-m__accordion:hover {
+  background: var(--Zenrax-light);
+  border-color: var(--Zenrax-brand2);
 }
 
-.phpd-m__accordion {
+.Zenrax-m__accordion {
   cursor: pointer;
-  border: 1px solid rgba(124, 58, 237, 0.18);
+  border: 1px solid var(--Zenrax-border);
 }
 
-.phpd-m__sub {
+.Zenrax-m__sub {
   padding-left: 8px;
   display: flex;
   flex-direction: column;
@@ -356,26 +359,26 @@
   overflow-y: auto;
 }
 
-.phpd-m__sublink {
+.Zenrax-m__sublink {
   padding: 11px 12px;
   border-radius: 14px;
 
   text-decoration: none;
-  font-weight: 500; /* ↓ was 750 */
-  color: var(--phpd-muted);
+  font-weight: 500; 
+  color: var(--Zenrax-muted);
   text-align: left;
 
   background: rgba(255, 255, 255, 0.65);
   border: 1px solid rgba(226, 232, 240, 0.95);
 }
 
-.phpd-m__sublink:hover {
-  background: rgba(124, 58, 237, 0.08);
-  border-color: rgba(124, 58, 237, 0.18);
-  color: var(--phpd-brand);
+.Zenrax-m__sublink:hover {
+  background: var(--Zenrax-light);
+  border-color: var(--Zenrax-brand2);
+  color: var(--Zenrax-brand);
 }
 
-.phpd-m__cta {
+.Zenrax-m__cta {
   display: block;
   margin: 10px 6px 6px;
   padding: 12px 14px;
@@ -384,26 +387,26 @@
   text-decoration: none;
 
   color: #fff;
-  font-weight: 600; /* ↓ was 850 */
-  background: linear-gradient(135deg, var(--phpd-brand), var(--phpd-brand2));
-  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.22);
+  font-weight: 600; 
+  background: var(--Zenrax-brand);
+  box-shadow: 0 12px 30px var(--Zenrax-light);
 }
 
 /* responsive */
 @media (max-width: 992px) {
-  .phpd-nav__bar {
+  .Zenrax-nav__bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 12px 14px;
   }
 
-  .phpd-nav__links,
-  .phpd-nav__cta {
+  .Zenrax-nav__links,
+  .Zenrax-nav__cta {
     display: none;
   }
 
-  .phpd-nav__toggle {
+  .Zenrax-nav__toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -411,18 +414,18 @@
 }
 
 /* ---- Services Mega Menu ---- */
-.phpd-nav__ddMenu.phpd-nav__mega {
+.Zenrax-nav__ddMenu.Zenrax-nav__mega {
   min-width: 560px;
   padding: 10px;
 }
 
-.phpd-nav__megaCols {
+.Zenrax-nav__megaCols {
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 10px;
 }
 
-.phpd-nav__megaLeft {
+.Zenrax-nav__megaLeft {
   background: rgba(248, 250, 252, 0.9);
   border: 1px solid rgba(226, 232, 240, 0.95);
   border-radius: 14px;
@@ -432,7 +435,7 @@
   gap: 6px;
 }
 
-.phpd-nav__megaGroup {
+.Zenrax-nav__megaGroup {
   width: 100%;
   text-align: left;
   padding: 10px 12px;
@@ -441,62 +444,62 @@
   background: transparent;
   cursor: pointer;
 
-  font-weight: 600; /* ↓ was 800 */
-  color: var(--phpd-text);
+  font-weight: 600; 
+  color: var(--Zenrax-text);
 
   transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
 }
 
-.phpd-nav__megaGroup:hover {
-  background: rgba(124, 58, 237, 0.08);
-  border-color: rgba(124, 58, 237, 0.16);
-  color: var(--phpd-brand);
+.Zenrax-nav__megaGroup:hover {
+  background: var(--Zenrax-light);
+  border-color: var(--Zenrax-brand2);
+  color: var(--Zenrax-brand);
 }
 
-.phpd-nav__megaGroup.is-active {
-  background: rgba(124, 58, 237, 0.12);
-  border-color: rgba(124, 58, 237, 0.22);
-  color: var(--phpd-brand);
+.Zenrax-nav__megaGroup.is-active {
+  background: var(--Zenrax-light);
+  border-color: var(--Zenrax-brand);
+  color: var(--Zenrax-brand);
 }
 
-.phpd-nav__megaRight {
+.Zenrax-nav__megaRight {
   border-radius: 14px;
   padding: 10px 10px 8px;
 }
 
-.phpd-nav__megaHeading {
+.Zenrax-nav__megaHeading {
   display: block;
   padding: 10px 12px;
   border-radius: 12px;
   text-decoration: none;
 
-  font-weight: 600; /* ↓ was 900 */
-  color: var(--phpd-text);
+  font-weight: 600; 
+  color: var(--Zenrax-text);
 
   border: 1px solid rgba(226, 232, 240, 0.95);
   background: rgba(255, 255, 255, 0.9);
   margin-bottom: 8px;
 }
 
-.phpd-nav__megaHeading:hover {
-  background: rgba(124, 58, 237, 0.08);
-  border-color: rgba(124, 58, 237, 0.18);
-  color: var(--phpd-brand);
+.Zenrax-nav__megaHeading:hover {
+  background: var(--Zenrax-light);
+  border-color: var(--Zenrax-brand2);
+  color: var(--Zenrax-brand);
 }
 
-.phpd-nav__megaList {
+.Zenrax-nav__megaList {
   display: grid;
   gap: 6px;
 }
 
 /* ---- Mobile nested ---- */
-.phpd-m__group {
+.Zenrax-m__group {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.phpd-m__sub2 {
+.Zenrax-m__sub2 {
   padding-left: 8px;
   display: flex;
   flex-direction: column;
@@ -507,7 +510,7 @@
 }
 
 /* inputs (used on service pages) */
-.phpd-input{
+.Zenrax-input{
   width: 100%;
   padding: 0.75rem 0.85rem;
   border-radius: 0.9rem;
@@ -516,15 +519,15 @@
   outline: none;
   color: #0f172a;
 }
-.phpd-input:focus{
-  border-color: rgba(124,58,237,0.35);
-  box-shadow: 0 0 0 4px rgba(124,58,237,0.10);
+.Zenrax-input:focus{
+  border-color: var(--Zenrax-brand);
+  box-shadow: 0 0 0 4px rgba(69, 91, 200, 0.10);
 }
 
 
-.phpd-nav__cta,
-.phpd-m__cta {
+.Zenrax-nav__cta,
+.Zenrax-m__cta {
   background-image: none !important;
-  background: var(--phpd-brand) !important;
-  box-shadow: none !important;
+  background: var(--Zenrax-brand) !important;
+  box-shadow: 0 8px 20px var(--Zenrax-light) !important;
 }

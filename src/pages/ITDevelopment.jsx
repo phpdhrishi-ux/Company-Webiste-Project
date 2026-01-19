@@ -100,7 +100,7 @@ const ITDevelopment = () => {
           </h1>
 
           <p className="desc" style={{ margin: 0 }}>
-            PHPD delivers full‑stack web applications, internal tools, and integrations anchored to clearly defined
+            Zenrax delivers full‑stack web applications, internal tools, and integrations anchored to clearly defined
             business and finance outcomes.
           </p>
         </div>
@@ -164,7 +164,7 @@ const KeyPoint = ({ icon: Icon, text }) => {
       <span className="service-showcase-iconbox" style={{ width: 30, height: 30 }}>
         <Icon size={14} />
       </span>
-      <span style={{ fontSize: "0.92rem", fontWeight: 400, color: "var(--phpd-muted)" }}>{text}</span>
+      <span style={{ fontSize: "0.92rem", fontWeight: 400, color: "var(--Zenrax-muted)" }}>{text}</span>
     </div>
   );
 };

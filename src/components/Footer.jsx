@@ -13,7 +13,7 @@ const Footer = () => {
       position: "relative",
       overflow: "hidden"
     }}>
-      {/* Purple radial overlay (matches services) */}
+      {/* Purple radial overlay */}
       <div 
         className="bg-radial-overlay" 
         style={{ opacity: 0.35, position: "absolute", inset: 0 }}
@@ -22,37 +22,40 @@ const Footer = () => {
       <div className="wrapper" style={{ position: "relative", zIndex: 1 }}>
         <div
           style={{
-            padding: "1.75rem 1.5rem", /* compact */
+            padding: "2rem 1.5rem", 
             borderRadius: "1.5rem",
             background: "rgba(255,255,255,0.92)",
             backdropFilter: "blur(20px)",
-            border: "1px solid rgba(124,58,237,0.2)",
+            border: "1px solid rgba(69, 91, 200, 0.2)",
             boxShadow: "0 20px 50px rgba(15,23,42,0.1)",
+            textAlign: "left" // Forces left alignment for mobile
           }}
         >
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-              gap: "1.75rem", /* tighter */
+              // Adjusted minmax for better mobile stacking
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gap: "2.5rem", 
               alignItems: "start",
             }}
           >
             {/* Brand + blurb + socials */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "flex-start" }}>
               <img
                 src={logo}
-                alt="PHPD Logo"
+                alt="Zenrax Logo"
                 style={{
-                  height: "2.4rem", /* smaller */
-                  borderRadius: "8px",
-                  boxShadow: "0 6px 20px rgba(124,58,237,0.2)",
+                  height: "3.2rem", // Increased logo height
+                  width: "auto",
+                  objectFit: "contain",
+                  filter: "drop-shadow(0 4px 12px rgba(69, 91, 200, 0.15))",
                 }}
               />
-              <p className="desc" style={{ maxWidth: "20rem", fontSize: "0.88rem", lineHeight: 1.5 }}>
+              <p className="desc" style={{ maxWidth: "20rem", fontSize: "0.88rem", lineHeight: 1.5, textAlign: "left", margin: 0 }}>
                 AI-first consulting + fullstack delivery for founders who scale with clarity.
               </p>
-              <div style={{ display: "flex", gap: "0.6rem" }}>
+              <div style={{ display: "flex", gap: "0.75rem" }}>
                 {socialLinks.map(({ href, Icon }) => (
                   <a
                     key={href}
@@ -60,26 +63,27 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
-                      width: "2.3rem",
-                      height: "2.3rem",
-                      borderRadius: "9999px",
-                      background: "rgba(124,58,237,0.08)",
-                      border: "1px solid rgba(124,58,237,0.2)",
+                      width: "2.5rem",
+                      height: "2.5rem",
+                      borderRadius: "50%",
+                      background: "rgba(69, 91, 200, 0.08)",
+                      border: "1px solid rgba(69, 91, 200, 0.2)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      color: "#7c3aed",
+                      color: "#455bc8", // Updated Icon Color
+                      transition: "all 0.3s ease"
                     }}
                   >
-                    <Icon size={14} />
+                    <Icon size={16} />
                   </a>
                 ))}
               </div>
             </div>
 
             {/* Quick Links */}
-            <div>
-              <h3 className="heading-3" style={{ marginBottom: "0.75rem", color: "#1e293b", fontSize: "1rem" }}>
+            <div style={{ textAlign: "left" }}>
+              <h3 className="heading-3" style={{ marginBottom: "1rem", color: "#1e293b", fontSize: "1.1rem", fontWeight: "700" }}>
                 Quick Links
               </h3>
               {quickLinks.map(([label, href]) => (
@@ -88,10 +92,11 @@ const Footer = () => {
                   href={href}
                   style={{
                     display: "block",
-                    marginBottom: "0.4rem",
+                    marginBottom: "0.6rem",
                     color: "#475569",
-                    fontSize: "0.88rem",
+                    fontSize: "0.9rem",
                     fontWeight: 500,
+                    textDecoration: "none"
                   }}
                 >
                   {label}
@@ -100,37 +105,37 @@ const Footer = () => {
             </div>
 
             {/* Services */}
-            <div>
-              <h3 className="heading-3" style={{ marginBottom: "0.75rem", color: "#1e293b", fontSize: "1rem" }}>
+            <div style={{ textAlign: "left" }}>
+              <h3 className="heading-3" style={{ marginBottom: "1rem", color: "#1e293b", fontSize: "1.1rem", fontWeight: "700" }}>
                 Services
               </h3>
               {services.map((service) => (
-                <p key={service} className="desc" style={{ marginBottom: "0.4rem", fontSize: "0.88rem" }}>
+                <p key={service} style={{ marginBottom: "0.6rem", fontSize: "0.9rem", color: "#475569", margin: "0 0 0.6rem 0" }}>
                   {service}
                 </p>
               ))}
             </div>
 
             {/* Contact */}
-            <div>
-              <h3 className="heading-3" style={{ marginBottom: "0.75rem", color: "#1e293b", fontSize: "1rem" }}>
+            <div style={{ textAlign: "left" }}>
+              <h3 className="heading-3" style={{ marginBottom: "1rem", color: "#1e293b", fontSize: "1.1rem", fontWeight: "700" }}>
                 Contact
               </h3>
               <ContactRow label="Phone" value="+91 98806 36948" href="tel:+919880636948" Icon={FiPhone} />
-              <ContactRow label="Email" value="info@phpdhires.com" href="mailto:info@phpdhires.com" Icon={FiMail} />
+              <ContactRow label="Email" value="info@Zenraxhires.com" href="mailto:info@Zenraxhires.com" Icon={FiMail} />
               <ContactRow label="Pune, MH" value="(Remote-first)" Icon={FiMapPin} />
             </div>
           </div>
 
           {/* Copyright */}
           <div style={{ 
-            marginTop: "1.5rem", 
-            paddingTop: "1rem", 
-            borderTop: "1px solid rgba(148,163,184,0.3)",
-            textAlign: "center"
+            marginTop: "2rem", 
+            paddingTop: "1.25rem", 
+            borderTop: "1px solid rgba(148,163,184,0.2)",
+            textAlign: "left" // Aligned to left as requested
           }}>
-            <p className="desc" style={{ fontSize: "0.85rem", color: "#64748b" }}>
-              © {new Date().getFullYear()} PHPD IT Services. All rights reserved.
+            <p style={{ fontSize: "0.85rem", color: "#64748b", margin: 0 }}>
+              © {new Date().getFullYear()} Zenrax Consultancy Services. All rights reserved.
             </p>
           </div>
         </div>
@@ -139,12 +144,12 @@ const Footer = () => {
   );
 };
 
-// Data (same)
+// Data
 const socialLinks = [
-  { href: "https://linkedin.com/company/phpd-it-services", Icon: FaLinkedinIn },
-  { href: "https://x.com/phpdhires", Icon: FaTwitter },
-  { href: "https://instagram.com/phpdservices", Icon: FaInstagram },
-  { href: "https://youtube.com/@phpdhires", Icon: FaYoutube },
+  { href: "https://linkedin.com/company/Zenrax-it-services", Icon: FaLinkedinIn },
+  { href: "https://x.com/Zenraxhires", Icon: FaTwitter },
+  { href: "https://instagram.com/Zenraxservices", Icon: FaInstagram },
+  { href: "https://youtube.com/@Zenraxhires", Icon: FaYoutube },
 ];
 
 const quickLinks = [
@@ -157,20 +162,20 @@ const services = [
 ];
 
 const ContactRow = ({ label, value, href, Icon }) => (
-  <div style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", marginBottom: "0.75rem" }}>
-    <div style={{ marginTop: "0.1rem", color: "#7c3aed", minWidth: "1.2rem" }}>
-      <Icon size={16} />
+  <div style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", marginBottom: "1rem" }}>
+    <div style={{ marginTop: "0.2rem", color: "#455bc8", minWidth: "1.2rem" }}>
+      <Icon size={18} />
     </div>
     <div>
-      <div style={{ fontSize: "0.8rem", color: "#64748b", marginBottom: "0.15rem", fontWeight: 500 }}>
+      <div style={{ fontSize: "0.75rem", color: "#64748b", marginBottom: "0.1rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.02em" }}>
         {label}
       </div>
       {href ? (
-        <a href={href} style={{ fontSize: "0.88rem", color: "#1e293b", fontWeight: 500, textDecoration: "none" }}>
+        <a href={href} style={{ fontSize: "0.95rem", color: "#1e293b", fontWeight: 500, textDecoration: "none" }}>
           {value}
         </a>
       ) : (
-        <p style={{ fontSize: "0.88rem", color: "#1e293b", margin: 0 }}>{value}</p>
+        <p style={{ fontSize: "0.95rem", color: "#1e293b", margin: 0, fontWeight: 500 }}>{value}</p>
       )}
     </div>
   </div>

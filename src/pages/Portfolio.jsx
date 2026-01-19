@@ -91,7 +91,7 @@ const Portfolio = () => {
           <p className="desc">
             A snapshot of client projects and internal builds across consulting,
             web applications, and automation. This library will keep expanding
-            as PHPD ships more value.
+            as Zenrax ships more value.
           </p>
         </div>
 

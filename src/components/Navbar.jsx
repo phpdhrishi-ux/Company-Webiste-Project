@@ -112,58 +112,58 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="phpd-nav" ref={navRef}>
-      <div className="phpd-nav__shell">
-        <div className="phpd-nav__bar">
+    <header className="Zenrax-nav" ref={navRef}>
+      <div className="Zenrax-nav__shell">
+        <div className="Zenrax-nav__bar">
           {/* LEFT: Logo */}
-          <NavLink to="/" className="phpd-nav__logo" aria-label="PHPD Home" onClick={closeAll}>
-            <img src={logo} alt="PHPD" />
+          <NavLink to="/" className="Zenrax-nav__logo" aria-label="Zenrax Home" onClick={closeAll}>
+            <img src={logo} alt="Zenrax" />
           </NavLink>
 
           {/* CENTER: Links (desktop) */}
-          <nav className="phpd-nav__links" aria-label="Primary navigation">
-            <NavLink to="/" className="phpd-nav__link">
+          <nav className="Zenrax-nav__links" aria-label="Primary navigation">
+            <NavLink to="/" className="Zenrax-nav__link">
               Home
             </NavLink>
 
-            <NavLink to="/about" className="phpd-nav__link">
+            <NavLink to="/about" className="Zenrax-nav__link">
               About
             </NavLink>
 
             {/* Services dropdown (desktop) */}
             <div
-              className="phpd-nav__dd"
+              className="Zenrax-nav__dd"
               ref={ddRef}
               onMouseEnter={openServices}
               onMouseLeave={closeServicesSoon}
             >
               <button
                 type="button"
-                className={`phpd-nav__link phpd-nav__ddTrigger ${servicesOpen ? "is-open" : ""}`}
+                className={`Zenrax-nav__link Zenrax-nav__ddTrigger ${servicesOpen ? "is-open" : ""}`}
                 aria-haspopup="menu"
                 aria-expanded={servicesOpen}
                 onClick={() => setServicesOpen((v) => !v)}
               >
                 <span>Services</span>
-                <FaChevronDown className={`phpd-nav__caret ${servicesOpen ? "open" : ""}`} />
+                <FaChevronDown className={`Zenrax-nav__caret ${servicesOpen ? "open" : ""}`} />
               </button>
 
               <div
-                className={`phpd-nav__ddMenu phpd-nav__mega ${servicesOpen ? "show" : ""}`}
+                className={`Zenrax-nav__ddMenu Zenrax-nav__mega ${servicesOpen ? "show" : ""}`}
                 role="menu"
                 onMouseEnter={openServices}
                 onMouseLeave={closeServicesSoon}
               >
-                <div className="phpd-nav__megaCols">
+                <div className="Zenrax-nav__megaCols">
                   {/* Left: 3 main services */}
-                  <div className="phpd-nav__megaLeft">
+                  <div className="Zenrax-nav__megaLeft">
                     {SERVICES.map((g) => {
                       const isActive = g.key === activeServiceKey;
                       return (
                         <button
                           key={g.key}
                           type="button"
-                          className={`phpd-nav__megaGroup ${isActive ? "is-active" : ""}`}
+                          className={`Zenrax-nav__megaGroup ${isActive ? "is-active" : ""}`}
                           onMouseEnter={() => setActiveServiceKey(g.key)}
                           onFocus={() => setActiveServiceKey(g.key)}
                           onClick={() => setActiveServiceKey(g.key)}
@@ -175,22 +175,22 @@ export default function Navbar() {
                   </div>
 
                   {/* Right: sub-services */}
-                  <div className="phpd-nav__megaRight">
+                  <div className="Zenrax-nav__megaRight">
                     <NavLink
                       to={activeGroup.to}
-                      className="phpd-nav__megaHeading"
+                      className="Zenrax-nav__megaHeading"
                       role="menuitem"
                       onClick={closeAll}
                     >
                       {activeGroup.label}
                     </NavLink>
 
-                    <div className="phpd-nav__megaList">
+                    <div className="Zenrax-nav__megaList">
                       {activeGroup.items.map((it) => (
                         <NavLink
                           key={it.to}
                           to={it.to}
-                          className="phpd-nav__ddItem"
+                          className="Zenrax-nav__ddItem"
                           role="menuitem"
                           onClick={closeAll}
                         >
@@ -203,28 +203,31 @@ export default function Navbar() {
               </div>
             </div>
 
-            <NavLink to="/products" className="phpd-nav__link">
+            <NavLink to="/products" className="Zenrax-nav__link">
               Our Products
             </NavLink>
 
-            <NavLink to="/testimonials" className="phpd-nav__link">
+            <NavLink to="/testimonials" className="Zenrax-nav__link">
               Testimonials
             </NavLink>
 
-            <NavLink to="/blogs" className="phpd-nav__link">
+            <NavLink to="/blogs" className="Zenrax-nav__link">
               Blogs
+            </NavLink>
+            <NavLink to="/career" className="Zenrax-nav__link">
+                Career
             </NavLink>
           </nav>
 
           {/* RIGHT: CTA + Hamburger */}
-          <div className="phpd-nav__right">
-            <NavLink to="/contact" className="phpd-nav__cta" onClick={closeAll}>
+          <div className="Zenrax-nav__right">
+            <NavLink to="/contact" className="Zenrax-nav__cta" onClick={closeAll}>
               Get in Touch
             </NavLink>
 
             <button
               type="button"
-              className="phpd-nav__toggle"
+              className="Zenrax-nav__toggle"
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((v) => !v)}
@@ -237,48 +240,48 @@ export default function Navbar() {
 
       {/* ✅ Mobile menu: render only when open (avoids aria-hidden focus warning) */}
       {mobileOpen && (
-        <div className="phpd-m open">
-          <div className="phpd-m__backdrop" onClick={closeAll} />
-          <div className="phpd-m__card" role="dialog" aria-modal="true">
-            <div className="phpd-m__list">
-              <NavLink to="/" className="phpd-m__link" onClick={closeAll}>
+        <div className="Zenrax-m open">
+          <div className="Zenrax-m__backdrop" onClick={closeAll} />
+          <div className="Zenrax-m__card" role="dialog" aria-modal="true">
+            <div className="Zenrax-m__list">
+              <NavLink to="/" className="Zenrax-m__link" onClick={closeAll}>
                 Home
               </NavLink>
-              <NavLink to="/about" className="phpd-m__link" onClick={closeAll}>
+              <NavLink to="/about" className="Zenrax-m__link" onClick={closeAll}>
                 About
               </NavLink>
 
               <button
                 type="button"
-                className="phpd-m__link phpd-m__accordion"
+                className="Zenrax-m__link Zenrax-m__accordion"
                 onClick={() => setMobileServicesOpen((v) => !v)}
                 aria-expanded={mobileServicesOpen}
               >
                 <span>Services</span>
-                <FaChevronDown className={`phpd-nav__caret ${mobileServicesOpen ? "open" : ""}`} />
+                <FaChevronDown className={`Zenrax-nav__caret ${mobileServicesOpen ? "open" : ""}`} />
               </button>
 
               {mobileServicesOpen && (
-                <div className="phpd-m__sub">
+                <div className="Zenrax-m__sub">
                   {SERVICES.map((g) => (
-                    <div key={g.key} className="phpd-m__group">
+                    <div key={g.key} className="Zenrax-m__group">
                       <button
                         type="button"
-                        className="phpd-m__sublink phpd-m__groupBtn"
+                        className="Zenrax-m__sublink Zenrax-m__groupBtn"
                         onClick={() => setMobileActiveGroup((prev) => (prev === g.key ? null : g.key))}
                         aria-expanded={mobileActiveGroup === g.key}
                       >
                         <span>{g.label}</span>
-                        <FaChevronDown className={`phpd-nav__caret ${mobileActiveGroup === g.key ? "open" : ""}`} />
+                        <FaChevronDown className={`Zenrax-nav__caret ${mobileActiveGroup === g.key ? "open" : ""}`} />
                       </button>
 
                       {mobileActiveGroup === g.key && (
-                        <div className="phpd-m__sub2">
-                          <NavLink to={g.to} className="phpd-m__sublink" onClick={closeAll}>
+                        <div className="Zenrax-m__sub2">
+                          <NavLink to={g.to} className="Zenrax-m__sublink" onClick={closeAll}>
                           {g.label}  →
                           </NavLink>
                           {g.items.map((it) => (
-                            <NavLink key={it.to} to={it.to} className="phpd-m__sublink" onClick={closeAll}>
+                            <NavLink key={it.to} to={it.to} className="Zenrax-m__sublink" onClick={closeAll}>
                               {it.label}
                             </NavLink>
                           ))}
@@ -289,18 +292,21 @@ export default function Navbar() {
                 </div>
               )}
 
-              <NavLink to="/products" className="phpd-m__link" onClick={closeAll}>
+              <NavLink to="/products" className="Zenrax-m__link" onClick={closeAll}>
                 Our Products
               </NavLink>
-              <NavLink to="/testimonials" className="phpd-m__link" onClick={closeAll}>
+              <NavLink to="/testimonials" className="Zenrax-m__link" onClick={closeAll}>
                 Testimonials
               </NavLink>
-              <NavLink to="/blogs" className="phpd-m__link" onClick={closeAll}>
+              <NavLink to="/blogs" className="Zenrax-m__link" onClick={closeAll}>
                 Blogs
+              </NavLink>
+              <NavLink to="/career" className="Zenrax-m__link" onClick={closeAll}>
+                Career
               </NavLink>
             </div>
 
-            <NavLink to="/contact" className="phpd-m__cta" onClick={closeAll}>
+            <NavLink to="/contact" className="Zenrax-m__cta" onClick={closeAll}>
               Get in Touch
             </NavLink>
           </div>

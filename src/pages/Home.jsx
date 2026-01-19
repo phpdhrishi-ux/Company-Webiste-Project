@@ -5,6 +5,8 @@ import {
   FaRocket,
   FaHandshake,
   FaUserCircle,
+  FaChevronLeft,
+  FaChevronRight
 } from "react-icons/fa";
 import homePageMeeting from "../assets/home_page_meeting.png";
 import "../components/GlassLayout.css";
@@ -30,25 +32,25 @@ const Home = () => {
       name: "Mahavir Khater",
       role: "Director, Buildbloc Square Bricks Pvt Ltd",
       feedback:
-        "We entrusted PHPD Hiring and Staffing Private Limited with the web design and development of our venture, and the results have been outstanding. Their team delivered a sleek, user-friendly website tailored to our requirements.",
+        "We entrusted Zenrax Hiring and Staffing Private Limited with the web design and development of our venture, and the results have been outstanding. Their team delivered a sleek, user-friendly website tailored to our requirements.",
     },
     {
       name: "Akash Kandharkar",
       role: "Founder, SudhaKamal IT Solutions Pvt Ltd",
       feedback:
-        "Partnering with PHPD Hiring and Staffing Private Limited has been a game-changer. Their team supported us in finding the right talent quickly and also provided reliable IT solutions.",
+        "Partnering with Zenrax Hiring and Staffing Private Limited has been a game-changer. Their team supported us in finding the right talent quickly and also provided reliable IT solutions.",
     },
     {
       name: "Yash Garje",
       role: "Director, Balaji Packaging Pvt Ltd",
       feedback:
-        "We partnered with PHPD for a custom software solution to manage our factory's inventory and production process. The results have been excellent. Their team delivered a user-friendly, efficient system.",
+        "We partnered with Zenrax for a custom software solution to manage our factory's inventory and production process. The results have been excellent. Their team delivered a user-friendly, efficient system.",
     },
   ];
 
   useEffect(() => {
-    const hero = document.getElementById("phpd-hero");
-    const spotlight = document.querySelector(".phpd-spotlight");
+    const hero = document.getElementById("Zenrax-hero");
+    const spotlight = document.querySelector(".Zenrax-spotlight");
     if (!hero || !spotlight) return;
 
     const handleMove = (e) => {
@@ -67,7 +69,7 @@ const Home = () => {
     <>
       {/* HERO SECTION */}
       <section
-        id="phpd-hero"
+        id="Zenrax-hero"
         style={{
           minHeight: "100vh",
           position: "relative",
@@ -76,7 +78,7 @@ const Home = () => {
           padding: "4rem 1rem 2rem",
         }}
       >
-        <div className="phpd-spotlight" />
+        <div className="Zenrax-spotlight" />
         <div
           style={{
             position: "absolute",
@@ -119,20 +121,20 @@ const Home = () => {
     to="/contact"
     className="primary-btn"
     style={{
-      height: "52px", // Fixed height for consistency
-      padding: "0 2.5rem", // Removed vertical padding to let height/flex handle it
+      height: "52px", 
+      padding: "0 2.5rem", 
       minWidth: "280px",
       borderRadius: "9999px",
       fontSize: "0.95rem",
       background: "linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%)",
       boxShadow: "0 4px 15px rgba(124, 58, 237, 0.3)",
-      border: "2px solid transparent", // Added transparent border to match total height of the second button
+      border: "2px solid transparent", 
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
       textDecoration: "none",
       color: "#ffffff",
-      boxSizing: "border-box" // Ensures border is included in height
+      boxSizing: "border-box" 
     }}
   >
     Start a Strategic Consultation Today
@@ -141,14 +143,14 @@ const Home = () => {
   <Link
     to="/services"
     style={{
-      height: "52px", // Matching fixed height
+      height: "52px", 
       padding: "0 2.5rem",
       minWidth: "280px",
       borderRadius: "9999px",
       fontSize: "0.95rem",
       fontWeight: "500",
-      border: "2px solid #7c3aed",
-      color: "#7c3aed",
+      border: "2px solid #455bc8",
+      color: "#455bc8",
       backgroundColor: "rgba(255, 255, 255, 0.6)",
       backdropFilter: "blur(8px)",
       textDecoration: "none",
@@ -159,12 +161,12 @@ const Home = () => {
       boxSizing: "border-box"
     }}
     onMouseEnter={(e) => {
-      e.currentTarget.style.backgroundColor = "#7c3aed";
+      e.currentTarget.style.backgroundColor = "#455bc8";
       e.currentTarget.style.color = "#ffffff";
     }}
     onMouseLeave={(e) => {
       e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.6)";
-      e.currentTarget.style.color = "#7c3aed";
+      e.currentTarget.style.color = "#455bc8";
     }}
   >
     Our Consulting & Technology Services
@@ -181,8 +183,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* INTRO SECTION - ADDED AS IT WAS */}
-<section className="bg-accent2" style={{ padding: "4rem 0 1rem 0" }}> {/* Reduced bottom padding */}
+      {/* INTRO SECTION */}
+<section className="bg-accent2" style={{ padding: "4rem 0 1rem 0" }}>
   <div className="wrapper">
     <div className="grid-2" style={{ alignItems: "center", gap: "2rem" }}>
       <div style={{ maxWidth: "32rem" }}>
@@ -194,7 +196,7 @@ const Home = () => {
         </h2>
 
         <p className="desc" style={{ marginBottom: "1.25rem", lineHeight: 1.7 }}>
-        PHPD helps businesses build structure and confidence through strategy, governance, 
+        Zenrax helps businesses build structure and confidence through strategy, governance, 
         documentation, finance control, and technology delivery—so growth stays compliant, repeatable,
          and scalable. Integrated consulting across Strategy, People, Process & Technology, Strong focus on
           Governance, HR, SOPs & Audit, Long-term advisory partnership approach
@@ -208,11 +210,11 @@ const Home = () => {
           style={{
             width: "100%",
             height: "auto",
-            maxHeight: "450px", // Slightly reduced max height
-            objectFit: "cover", // Changed to cover for a cleaner look on mobile
+            maxHeight: "450px", 
+            objectFit: "cover", 
             borderRadius: "1.25rem",
             boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
-            display: "block" // Removes bottom gap
+            display: "block" 
           }}
         />
       </div>
@@ -221,9 +223,9 @@ const Home = () => {
 </section>
 
       {/* SERVICES SHOWCASE */}
-      <section className="bg-accent1" style={{ padding: "1rem 0 4rem 0", position: "relative" }}> {/* Reduced top padding */}
+      <section className="bg-accent1" style={{ padding: "1rem 0 4rem 0", position: "relative" }}>
   <div className="wrapper">
-    <div style={{ textAlign: "center", marginBottom: "3rem" }}> {/* Reduced bottom margin */}
+    <div style={{ textAlign: "center", marginBottom: "3rem" }}>
       <h2 className="heading-2 text-gradient" style={{marginTop:"5rem"}}>Our Consulting & Technology Services</h2>
       <p className="desc" style={{ maxWidth: "44rem", margin: "0.5rem auto 0" }}>
         Build your business with structure and confidence across every growth stage.
@@ -256,58 +258,152 @@ const Home = () => {
         </div>
       </section>
 
-{/* TESTIMONIALS SECTION */}
-<section className="section-padding" style={{ overflow: "hidden", background: "#f8fafc", paddingBottom: "2rem" }}>
+{/* TESTIMONIALS SECTION WITH IMPLEMENTED LOGIC */}
+<section className="section-padding" style={{ overflow: "hidden", background: "#fafbff", padding: "4rem 0" }}>
   <div className="wrapper">
     
-    {/* Centered Header Container */}
     <div style={{ 
       display: "flex", 
       flexDirection: "column", 
       alignItems: "center",    
       textAlign: "center",     
-      marginBottom: "2rem", // Reduced from 3rem
+      marginBottom: "3rem",
       gap: "1rem"
     }}>
-      <div className="gradient-rounded-text-box" style={{ margin: "0 auto" }}>
+      <div className="gradient-rounded-text-box" style={{ margin: "0 auto", background: "rgba(69, 91, 200, 0.08)", color: "#455bc8", border: "1px solid rgba(69, 91, 200, 0.15)" }}>
         Testimonials
       </div>
-      <h2 className="heading-2" style={{ margin: 0 }}>What Our Clients Say</h2>
+      <h2 className="heading-2" style={{ margin: 0, color: "#374492" }}>What Our Clients Say</h2>
     </div>
 
-    {/* The Scroll Container */}
-    <div className="testimonial-grid-container" ref={scrollRef} style={{ marginBottom: "2rem" }}>
-      {testimonials.map((t, idx) => (
-        <TestimonialCard key={idx} t={t} />
-      ))}
-    </div>
+    <div style={{ position: "relative", maxWidth: "1200px", margin: "0 auto" }}>
+      {/* Navigation Buttons */}
+      <button onClick={() => scroll("left")} className="home-nav-btn left">
+        <FaChevronLeft size={16} />
+      </button>
+      <button onClick={() => scroll("right")} className="home-nav-btn right">
+        <FaChevronRight size={16} />
+      </button>
 
-    {/* Navigation Buttons Centered */}
-    <div style={{ 
-      display: "flex", 
-      justifyContent: "center", 
-      alignItems: "center", 
-      gap: "1.5rem", 
-      marginTop: "1rem" 
-    }}>
-      <button 
-        onClick={() => scroll("left")} 
-        className="nav-btn" 
-        style={{ cursor: "pointer" }}
-        aria-label="Previous"
-      >
-        &#8592;
-      </button>
-      <button 
-        onClick={() => scroll("right")} 
-        className="nav-btn" 
-        style={{ cursor: "pointer" }}
-        aria-label="Next"
-      >
-        &#8594;
-      </button>
+      {/* The Scroll Container */}
+      <div className="testimonial-grid-container" ref={scrollRef}>
+        {testimonials.map((t, idx) => (
+          <div key={idx} className="testimonial-card-item">
+            <div className="home-testimonial-card">
+              <div style={{ display: "flex", alignItems: "center", gap: "0.85rem", marginBottom: "1.25rem" }}>
+                <FaUserCircle size={40} style={{ color: "#455bc8" }} />
+                <div style={{textAlign: "left"}}>
+                  <h4 style={{ margin: 0, fontSize: "1rem", color: "#0f172a" }}>{t.name}</h4>
+                  <p style={{ margin: 0, fontSize: "0.75rem", color: "#455bc8", fontWeight: 500 }}>{t.role}</p>
+                </div>
+              </div>
+              <p style={{ fontSize: "0.85rem", lineHeight: 1.6, color: "#475569", fontStyle: "italic", margin: 0, textAlign: "left" }}>
+                "{t.feedback}"
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
+
+  <style jsx>{`
+    .testimonial-grid-container {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none; 
+      -ms-overflow-style: none;
+      padding: 1rem 0.5rem 2rem;
+    }
+
+    .testimonial-grid-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .testimonial-card-item {
+      flex: 0 0 100%; 
+      scroll-snap-align: center;
+    }
+
+    .home-testimonial-card {
+      background: #ffffff;
+      border: 1px solid #ecedf6;
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      box-shadow: 0 10px 25px rgba(69, 91, 200, 0.05);
+      height: 100%;
+    }
+
+    .home-nav-btn {
+      position: absolute;
+      bottom: -65px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid #ecedf6;
+      background: white;
+      color: #455bc8;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .home-nav-btn:hover {
+      background: #455bc8;
+      color: white;
+      border-color: #455bc8;
+    }
+
+    .home-nav-btn.left { left: 25%; }
+    .home-nav-btn.right { right: 25%; }
+
+    @media (min-width: 1024px) {
+      .testimonial-grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow-x: visible;
+        gap: 2rem;
+      }
+
+      .testimonial-card-item {
+        flex: none;
+      }
+
+      .home-nav-btn {
+        display: none; 
+      }
+      
+      .home-testimonial-card {
+        padding: 2.25rem;
+      }
+    }
+
+
+    .home-testimonial-card {
+      /* ... keep your existing styles ... */
+      border: 1px solid #ecedf6; /* Default border */
+      transition: all 0.3s ease; /* Ensures smooth transition */
+    }
+
+    .home-testimonial-card:hover {
+      border-color: #455bc8; /* Changes to your brand blue on hover */
+      border-width: 1px; /* Keeps size consistent */
+      box-shadow: 0 15px 35px rgba(69, 91, 200, 0.12); /* Adds a soft brand-colored glow */
+      transform: translateY(-5px); /* Optional: slight lift effect */
+    }
+
+    @media (max-width: 480px) {
+      .home-nav-btn.left { left: 20%; }
+      .home-nav-btn.right { right: 20%; }
+    }
+
+  `}</style>
 </section>
     </>
   );
@@ -325,7 +421,7 @@ const HeroStat = ({ icon: Icon, label, value }) => (
     boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
     minWidth: "250px"
   }}>
-    <div style={{ background: "linear-gradient(135deg, #7c3aed, #4c1d95)", padding: "8px", borderRadius: "8px", color: "white" }}>
+    <div style={{ background: "#455bc8", padding: "8px", borderRadius: "8px", color: "white" }}>
       <Icon size={18} />
     </div>
     <div style={{ textAlign: "left" }}>
@@ -351,49 +447,14 @@ const ShowcaseCard = ({ title, subtitle, image, description, to }) => {
       <img src={image} alt={title} style={{ width: "100%", height: "200px", objectFit: "cover" }} />
       <div style={{ padding: "1.5rem", display: "flex", flexDirection: "column", flex: 1 }}>
         <h3 style={{ margin: 0, fontSize: "1.4rem" }}>{title}</h3>
-        <p style={{ color: "#7c3aed", fontWeight: 600, fontSize: "0.9rem", marginBottom: "1rem" }}>{subtitle}</p>
+        <p style={{ color: "#455bc8", fontWeight: 600, fontSize: "0.9rem", marginBottom: "1rem" }}>{subtitle}</p>
         <p style={{ fontSize: "0.95rem", color: "#4b5563", marginBottom: "1.5rem" }}>{description}</p>
-        <Link to={to} className="primary-btn" style={{ marginTop: "auto", textAlign: "center", borderRadius: "9999px", padding: "0.6rem" }}>
+        <Link to={to} className="primary-btn" style={{ marginTop: "auto", textAlign: "center", borderRadius: "9999px", padding: "0.6rem", background: "#455bc8" }}>
           Read More
         </Link>
       </div>
     </div>
   );
 };
-
-const TestimonialCard = ({ t }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <div 
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="testimonial-card-item" 
-      style={{
-        padding: "2rem",
-        background: "white",
-        borderRadius: "16px",
-        border: `1px solid ${isHovered ? "#7c3aed" : "rgba(124,58,237,0.1)"}`,
-        boxShadow: isHovered 
-          ? "0 20px 40px rgba(124,58,237,0.12)" 
-          : "0 4px 12px rgba(0,0,0,0.03)",
-        transform: isHovered ? "translateY(-10px)" : "translateY(0)",
-        transition: "all 0.4s ease",
-        display: "flex",
-        flexDirection: "column",
-        textAlign: "left"
-      }}
-    >
-      <p style={{ fontStyle: "italic", marginBottom: "1.5rem", color: "#4b5563", lineHeight: "1.6" }}>
-        "{t.feedback}"
-      </p>
-      <div style={{ marginTop: "auto" }}>
-        <h4 style={{ margin: 0, color: "#111827", fontWeight: "600" }}>{t.name}</h4>
-        <p style={{ margin: 0, fontSize: "0.85rem", color: "#7c3aed" }}>{t.role}</p>
-      </div>
-    </div>
-  );
-};
-
 
 export default Home;

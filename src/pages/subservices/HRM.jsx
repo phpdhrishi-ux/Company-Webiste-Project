@@ -7,7 +7,7 @@ export default function HRM() {
       pill="Business Consulting · HR"
       title="HRM & Workforce Solutions"
       serviceTag="HRM Solutions"
-      intro="PHPD offers comprehensive workforce solutions designed to help organizations build and scale teams efficiently using pre-vetted talent and industry insights."
+      intro="Zenrax offers comprehensive workforce solutions designed to help organizations build and scale teams efficiently using pre-vetted talent and industry insights."
       helpGrid={[
         { title: "Permanent Staffing", desc: "Strategic hiring focusing on technical competence and cultural alignment." },
         { title: "Executive Search", desc: "Leadership search supported by structured assessments and talent mapping." },

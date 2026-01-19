@@ -12,7 +12,7 @@ const Industries = () => (
           Built for B2B, SaaS, and Services
         </h1>
         <p className="desc">
-          PHPD works with B2B SaaS, IT services, and founder‑led companies that
+          Zenrax works with B2B SaaS, IT services, and founder‑led companies that
           need better systems, not just more tools.
         </p>
       </div>

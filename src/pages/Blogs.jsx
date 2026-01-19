@@ -52,37 +52,48 @@ const Blogs = () => {
 
   return (
     <main
-      className="bg-accent1 section-padding"
-      style={{ position: "relative" }}
+      className="section-padding"
+      style={{ position: "relative", background: "#fafbff" }}
     >
-      <div
-        className="bg-radial-overlay"
-        style={{ position: "absolute", inset: 0, opacity: 0.6 }}
-      />
-
       <div className="wrapper" style={{ position: "relative", zIndex: 1 }}>
-        {/* Hero / heading */}
-        <section style={{ marginBottom: "2.75rem" }}>
-          <div
-            className="gradient-rounded-text-box"
-            style={{ marginBottom: "1.5rem" }}
-          >
+        
+        {/* HEADER SECTION - Centered Stack */}
+        <section style={{ 
+          display: "flex", 
+          flexDirection: "column", 
+          alignItems: "center", 
+          textAlign: "center", 
+          marginBottom: "2.75rem" 
+        }}>
+          {/* Blogs Pill on Top */}
+          <div className="gradient-rounded-text-box" style={{ 
+            margin: "0 0 1.25rem 0", // Margin bottom to space it from the heading
+            background: "rgba(69, 91, 200, 0.08)",
+            color: "#455bc8",
+            border: "1px solid rgba(69, 91, 200, 0.15)",
+            padding: "0.4rem 1.25rem",
+            borderRadius: "99px",
+            fontSize: "0.8rem",
+            fontWeight: 600,
+            width: "fit-content"
+          }}>
             Blogs
           </div>
+
           <h1
             className="heading-2 text-gradient"
             style={{ marginBottom: "1rem" }}
           >
             Insights for Builders & Hiring Teams
           </h1>
-          <p className="desc" style={{ maxWidth: "42rem" }}>
+          <p className="desc" style={{ maxWidth: "42rem", margin: "0 auto" }}>
             Short, practical essays on product, hiring workflows, and automation
-            from PHPD’s work with founders and teams.
+            from Zenrax’s work with founders and teams.
           </p>
         </section>
 
-        {/* Category pill filter */}
-        <div className="blog-filter-row">
+        {/* Category pill filter - Centered */}
+        <div className="blog-filter-row" style={{ justifyContent: "center" }}>
           <div className="blog-filter-shell">
             {BLOG_CATEGORIES.map((cat) => {
               const active = cat === activeCategory;
@@ -110,41 +121,35 @@ const Blogs = () => {
           </section>
         ) : (
           <section style={{ textAlign: "center", padding: "4rem 0" }}>
-            <h3
-              style={{
-                fontSize: "1.1rem",
-                fontWeight: 600,
-                marginBottom: "0.5rem",
-                color: "#111827",
-              }}
-            >
-              No articles found for this category.
+            <h3 style={{ fontSize: "1.1rem", fontWeight: 600, color: "#111827" }}>
+              No articles found.
             </h3>
-            <p className="desc">
-              Try another category or check back later as more PHPD articles go
-              live.
-            </p>
           </section>
         )}
       </div>
+
+      {/* Added Hover Border Logic via Styled JSX to match your CSS classes */}
+      <style jsx>{`
+        .blog-card {
+            border: 1px solid #ecedf6;
+            transition: all 0.3s ease;
+            background: #ffffff;
+        }
+        .blog-card:hover {
+            border-color: #455bc8;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(69, 91, 200, 0.08);
+        }
+      `}</style>
     </main>
   );
 };
 
 const BlogCard = ({ post }) => (
-  <article
-    className="card blog-card"
-  >
-    {/* Image */}
+  <article className="card blog-card">
     <div className="blog-card-image-wrap">
-      <img
-        src={post.image}
-        alt={post.title}
-        className="blog-image"
-      />
+      <img src={post.image} alt={post.title} className="blog-image" />
     </div>
-
-    {/* Content */}
     <div className="blog-card-body">
       <div className="blog-meta">
         <span className="blog-meta-pill">{post.category}</span>
@@ -153,18 +158,11 @@ const BlogCard = ({ post }) => (
         <span>•</span>
         <span>{post.readTime}</span>
       </div>
-
       <h3 className="blog-title">{post.title}</h3>
-
       <p className="desc blog-excerpt">{post.excerpt}</p>
-
       <div style={{ marginTop: "auto", paddingTop: "0.6rem" }}>
-        <a
-          href={post.url}
-          className="blog-link"
-        >
-          Read article
-          <span style={{ fontSize: "1rem" }}>↗</span>
+        <a href={post.url} className="blog-link">
+          Read article <span style={{ fontSize: "1rem" }}>↗</span>
         </a>
       </div>
     </div>

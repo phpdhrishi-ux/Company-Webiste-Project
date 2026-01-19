@@ -7,7 +7,7 @@ export default function AccountingFinance() {
       pill="Business Consulting · Finance"
       title="Accounting & Finance Consulting Services"
       serviceTag="Finance & Accounting"
-      intro="Strong financial discipline is the foundation of sustainable business growth. At PHPD, we help organizations gain financial clarity, improve control, and make confident, data-driven decisions."
+      intro="Strong financial discipline is the foundation of sustainable business growth. At Zenrax, we help organizations gain financial clarity, improve control, and make confident, data-driven decisions."
       helpGrid={[
         { title: "Financial Planning & Budgeting", desc: "Structured budgets and reliable financial forecasts aligned with growth plans." },
         { title: "Cash Flow Management", desc: "Monitoring movements, improving liquidity, and planning for funding needs." },

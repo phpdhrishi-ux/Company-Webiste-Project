@@ -1,14 +1,14 @@
 ```markdown
-# PHPD IT Services - Virtual CIO Website
+# Zenrax Consultancy Services - Virtual CIO Website
 
-React + Vite + Bootstrap + Ant Design website for PHPD IT Services, positioned as Virtual CIO and IT partner for SMEs.
+React + Vite + Bootstrap + Ant Design website for Zenrax Consultancy Services, positioned as Virtual CIO and IT partner for SMEs.
 
 ## 🚀 Quick Start
 
 ```
 # Clone / download project
-git clone <repo-url> phpd-it-services
-cd phpd-it-services
+git clone <repo-url> Zenrax-it-services
+cd Zenrax-it-services
 
 # Install dependencies
 npm install
@@ -38,7 +38,7 @@ Live demo: `http://localhost:5173`
 ## 📁 Project Structure
 
 ```
-phpd-it-services/
+Zenrax-it-services/
 ├── public/
 │   └── favicon.ico
 ├── src/
@@ -182,7 +182,7 @@ src/components/home/Leadership.jsx # Founder photo/bio
 
 ## 📞 Contact
 
-For PHPD IT Services business inquiries:
+For Zenrax Consultancy Services business inquiries:
 - **Virtual CIO Consultation**: `/contact`
 - **Pune, India** based
 
@@ -192,7 +192,7 @@ MIT License - see `LICENSE` file or contact for commercial use.
 
 ---
 
-**Built with ❤️ for PHPD IT Services - Your Virtual CIO Partner**
+**Built with ❤️ for Zenrax Consultancy Services - Your Virtual CIO Partner**
 
 *Last updated: December 2025*
 ```
