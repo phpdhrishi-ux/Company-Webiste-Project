@@ -200,8 +200,7 @@ const PortfolioCard = ({ project }) => (
         flexDirection: "column",
         height: "100%",
         borderRadius: "1.75rem",
-        background:
-          "linear-gradient(145deg, #ffffff, rgba(248,250,252,0.95))",
+        background: "linear-gradient(145deg, #ffffff, rgba(248,250,252,0.95))",
         boxShadow:
           "0 22px 60px rgba(148,163,184,0.28), 0 0 0 1px rgba(226,232,240,0.9)",
         border: "none",
@@ -314,66 +313,65 @@ const PortfolioCard = ({ project }) => (
             marginTop: "0.6rem",
           }}
         >
-<a
-  href={project.url}
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "0.35rem",
-    padding: "0.75rem 1.9rem",
-    borderRadius: "9999px",
-    border: "1px solid rgba(124,58,237,0.4)",
-    background:
-      "linear-gradient(135deg, rgba(124,58,237,0.06), rgba(255,255,255,0.95))",
-    color: "#4c1d95",
-    fontSize: "0.9rem",
-    fontWeight: 500,
-    letterSpacing: "0.02em",
-    cursor: "pointer",
-    boxShadow: "0 10px 25px rgba(124,58,237,0.25)",
-    transition:
-      "transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease",
-    textDecoration: "none",
-  }}
-  onMouseOver={(e) => {
-    e.currentTarget.style.transform = "translateY(-2px)";
-    e.currentTarget.style.boxShadow =
-      "0 14px 32px rgba(124,58,237,0.35)";
-    e.currentTarget.style.background =
-      "linear-gradient(135deg, rgba(124,58,237,0.12), #ffffff)";
-    e.currentTarget.style.borderColor = "#7c3aed";
-    e.currentTarget.style.color = "#4c1d95";
-  }}
-  onMouseOut={(e) => {
-    e.currentTarget.style.transform = "translateY(0)";
-    e.currentTarget.style.boxShadow =
-      "0 10px 25px rgba(124,58,237,0.25)";
-    e.currentTarget.style.background =
-      "linear-gradient(135deg, rgba(124,58,237,0.06), rgba(255,255,255,0.95))";
-    e.currentTarget.style.borderColor = "rgba(124,58,237,0.4)";
-    e.currentTarget.style.color = "#4c1d95";
-  }}
->
-  Visit Project
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="h-4 w-4"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-    />
-  </svg>
-</a>
-
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.35rem",
+              padding: "0.75rem 1.9rem",
+              borderRadius: "9999px",
+              border: "1px solid rgba(124,58,237,0.4)",
+              background:
+                "linear-gradient(135deg, rgba(124,58,237,0.06), rgba(255,255,255,0.95))",
+              color: "#4c1d95",
+              fontSize: "0.9rem",
+              fontWeight: 500,
+              letterSpacing: "0.02em",
+              cursor: "pointer",
+              boxShadow: "0 10px 25px rgba(124,58,237,0.25)",
+              transition:
+                "transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease",
+              textDecoration: "none",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = "translateY(-2px)";
+              e.currentTarget.style.boxShadow =
+                "0 14px 32px rgba(124,58,237,0.35)";
+              e.currentTarget.style.background =
+                "linear-gradient(135deg, rgba(124,58,237,0.12), #ffffff)";
+              e.currentTarget.style.borderColor = "#7c3aed";
+              e.currentTarget.style.color = "#4c1d95";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow =
+                "0 10px 25px rgba(124,58,237,0.25)";
+              e.currentTarget.style.background =
+                "linear-gradient(135deg, rgba(124,58,237,0.06), rgba(255,255,255,0.95))";
+              e.currentTarget.style.borderColor = "rgba(124,58,237,0.4)";
+              e.currentTarget.style.color = "#4c1d95";
+            }}
+          >
+            Visit Project
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              />
+            </svg>
+          </a>
 
           <span
             style={{

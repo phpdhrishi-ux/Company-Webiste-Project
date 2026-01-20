@@ -57,22 +57,41 @@ const Services = () => {
   ];
 
   return (
-    <main className="bg-accent1 section-padding" style={{ position: "relative" }}>
-      <div className="bg-radial-overlay" style={{ position: "absolute", inset: 0, opacity: 0.6 }} />
+    <main
+      className="bg-accent1 section-padding"
+      style={{ position: "relative" }}
+    >
+      <div
+        className="bg-radial-overlay"
+        style={{ position: "absolute", inset: 0, opacity: 0.6 }}
+      />
 
       <div className="wrapper" style={{ position: "relative", zIndex: 1 }}>
         {/* Header */}
-        <div style={{ maxWidth: "60rem", margin: "0 auto 3rem", textAlign: "center" }}>
-          <div className="gradient-rounded-text-box" style={{ marginBottom: "1.5rem" }}>
+        <div
+          style={{
+            maxWidth: "60rem",
+            margin: "0 auto 3rem",
+            textAlign: "center",
+          }}
+        >
+          <div
+            className="gradient-rounded-text-box"
+            style={{ marginBottom: "1.5rem" }}
+          >
             Our Services
           </div>
 
-          <h1 className="heading-2 text-gradient" style={{ marginBottom: "1.25rem" }}>
+          <h1
+            className="heading-2 text-gradient"
+            style={{ marginBottom: "1.25rem" }}
+          >
             Services Built for Growth & Execution
           </h1>
 
           <p className="desc" style={{ margin: 0 }}>
-            Choose a service track below—each one is designed to improve clarity, control, and delivery.
+            Choose a service track below—each one is designed to improve
+            clarity, control, and delivery.
           </p>
         </div>
 
@@ -89,8 +108,15 @@ const Services = () => {
         >
           {cards.map((card) => (
             <article key={card.title} className="service-showcase-card">
-              <div className="service-showcase-media" style={{ paddingTop: "32%" }}>
-                <img src={card.image} alt={card.title} className="service-showcase-img" />
+              <div
+                className="service-showcase-media"
+                style={{ paddingTop: "32%" }}
+              >
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className="service-showcase-img"
+                />
                 <div className="service-showcase-overlay" />
               </div>
 
@@ -109,7 +135,9 @@ const Services = () => {
                 </p>
 
                 {/* Key points */}
-                <div style={{ marginTop: "1rem", display: "grid", gap: "0.55rem" }}>
+                <div
+                  style={{ marginTop: "1rem", display: "grid", gap: "0.55rem" }}
+                >
                   {card.points.map((p) => (
                     <KeyPoint key={p.text} icon={p.icon} text={p.text} />
                   ))}
@@ -126,9 +154,16 @@ const Services = () => {
         </div>
 
         {/* Optional: simple note */}
-        <div style={{ maxWidth: "60rem", margin: "2.25rem auto 0", textAlign: "center" }}>
+        <div
+          style={{
+            maxWidth: "60rem",
+            margin: "2.25rem auto 0",
+            textAlign: "center",
+          }}
+        >
           <p className="desc" style={{ margin: 0 }}>
-            Want a custom package? Combine services into a practical roadmap with execution support.
+            Want a custom package? Combine services into a practical roadmap
+            with execution support.
           </p>
         </div>
       </div>
@@ -139,10 +174,19 @@ const Services = () => {
 const KeyPoint = ({ icon: Icon, text }) => {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "0.55rem" }}>
-      <span className="service-showcase-iconbox" style={{ width: 30, height: 30 }}>
+      <span
+        className="service-showcase-iconbox"
+        style={{ width: 30, height: 30 }}
+      >
         <Icon size={14} />
       </span>
-      <span style={{ fontSize: "0.92rem", fontWeight: 400, color: "var(--Zenrax-muted)" }}>
+      <span
+        style={{
+          fontSize: "0.92rem",
+          fontWeight: 400,
+          color: "var(--Zenrax-muted)",
+        }}
+      >
         {text}
       </span>
     </div>

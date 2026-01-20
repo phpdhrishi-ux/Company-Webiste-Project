@@ -56,27 +56,31 @@ const Blogs = () => {
       style={{ position: "relative", background: "#fafbff" }}
     >
       <div className="wrapper" style={{ position: "relative", zIndex: 1 }}>
-        
         {/* HEADER SECTION - Centered Stack */}
-        <section style={{ 
-          display: "flex", 
-          flexDirection: "column", 
-          alignItems: "center", 
-          textAlign: "center", 
-          marginBottom: "2.75rem" 
-        }}>
+        <section
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+            marginBottom: "2.75rem",
+          }}
+        >
           {/* Blogs Pill on Top */}
-          <div className="gradient-rounded-text-box" style={{ 
-            margin: "0 0 1.25rem 0", // Margin bottom to space it from the heading
-            background: "rgba(69, 91, 200, 0.08)",
-            color: "#455bc8",
-            border: "1px solid rgba(69, 91, 200, 0.15)",
-            padding: "0.4rem 1.25rem",
-            borderRadius: "99px",
-            fontSize: "0.8rem",
-            fontWeight: 600,
-            width: "fit-content"
-          }}>
+          <div
+            className="gradient-rounded-text-box"
+            style={{
+              margin: "0 0 1.25rem 0", // Margin bottom to space it from the heading
+              background: "rgba(69, 91, 200, 0.08)",
+              color: "#455bc8",
+              border: "1px solid rgba(69, 91, 200, 0.15)",
+              padding: "0.4rem 1.25rem",
+              borderRadius: "99px",
+              fontSize: "0.8rem",
+              fontWeight: 600,
+              width: "fit-content",
+            }}
+          >
             Blogs
           </div>
 
@@ -121,7 +125,9 @@ const Blogs = () => {
           </section>
         ) : (
           <section style={{ textAlign: "center", padding: "4rem 0" }}>
-            <h3 style={{ fontSize: "1.1rem", fontWeight: 600, color: "#111827" }}>
+            <h3
+              style={{ fontSize: "1.1rem", fontWeight: 600, color: "#111827" }}
+            >
               No articles found.
             </h3>
           </section>
@@ -131,14 +137,14 @@ const Blogs = () => {
       {/* Added Hover Border Logic via Styled JSX to match your CSS classes */}
       <style jsx>{`
         .blog-card {
-            border: 1px solid #ecedf6;
-            transition: all 0.3s ease;
-            background: #ffffff;
+          border: 1px solid #ecedf6;
+          transition: all 0.3s ease;
+          background: #ffffff;
         }
         .blog-card:hover {
-            border-color: #455bc8;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(69, 91, 200, 0.08);
+          border-color: #455bc8;
+          transform: translateY(-5px);
+          box-shadow: 0 15px 35px rgba(69, 91, 200, 0.08);
         }
       `}</style>
     </main>

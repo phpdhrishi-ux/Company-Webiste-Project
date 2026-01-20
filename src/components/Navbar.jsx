@@ -10,11 +10,23 @@ const SERVICES = [
     label: "Business Consulting",
     to: "/consulting",
     items: [
-      { label: "Business Operations", to: "/services/business-consulting/business-operations" },
-      { label: "Accounting & Finance", to: "/services/business-consulting/accounting-finance" },
+      {
+        label: "Business Operations",
+        to: "/services/business-consulting/business-operations",
+      },
+      {
+        label: "Accounting & Finance",
+        to: "/services/business-consulting/accounting-finance",
+      },
       { label: "HRM", to: "/services/business-consulting/hrm" },
-      { label: "Internal Audit & Governance", to: "/services/business-consulting/internal-audit-governance" },
-      { label: "SOP Drafting & Documentation", to: "/services/business-consulting/sop-drafting-documentation" },
+      {
+        label: "Internal Audit & Governance",
+        to: "/services/business-consulting/internal-audit-governance",
+      },
+      {
+        label: "SOP Drafting & Documentation",
+        to: "/services/business-consulting/sop-drafting-documentation",
+      },
     ],
   },
   {
@@ -22,8 +34,14 @@ const SERVICES = [
     label: "vCIO / vCFO",
     to: "/vcio-vcfo",
     items: [
-      { label: "vCIO (Virtual Chief Information Officer)", to: "/services/vcio-vcfo/vcio" },
-      { label: "vCFO (Virtual Chief Finance Officer)", to: "/services/vcio-vcfo/vcfo" },
+      {
+        label: "vCIO (Virtual Chief Information Officer)",
+        to: "/services/vcio-vcfo/vcio",
+      },
+      {
+        label: "vCFO (Virtual Chief Finance Officer)",
+        to: "/services/vcio-vcfo/vcfo",
+      },
     ],
   },
   {
@@ -31,11 +49,26 @@ const SERVICES = [
     label: "IT Development",
     to: "/it-development",
     items: [
-      { label: "Digital Solutions", to: "/services/it-development/digital-solutions" },
-      { label: "Custom Software Development", to: "/services/it-development/custom-software-development" },
-      { label: "Web & App Development", to: "/services/it-development/web-app-development" },
-      { label: "ERP & CRM Development", to: "/services/it-development/erp-crm-development" },
-      { label: "Cloud Solutions", to: "/services/it-development/cloud-solutions" },
+      {
+        label: "Digital Solutions",
+        to: "/services/it-development/digital-solutions",
+      },
+      {
+        label: "Custom Software Development",
+        to: "/services/it-development/custom-software-development",
+      },
+      {
+        label: "Web & App Development",
+        to: "/services/it-development/web-app-development",
+      },
+      {
+        label: "ERP & CRM Development",
+        to: "/services/it-development/erp-crm-development",
+      },
+      {
+        label: "Cloud Solutions",
+        to: "/services/it-development/cloud-solutions",
+      },
     ],
   },
 ];
@@ -116,7 +149,12 @@ export default function Navbar() {
       <div className="Zenrax-nav__shell">
         <div className="Zenrax-nav__bar">
           {/* LEFT: Logo */}
-          <NavLink to="/" className="Zenrax-nav__logo" aria-label="Zenrax Home" onClick={closeAll}>
+          <NavLink
+            to="/"
+            className="Zenrax-nav__logo"
+            aria-label="Zenrax Home"
+            onClick={closeAll}
+          >
             <img src={logo} alt="Zenrax" />
           </NavLink>
 
@@ -139,17 +177,23 @@ export default function Navbar() {
             >
               <button
                 type="button"
-                className={`Zenrax-nav__link Zenrax-nav__ddTrigger ${servicesOpen ? "is-open" : ""}`}
+                className={`Zenrax-nav__link Zenrax-nav__ddTrigger ${
+                  servicesOpen ? "is-open" : ""
+                }`}
                 aria-haspopup="menu"
                 aria-expanded={servicesOpen}
                 onClick={() => setServicesOpen((v) => !v)}
               >
                 <span>Services</span>
-                <FaChevronDown className={`Zenrax-nav__caret ${servicesOpen ? "open" : ""}`} />
+                <FaChevronDown
+                  className={`Zenrax-nav__caret ${servicesOpen ? "open" : ""}`}
+                />
               </button>
 
               <div
-                className={`Zenrax-nav__ddMenu Zenrax-nav__mega ${servicesOpen ? "show" : ""}`}
+                className={`Zenrax-nav__ddMenu Zenrax-nav__mega ${
+                  servicesOpen ? "show" : ""
+                }`}
                 role="menu"
                 onMouseEnter={openServices}
                 onMouseLeave={closeServicesSoon}
@@ -163,7 +207,9 @@ export default function Navbar() {
                         <button
                           key={g.key}
                           type="button"
-                          className={`Zenrax-nav__megaGroup ${isActive ? "is-active" : ""}`}
+                          className={`Zenrax-nav__megaGroup ${
+                            isActive ? "is-active" : ""
+                          }`}
                           onMouseEnter={() => setActiveServiceKey(g.key)}
                           onFocus={() => setActiveServiceKey(g.key)}
                           onClick={() => setActiveServiceKey(g.key)}
@@ -215,13 +261,17 @@ export default function Navbar() {
               Blogs
             </NavLink>
             <NavLink to="/career" className="Zenrax-nav__link">
-                Career
+              Career
             </NavLink>
           </nav>
 
           {/* RIGHT: CTA + Hamburger */}
           <div className="Zenrax-nav__right">
-            <NavLink to="/contact" className="Zenrax-nav__cta" onClick={closeAll}>
+            <NavLink
+              to="/contact"
+              className="Zenrax-nav__cta"
+              onClick={closeAll}
+            >
               Get in Touch
             </NavLink>
 
@@ -247,7 +297,11 @@ export default function Navbar() {
               <NavLink to="/" className="Zenrax-m__link" onClick={closeAll}>
                 Home
               </NavLink>
-              <NavLink to="/about" className="Zenrax-m__link" onClick={closeAll}>
+              <NavLink
+                to="/about"
+                className="Zenrax-m__link"
+                onClick={closeAll}
+              >
                 About
               </NavLink>
 
@@ -258,7 +312,11 @@ export default function Navbar() {
                 aria-expanded={mobileServicesOpen}
               >
                 <span>Services</span>
-                <FaChevronDown className={`Zenrax-nav__caret ${mobileServicesOpen ? "open" : ""}`} />
+                <FaChevronDown
+                  className={`Zenrax-nav__caret ${
+                    mobileServicesOpen ? "open" : ""
+                  }`}
+                />
               </button>
 
               {mobileServicesOpen && (
@@ -268,20 +326,37 @@ export default function Navbar() {
                       <button
                         type="button"
                         className="Zenrax-m__sublink Zenrax-m__groupBtn"
-                        onClick={() => setMobileActiveGroup((prev) => (prev === g.key ? null : g.key))}
+                        onClick={() =>
+                          setMobileActiveGroup((prev) =>
+                            prev === g.key ? null : g.key
+                          )
+                        }
                         aria-expanded={mobileActiveGroup === g.key}
                       >
                         <span>{g.label}</span>
-                        <FaChevronDown className={`Zenrax-nav__caret ${mobileActiveGroup === g.key ? "open" : ""}`} />
+                        <FaChevronDown
+                          className={`Zenrax-nav__caret ${
+                            mobileActiveGroup === g.key ? "open" : ""
+                          }`}
+                        />
                       </button>
 
                       {mobileActiveGroup === g.key && (
                         <div className="Zenrax-m__sub2">
-                          <NavLink to={g.to} className="Zenrax-m__sublink" onClick={closeAll}>
-                          {g.label}  →
+                          <NavLink
+                            to={g.to}
+                            className="Zenrax-m__sublink"
+                            onClick={closeAll}
+                          >
+                            {g.label} →
                           </NavLink>
                           {g.items.map((it) => (
-                            <NavLink key={it.to} to={it.to} className="Zenrax-m__sublink" onClick={closeAll}>
+                            <NavLink
+                              key={it.to}
+                              to={it.to}
+                              className="Zenrax-m__sublink"
+                              onClick={closeAll}
+                            >
                               {it.label}
                             </NavLink>
                           ))}
@@ -292,16 +367,32 @@ export default function Navbar() {
                 </div>
               )}
 
-              <NavLink to="/products" className="Zenrax-m__link" onClick={closeAll}>
+              <NavLink
+                to="/products"
+                className="Zenrax-m__link"
+                onClick={closeAll}
+              >
                 Our Products
               </NavLink>
-              <NavLink to="/testimonials" className="Zenrax-m__link" onClick={closeAll}>
+              <NavLink
+                to="/testimonials"
+                className="Zenrax-m__link"
+                onClick={closeAll}
+              >
                 Testimonials
               </NavLink>
-              <NavLink to="/blogs" className="Zenrax-m__link" onClick={closeAll}>
+              <NavLink
+                to="/blogs"
+                className="Zenrax-m__link"
+                onClick={closeAll}
+              >
                 Blogs
               </NavLink>
-              <NavLink to="/career" className="Zenrax-m__link" onClick={closeAll}>
+              <NavLink
+                to="/career"
+                className="Zenrax-m__link"
+                onClick={closeAll}
+              >
                 Career
               </NavLink>
             </div>

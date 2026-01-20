@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import "../components/GlassLayout.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '', // ✅ Added Subject to state
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    subject: "", // ✅ Added Subject to state
+    message: "",
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
   // ✅ YOUR DEPLOYED URL
-  const CONTACT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxu9QHikTphaz65QUHh1h2Wlorm7p3tU2KlRbbmIlxoI9KuIxt4vmjAkAkXBnpJ1U_6/exec';
+  const CONTACT_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbxu9QHikTphaz65QUHh1h2Wlorm7p3tU2KlRbbmIlxoI9KuIxt4vmjAkAkXBnpJ1U_6/exec";
 
   const inputStyle = {
     width: "100%",
@@ -39,32 +40,35 @@ const Contact = () => {
     const queryString = new URLSearchParams({
       name: formData.name,
       email: formData.email,
-      phone: formData.phone || '',
+      phone: formData.phone || "",
       subject: formData.subject, // ✅ Added Subject to submission
       message: formData.message,
-      timestamp: new Date().toLocaleString('en-IN')
+      timestamp: new Date().toLocaleString("en-IN"),
     }).toString();
 
     try {
       await fetch(`${CONTACT_SCRIPT_URL}?${queryString}`, {
-        method: 'GET', 
-        mode: 'no-cors'
+        method: "GET",
+        mode: "no-cors",
       });
 
       setSuccess(true);
       // ✅ Reset all fields
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {
       console.error("Submission Error:", error);
-      alert('Something went wrong. Please check your connection.');
+      alert("Something went wrong. Please check your connection.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <main className="bg-accent1 section-padding" style={{ position: "relative" }}>
+    <main
+      className="bg-accent1 section-padding"
+      style={{ position: "relative" }}
+    >
       <div
         className="bg-radial-overlay"
         style={{ position: "absolute", inset: 0, opacity: 0.7 }}
@@ -76,7 +80,7 @@ const Contact = () => {
           position: "relative",
           zIndex: 1,
           maxWidth: "72rem",
-          margin: "0 auto"
+          margin: "0 auto",
         }}
       >
         {/* Intro Section */}
@@ -94,9 +98,9 @@ const Contact = () => {
             How Can We Help?
           </h1>
           <p className="desc">
-            Whether you are starting a new project, modernising existing systems,
-            or exploring AI‑driven hiring workflows, Zenrax can help you design,
-            build, and ship with confidence.
+            Whether you are starting a new project, modernising existing
+            systems, or exploring AI‑driven hiring workflows, Zenrax can help
+            you design, build, and ship with confidence.
           </p>
         </div>
 
@@ -134,7 +138,11 @@ const Contact = () => {
               }}
             >
               <InfoRow type="phone" title="Call Us" value="+91 98806 36948" />
-              <InfoRow type="email" title="Email" value="info@Zenraxhires.com" />
+              <InfoRow
+                type="email"
+                title="Email"
+                value="info@Zenraxhires.com"
+              />
               <InfoRow
                 type="location"
                 title="Location"
@@ -191,24 +199,27 @@ const Contact = () => {
             }}
           >
             {success ? (
-              <div style={{ textAlign: 'center', padding: '2rem 0' }}>
-                <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🎉</div>
-                <h3 className="heading-3" style={{ color: '#16a34a', marginBottom: '0.5rem' }}>
+              <div style={{ textAlign: "center", padding: "2rem 0" }}>
+                <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>🎉</div>
+                <h3
+                  className="heading-3"
+                  style={{ color: "#16a34a", marginBottom: "0.5rem" }}
+                >
                   Message Sent!
                 </h3>
                 <p className="desc">
                   Thanks for reaching out. We'll get back to you shortly.
                 </p>
-                <button 
+                <button
                   onClick={() => setSuccess(false)}
                   className="primary-btn"
                   style={{
-                    marginTop: '1.5rem',
-                    background: 'transparent',
-                    color: '#4b5563',
-                    border: '1px solid #e5e7eb',
-                    padding: '0.5rem 1rem',
-                    fontSize: '0.9rem'
+                    marginTop: "1.5rem",
+                    background: "transparent",
+                    color: "#4b5563",
+                    border: "1px solid #e5e7eb",
+                    padding: "0.5rem 1rem",
+                    fontSize: "0.9rem",
                   }}
                 >
                   Send another message
@@ -310,12 +321,12 @@ const Contact = () => {
                       justifyContent: "center",
                       gap: "0.4rem",
                       opacity: loading ? 0.7 : 1,
-                      cursor: loading ? 'not-allowed' : 'pointer',
-                      display: 'flex',
-                      alignItems: 'center'
+                      cursor: loading ? "not-allowed" : "pointer",
+                      display: "flex",
+                      alignItems: "center",
                     }}
                   >
-                    {loading ? 'Sending...' : 'Send Message'}
+                    {loading ? "Sending..." : "Send Message"}
                   </button>
                 </form>
               </>
@@ -348,7 +359,7 @@ const InfoRow = ({ type, title, value }) => {
           justifyContent: "center",
           fontSize: "1.1rem",
           color: "#4b5563",
-          flexShrink: 0 
+          flexShrink: 0,
         }}
       >
         {IconComp && <IconComp />}

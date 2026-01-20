@@ -29,7 +29,10 @@ const Testimonials = () => {
   const scroll = (direction) => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
-      const scrollTo = direction === "left" ? scrollLeft - clientWidth : scrollLeft + clientWidth;
+      const scrollTo =
+        direction === "left"
+          ? scrollLeft - clientWidth
+          : scrollLeft + clientWidth;
       scrollRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
     }
   };
@@ -38,22 +41,27 @@ const Testimonials = () => {
     <main className="section-padding" style={{ background: "#fafbff" }}>
       <div className="wrapper">
         <div style={{ textAlign: "center", position: "relative" }}>
-          
-          <div className="gradient-rounded-text-box" style={{ 
-            margin: "0 auto 1.5rem", 
-            background: "rgba(69, 91, 200, 0.08)",
-            color: "#455bc8",
-            border: "1px solid rgba(69, 91, 200, 0.15)",
-            padding: "0.4rem 1.25rem",
-            borderRadius: "99px",
-            fontSize: "0.8rem",
-            fontWeight: 600,
-            width: "fit-content"
-          }}>
+          <div
+            className="gradient-rounded-text-box"
+            style={{
+              margin: "0 auto 1.5rem",
+              background: "rgba(69, 91, 200, 0.08)",
+              color: "#455bc8",
+              border: "1px solid rgba(69, 91, 200, 0.15)",
+              padding: "0.4rem 1.25rem",
+              borderRadius: "99px",
+              fontSize: "0.8rem",
+              fontWeight: 600,
+              width: "fit-content",
+            }}
+          >
             Testimonials
           </div>
 
-          <h2 className="heading-2" style={{ marginBottom: "3rem", color: "#374492" }}>
+          <h2
+            className="heading-2"
+            style={{ marginBottom: "3rem", color: "#374492" }}
+          >
             What Our Clients Say
           </h2>
 
@@ -94,7 +102,7 @@ const Testimonials = () => {
           gap: 1.5rem;
           overflow-x: auto;
           scroll-snap-type: x mandatory;
-          scrollbar-width: none; 
+          scrollbar-width: none;
           -ms-overflow-style: none;
           padding: 1rem 0.5rem 2rem;
         }
@@ -105,14 +113,14 @@ const Testimonials = () => {
 
         /* Card sizing for mobile */
         .testimonial-card-item {
-          flex: 0 0 100%; 
+          flex: 0 0 100%;
           scroll-snap-align: center;
         }
 
         .testimonial-card {
           background: #ffffff;
           border: 1px solid #ecedf6;
-          border-radius: 1.25rem;
+          border-radius: 0.375rem;
           padding: 1.75rem;
           text-align: left;
           box-shadow: 0 10px 25px rgba(69, 91, 200, 0.05);
@@ -169,7 +177,7 @@ const Testimonials = () => {
           align-items: center;
           justify-content: center;
           transition: 0.3s;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
         }
 
         .nav-btn:hover {
@@ -178,8 +186,12 @@ const Testimonials = () => {
           border-color: #455bc8;
         }
 
-        .nav-btn.left { left: 25%; }
-        .nav-btn.right { right: 25%; }
+        .nav-btn.left {
+          left: 25%;
+        }
+        .nav-btn.right {
+          right: 25%;
+        }
 
         /* Desktop View: 3-column Grid */
         @media (min-width: 1024px) {
@@ -195,17 +207,27 @@ const Testimonials = () => {
           }
 
           .nav-btn {
-            display: none; 
+            display: none;
           }
 
-          .user-name { font-size: 1.1rem; }
-          .feedback-text { font-size: 0.95rem; } /* Slightly larger on desktop */
-          .testimonial-card { padding: 2.25rem; }
+          .user-name {
+            font-size: 1.1rem;
+          }
+          .feedback-text {
+            font-size: 0.95rem;
+          } /* Slightly larger on desktop */
+          .testimonial-card {
+            padding: 2.25rem;
+          }
         }
 
         @media (max-width: 480px) {
-          .nav-btn.left { left: 20%; }
-          .nav-btn.right { right: 20%; }
+          .nav-btn.left {
+            left: 20%;
+          }
+          .nav-btn.right {
+            right: 20%;
+          }
         }
       `}</style>
     </main>

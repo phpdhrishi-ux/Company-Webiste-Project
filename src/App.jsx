@@ -17,7 +17,6 @@ import Blogs from "./pages/Blogs";
 import VCIOVCFO from "./pages/VCIOVCFO";
 import CareerPage from "./pages/CareerPage";
 
-
 // ✅ NEW: 12 sub-services imports
 import AccountingFinance from "./pages/subservices/AccountingFinance";
 import HRM from "./pages/subservices/HRM";
@@ -69,22 +68,48 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/vcio-vcfo" element={<VCIOVCFO />} />
-          <Route path="/career" element={<CareerPage/>}/>
-
+          <Route path="/career" element={<CareerPage />} />
 
           {/* ✅ NEW: 12 sub-services routes */}
-          <Route path="/services/business-consulting/accounting-finance" element={<AccountingFinance />} />
+          <Route
+            path="/services/business-consulting/accounting-finance"
+            element={<AccountingFinance />}
+          />
           <Route path="/services/business-consulting/hrm" element={<HRM />} />
-          <Route path="/services/business-consulting/internal-audit-governance" element={<InternalAuditGovernance />} />
-          <Route path="/services/business-consulting/sop-drafting-documentation" element={<SOPDraftingDocumentation />} />
-          <Route path="/services/business-consulting/business-operations" element={<BusinessOperations />} />
+          <Route
+            path="/services/business-consulting/internal-audit-governance"
+            element={<InternalAuditGovernance />}
+          />
+          <Route
+            path="/services/business-consulting/sop-drafting-documentation"
+            element={<SOPDraftingDocumentation />}
+          />
+          <Route
+            path="/services/business-consulting/business-operations"
+            element={<BusinessOperations />}
+          />
           <Route path="/services/vcio-vcfo/vcio" element={<VCIO />} />
           <Route path="/services/vcio-vcfo/vcfo" element={<VCFO />} />
-          <Route path="/services/it-development/digital-solutions" element={<DigitalSolutions />} />
-          <Route path="/services/it-development/custom-software-development" element={<CustomSoftwareDevelopment />} />
-          <Route path="/services/it-development/web-app-development" element={<WebAppDevelopment />} />
-          <Route path="/services/it-development/erp-crm-development" element={<ERPCRMDevelopment />} />
-          <Route path="/services/it-development/cloud-solutions" element={<CloudSolutions />} />
+          <Route
+            path="/services/it-development/digital-solutions"
+            element={<DigitalSolutions />}
+          />
+          <Route
+            path="/services/it-development/custom-software-development"
+            element={<CustomSoftwareDevelopment />}
+          />
+          <Route
+            path="/services/it-development/web-app-development"
+            element={<WebAppDevelopment />}
+          />
+          <Route
+            path="/services/it-development/erp-crm-development"
+            element={<ERPCRMDevelopment />}
+          />
+          <Route
+            path="/services/it-development/cloud-solutions"
+            element={<CloudSolutions />}
+          />
         </Routes>
       </main>
 
