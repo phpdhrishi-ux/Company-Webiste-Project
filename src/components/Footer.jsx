@@ -149,18 +149,21 @@ const Footer = () => {
               >
                 Services
               </h3>
-              {services.map((service) => (
-                <p
-                  key={service}
-                  style={{
-                    marginBottom: "0.6rem",
-                    fontSize: "0.9rem",
-                    color: "#475569",
-                    margin: "0 0 0.6rem 0",
-                  }}
-                >
-                  {service}
-                </p>
+              {services.map(([label, href]) => (
+                <a
+                key={href}
+                href={href}
+                style={{
+                  display: "block",
+                  marginBottom: "0.6rem",
+                  color: "#475569",
+                  fontSize: "0.9rem",
+                  fontWeight: 500,
+                  textDecoration: "none",
+                }}
+              >
+                {label}
+              </a>
               ))}
             </div>
 
@@ -237,10 +240,9 @@ const quickLinks = [
 ];
 
 const services = [
-  "Growth Consulting",
-  "vCIO / vCFO",
-  "Product Delivery",
-  "Ops Automation",
+  ["Business Consulting" ,"/consulting" ],
+  ["IT Development" , "/it-development"],
+  ["vCIO / vCFO" , "/vcio-vcfo"],
 ];
 
 const ContactRow = ({ label, value, href, Icon }) => (

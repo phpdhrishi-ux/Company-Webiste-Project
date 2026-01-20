@@ -17,9 +17,9 @@ const WaitlistForm = () => {
 
   const inputStyle = {
     width: "100%",
-    padding: "1.125rem 1.5rem",
-    borderRadius: "1rem",
-    border: "2px solid rgba(124,58,237,0.15)",
+    padding: "0.7rem 0.85rem",
+    borderRadius: "0.6rem",
+    border: "1px solid #374492",
     background: "rgba(255,255,255,0.95)",
     backdropFilter: "blur(20px)",
     fontSize: "1rem",
@@ -28,6 +28,9 @@ const WaitlistForm = () => {
     outline: "none",
     boxSizing: "border-box",
     boxShadow: "0 4px 20px rgba(124,58,237,0.08)",
+    color: "#111827",
+    fontSize: "0.9rem",
+    outline: "none",
   };
 
   const handleChange = (e) =>

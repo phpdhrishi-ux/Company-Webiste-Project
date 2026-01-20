@@ -23,7 +23,6 @@ const Contact = () => {
     borderRadius: "0.6rem",
     border: "none",
     backgroundColor: "transparent",
-    color: "#111827",
     fontSize: "0.9rem",
     outline: "none",
   };
@@ -85,9 +84,19 @@ const Contact = () => {
       >
         {/* Intro Section */}
         <div style={{ maxWidth: "46rem", marginBottom: "2.5rem" }}>
-          <div
+        <div
             className="gradient-rounded-text-box"
-            style={{ marginBottom: "1.5rem" }}
+            style={{
+              margin: "0 0 1.25rem 0", // Margin bottom to space it from the heading
+              background: "rgba(69, 91, 200, 0.08)",
+              color: "#455bc8",
+              border: "1px solid rgba(69, 91, 200, 0.15)",
+              padding: "0.4rem 1.25rem",
+              borderRadius: "99px",
+              fontSize: "0.8rem",
+              fontWeight: 600,
+              width: "fit-content",
+            }}
           >
             Contact
           </div>
