@@ -220,7 +220,7 @@ const Footer = () => {
   );
 };
 
-// Data
+// Data  Links has to be added
 const socialLinks = [
   {
     href: "https://linkedin.com/company/Zenrax-it-services",
