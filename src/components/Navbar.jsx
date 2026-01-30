@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { FaBars, FaXmark, FaChevronDown } from "react-icons/fa6";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo2.png";
 import "./Navbar.css";
 
 const SERVICES = [
