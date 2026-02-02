@@ -30,21 +30,6 @@ const SERVICES = [
     ],
   },
   {
-    key: "vcio-vcfo",
-    label: "vCIO / vCFO",
-    to: "/vcio-vcfo",
-    items: [
-      {
-        label: "vCIO (Virtual Chief Information Officer)",
-        to: "/services/vcio-vcfo/vcio",
-      },
-      {
-        label: "vCFO (Virtual Chief Finance Officer)",
-        to: "/services/vcio-vcfo/vcfo",
-      },
-    ],
-  },
-  {
     key: "it-dev",
     label: "IT Development",
     to: "/it-development",
@@ -68,6 +53,21 @@ const SERVICES = [
       {
         label: "Cloud Solutions",
         to: "/services/it-development/cloud-solutions",
+      },
+    ],
+  },
+  {
+    key: "vcio-vcfo",
+    label: "vCIO / vCFO",
+    to: "/vcio-vcfo",
+    items: [
+      {
+        label: "vCIO (Virtual Chief Information Officer)",
+        to: "/services/vcio-vcfo/vcio",
+      },
+      {
+        label: "vCFO (Virtual Chief Finance Officer)",
+        to: "/services/vcio-vcfo/vcfo",
       },
     ],
   },

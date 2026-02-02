@@ -38,7 +38,7 @@ const Testimonials = () => {
   };
 
   return (
-    <main className="section-padding" style={{ background: "#fafbff" }}>
+    <main className="section-padding" style={{ background: "#fafbff", padding: "100px 0 4rem" }}>
       <div className="wrapper">
         <div style={{ textAlign: "center", position: "relative" }}>
           <div
@@ -60,13 +60,13 @@ const Testimonials = () => {
 
           <h2
             className="heading-2"
-            style={{ marginBottom: "3rem", color: "#374492" }}
+            style={{ marginBottom: "4rem", color: "#374492" }}
           >
             What Our Clients Say
           </h2>
 
-          <div style={{ position: "relative" }}>
-            {/* Nav Buttons (Hidden on Desktop) */}
+          <div style={{ position: "relative", maxWidth: "1200px", margin: "0 auto" }}>
+            {/* Updated Nav Buttons: Top 50% and Half-on/Half-off */}
             <button onClick={() => scroll("left")} className="nav-btn left">
               <FaChevronLeft size={16} />
             </button>
@@ -81,7 +81,7 @@ const Testimonials = () => {
                   <div className="testimonial-card">
                     <div className="card-header">
                       <FaUserCircle className="user-icon" />
-                      <div>
+                      <div style={{ textAlign: "left" }}>
                         <h3 className="user-name">{t.name}</h3>
                         <p className="user-role">{t.role}</p>
                       </div>
@@ -96,7 +96,6 @@ const Testimonials = () => {
       </div>
 
       <style jsx>{`
-        /* Container & Grid Logic */
         .testimonial-grid-container {
           display: flex;
           gap: 1.5rem;
@@ -104,27 +103,34 @@ const Testimonials = () => {
           scroll-snap-type: x mandatory;
           scrollbar-width: none;
           -ms-overflow-style: none;
-          padding: 1rem 0.5rem 2rem;
+          padding: 1rem 0.5rem 2.5rem; /* Bottom padding for shadow visibility */
         }
 
         .testimonial-grid-container::-webkit-scrollbar {
           display: none;
         }
 
-        /* Card sizing for mobile */
         .testimonial-card-item {
           flex: 0 0 100%;
           scroll-snap-align: center;
         }
 
+        /* The Glowy Card style from Home */
         .testimonial-card {
           background: #ffffff;
           border: 1px solid #ecedf6;
           border-radius: 0.375rem;
           padding: 1.75rem;
           text-align: left;
-          box-shadow: 0 10px 25px rgba(69, 91, 200, 0.05);
+          box-shadow: 0 10px 30px rgba(69, 91, 200, 0.08); /* Glowy shadow */
           height: 100%;
+          transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+          border-color: #455bc8;
+          box-shadow: 0 15px 35px rgba(69, 91, 200, 0.15); /* Stronger glow */
+          transform: translateY(-5px);
         }
 
         .card-header {
@@ -154,17 +160,19 @@ const Testimonials = () => {
         }
 
         .feedback-text {
-          font-size: 0.85rem; /* Shrunk for mobile */
+          font-size: 0.85rem;
           line-height: 1.6;
           color: #475569;
           font-style: italic;
           margin: 0;
+          text-align: left;
         }
 
-        /* Navigation Buttons */
+        /* Updated Navigation Buttons Logic */
         .nav-btn {
           position: absolute;
-          bottom: -65px;
+          top: 50%;
+          transform: translateY(-50%);
           width: 42px;
           height: 42px;
           border-radius: 50%;
@@ -177,7 +185,7 @@ const Testimonials = () => {
           align-items: center;
           justify-content: center;
           transition: 0.3s;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .nav-btn:hover {
@@ -186,14 +194,14 @@ const Testimonials = () => {
           border-color: #455bc8;
         }
 
+        /* Half-on/Half-off offsets */
         .nav-btn.left {
-          left: 25%;
+          left: -21px; 
         }
         .nav-btn.right {
-          right: 25%;
+          right: -21px;
         }
 
-        /* Desktop View: 3-column Grid */
         @media (min-width: 1024px) {
           .testimonial-grid-container {
             display: grid;
@@ -201,33 +209,14 @@ const Testimonials = () => {
             overflow-x: visible;
             gap: 2rem;
           }
-
-          .testimonial-card-item {
-            flex: none;
-          }
-
-          .nav-btn {
-            display: none;
-          }
-
-          .user-name {
-            font-size: 1.1rem;
-          }
-          .feedback-text {
-            font-size: 0.95rem;
-          } /* Slightly larger on desktop */
-          .testimonial-card {
-            padding: 2.25rem;
-          }
+          .testimonial-card-item { flex: none; }
+          .nav-btn { display: none; }
+          .testimonial-card { padding: 2.25rem; }
         }
 
         @media (max-width: 480px) {
-          .nav-btn.left {
-            left: 20%;
-          }
-          .nav-btn.right {
-            right: 20%;
-          }
+          .nav-btn.left { left: -10px; }
+          .nav-btn.right { right: -10px; }
         }
       `}</style>
     </main>

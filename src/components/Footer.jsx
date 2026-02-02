@@ -1,217 +1,140 @@
 // src/components/Footer.jsx
 import "./GlassLayout.css";
-import logo from "../assets/logo.png";
-
-import {
-  FaLinkedinIn,
-  FaTwitter,
-  FaInstagram,
-  FaYoutube,
-} from "react-icons/fa";
+import logo from "../assets/logo2.png";
+import { FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa"; // Added Facebook Icon
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
+
+const SOCIAL_LINKS = [
+  { href: "https://linkedin.com/company/zenrax-it-services", Icon: FaLinkedinIn },
+  { href: "https://instagram.com/zenraxservices", Icon: FaInstagram },
+  { href: "https://facebook.com/zenraxservices", Icon: FaFacebookF }, // Facebook Added
+];
+
+const QUICK_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Contact", href: "/contact" },
+];
+
+const SERVICES = [
+  { label: "Business Consulting", href: "/consulting" },
+  { label: "IT Development", href: "/it-development" },
+  { label: "vCIO / vCFO", href: "/vcio-vcfo" },
+];
+
+const ContactRow = ({ label, value, href, Icon }) => (
+  <div style={{ display: "flex", alignItems: "center", gap: "0.85rem", marginBottom: "1.25rem" }}>
+    {/* Icon Container with fixed width to ensure vertical alignment of text */}
+    <div style={{ color: "#455bc8", display: "flex", alignItems: "center", justifyContent: "center", minWidth: "20px" }}>
+      <Icon size={19} />
+    </div>
+    <div>
+      <div style={{ fontSize: "0.65rem", color: "#64748b", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", lineHeight: "1" }}>
+        {label}
+      </div>
+      {href ? (
+        <a href={href} style={{ fontSize: "0.95rem", color: "#1e293b", fontWeight: 600, textDecoration: "none", display: "block", marginTop: "2px" }}>{value}</a>
+      ) : (
+        <p style={{ fontSize: "0.95rem", color: "#1e293b", margin: "2px 0 0 0", fontWeight: 600 }}>{value}</p>
+      )}
+    </div>
+  </div>
+);
 
 const Footer = () => {
   return (
-    <footer
-      style={{
-        padding: "1.25rem 0",
-        background: "var(--bg-accent2)",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      {/* Purple radial overlay */}
-      <div
-        className="bg-radial-overlay"
-        style={{ opacity: 0.35, position: "absolute", inset: 0 }}
-      />
+    <footer className="footer-container" style={{ padding: "1.25rem 0", background: "var(--bg-accent2)", position: "relative", overflow: "hidden" }}>
+      <style>{`
+        .footer-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 2.5rem;
+        }
+        @media (max-width: 1024px) {
+          .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+          .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+          .footer-glass-card { padding: 2rem 1.5rem !important; }
+        }
+      `}</style>
 
-      <div className="wrapper" style={{ position: "relative", zIndex: 1 }}>
-        <div
-          style={{
-            padding: "2rem 1.5rem",
-            borderRadius: "1.5rem",
-            background: "rgba(255,255,255,0.92)",
-            backdropFilter: "blur(20px)",
-            border: "1px solid rgba(69, 91, 200, 0.2)",
-            boxShadow: "0 20px 50px rgba(15,23,42,0.1)",
-            textAlign: "left", // Forces left alignment for mobile
-          }}
-        >
-          <div
-            style={{
-              display: "grid",
-              // Adjusted minmax for better mobile stacking
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-              gap: "2.5rem",
-              alignItems: "start",
-            }}
-          >
-            {/* Brand + blurb + socials */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "1rem",
-                alignItems: "flex-start",
-              }}
-            >
-              <img
-                src={logo}
-                alt="Zenrax Logo"
-                style={{
-                  height: "3.2rem", // Increased logo height
-                  width: "auto",
-                  objectFit: "contain",
-                  filter: "drop-shadow(0 4px 12px rgba(69, 91, 200, 0.15))",
-                }}
-              />
-              <p
-                className="desc"
-                style={{
-                  maxWidth: "20rem",
-                  fontSize: "0.88rem",
-                  lineHeight: 1.5,
-                  textAlign: "left",
-                  margin: 0,
-                }}
-              >
-                AI-first consulting + fullstack delivery for founders who scale
-                with clarity.
+      <div className="wrapper" style={{ position: "relative", zIndex: 1, padding: "0 1rem" }}>
+        <div className="footer-glass-card" style={{
+          padding: "3.5rem 2.5rem",
+          borderRadius: "1.5rem",
+          background: "rgba(255,255,255,0.95)",
+          backdropFilter: "blur(20px)",
+          border: "1px solid rgba(69, 91, 200, 0.2)",
+          boxShadow: "0 20px 50px rgba(15,23,42,0.08)",
+        }}>
+          
+          <div className="footer-grid">
+            {/* Brand Section */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}>
+              <img src={logo} alt="Zenrax Logo" style={{ height: "3.2rem", width: "fit-content", objectFit: "contain" }} />
+              <p style={{ fontSize: "0.88rem", lineHeight: 1.6, color: "#475569", margin: 0, maxWidth: "260px" }}>
+                AI-first consulting + fullstack delivery for founders who scale with clarity.
               </p>
-              <div style={{ display: "flex", gap: "0.75rem" }}>
-                {socialLinks.map(({ href, Icon }) => (
-                  <a
-                    key={href}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      width: "2.5rem",
-                      height: "2.5rem",
-                      borderRadius: "50%",
-                      background: "rgba(69, 91, 200, 0.08)",
-                      border: "1px solid rgba(69, 91, 200, 0.2)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "#455bc8", // Updated Icon Color
-                      transition: "all 0.3s ease",
+              <div style={{ display: "flex", gap: "0.8rem", marginTop: "0.5rem" }}>
+                {SOCIAL_LINKS.map(({ href, Icon }) => (
+                  <a key={href} href={href} target="_blank" rel="noopener noreferrer" 
+                    style={{ 
+                      width: "2.4rem", 
+                      height: "2.4rem", 
+                      borderRadius: "50%", 
+                      background: "rgba(69, 91, 200, 0.06)", 
+                      border: "1px solid rgba(69, 91, 200, 0.15)", 
+                      display: "flex", 
+                      alignItems: "center", 
+                      justifyContent: "center", 
+                      color: "#455bc8",
+                      transition: "0.3s all ease"
                     }}
+                    onMouseEnter={(e) => { e.currentTarget.style.background = "#455bc8"; e.currentTarget.style.color = "#fff"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(69, 91, 200, 0.06)"; e.currentTarget.style.color = "#455bc8"; }}
                   >
-                    <Icon size={16} />
+                    <Icon size={17} />
                   </a>
                 ))}
               </div>
             </div>
 
             {/* Quick Links */}
-            <div style={{ textAlign: "left" }}>
-              <h3
-                className="heading-3"
-                style={{
-                  marginBottom: "1rem",
-                  color: "#1e293b",
-                  fontSize: "1.1rem",
-                  fontWeight: "700",
-                }}
-              >
-                Quick Links
-              </h3>
-              {quickLinks.map(([label, href]) => (
-                <a
-                  key={href}
-                  href={href}
-                  style={{
-                    display: "block",
-                    marginBottom: "0.6rem",
-                    color: "#475569",
-                    fontSize: "0.9rem",
-                    fontWeight: 500,
-                    textDecoration: "none",
-                  }}
-                >
-                  {label}
+            <div>
+              <h3 style={{ marginBottom: "1.8rem", color: "#1e293b", fontSize: "1.05rem", fontWeight: "700" }}>Quick Links</h3>
+              {QUICK_LINKS.map((link) => (
+                <a key={link.href} href={link.href} style={{ display: "block", marginBottom: "0.9rem", color: "#475569", fontSize: "0.95rem", fontWeight: 500, textDecoration: "none" }}>
+                  {link.label}
                 </a>
               ))}
             </div>
 
             {/* Services */}
-            <div style={{ textAlign: "left" }}>
-              <h3
-                className="heading-3"
-                style={{
-                  marginBottom: "1rem",
-                  color: "#1e293b",
-                  fontSize: "1.1rem",
-                  fontWeight: "700",
-                }}
-              >
-                Services
-              </h3>
-              {services.map(([label, href]) => (
-                <a
-                key={href}
-                href={href}
-                style={{
-                  display: "block",
-                  marginBottom: "0.6rem",
-                  color: "#475569",
-                  fontSize: "0.9rem",
-                  fontWeight: 500,
-                  textDecoration: "none",
-                }}
-              >
-                {label}
-              </a>
+            <div>
+              <h3 style={{ marginBottom: "1.8rem", color: "#1e293b", fontSize: "1.05rem", fontWeight: "700" }}>Services</h3>
+              {SERVICES.map((service) => (
+                <a key={service.href} href={service.href} style={{ display: "block", marginBottom: "0.9rem", color: "#475569", fontSize: "0.95rem", fontWeight: 500, textDecoration: "none" }}>
+                  {service.label}
+                </a>
               ))}
             </div>
 
-            {/* Contact */}
-            <div style={{ textAlign: "left" }}>
-              <h3
-                className="heading-3"
-                style={{
-                  marginBottom: "1rem",
-                  color: "#1e293b",
-                  fontSize: "1.1rem",
-                  fontWeight: "700",
-                }}
-              >
-                Contact
-              </h3>
-              <ContactRow
-                label="Phone"
-                value="+91 98806 36948"
-                href="tel:+919880636948"
-                Icon={FiPhone}
-              />
-              <ContactRow
-                label="Email"
-                value="info@Zenraxhires.com"
-                href="mailto:info@Zenraxhires.com"
-                Icon={FiMail}
-              />
-              <ContactRow
-                label="Pune, MH"
-                value="(Remote-first)"
-                Icon={FiMapPin}
-              />
+            {/* Contact Section - Aligned Text to Icons */}
+            <div>
+              <h3 style={{ marginBottom: "1.8rem", color: "#1e293b", fontSize: "1.05rem", fontWeight: "700" }}>Contact</h3>
+              <ContactRow label="Phone" value="+91 98806 36948" href="tel:+919880636948" Icon={FiPhone} />
+              <ContactRow label="Email" value="info@Zenraxhiring.com" href="mailto:info@Zenraxhiring.com" Icon={FiMail} />
+              <ContactRow label="PUNE, MH" value="(Remote-first)" Icon={FiMapPin} />
             </div>
           </div>
 
-          {/* Copyright */}
-          <div
-            style={{
-              marginTop: "2rem",
-              paddingTop: "1.25rem",
-              borderTop: "1px solid rgba(148,163,184,0.2)",
-              textAlign: "left", // Aligned to left as requested
-            }}
-          >
+          {/* Copyright Section */}
+          <div style={{ marginTop: "3.5rem", paddingTop: "1.5rem", borderTop: "1px solid rgba(148,163,184,0.15)", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
             <p style={{ fontSize: "0.85rem", color: "#64748b", margin: 0 }}>
-              © {new Date().getFullYear()} Zenrax Consultancy Services. All
-              rights reserved.
+              © {new Date().getFullYear()} Zenrax Hiring and Staffing Private Limited.
             </p>
           </div>
         </div>
@@ -219,83 +142,5 @@ const Footer = () => {
     </footer>
   );
 };
-
-// Data  Links has to be added
-const socialLinks = [
-  {
-    href: "https://linkedin.com/company/Zenrax-it-services",
-    Icon: FaLinkedinIn,
-  },
-  { href: "https://x.com/Zenraxhires", Icon: FaTwitter },
-  { href: "https://instagram.com/Zenraxservices", Icon: FaInstagram },
-  { href: "https://youtube.com/@Zenraxhires", Icon: FaYoutube },
-];
-
-const quickLinks = [
-  ["Home", "/"],
-  ["About", "/about"],
-  ["Services", "/services"],
-  ["Portfolio", "/portfolio"],
-  ["Contact", "/contact"],
-];
-
-const services = [
-  ["Business Consulting" ,"/consulting" ],
-  ["IT Development" , "/it-development"],
-  ["vCIO / vCFO" , "/vcio-vcfo"],
-];
-
-const ContactRow = ({ label, value, href, Icon }) => (
-  <div
-    style={{
-      display: "flex",
-      alignItems: "flex-start",
-      gap: "0.75rem",
-      marginBottom: "1rem",
-    }}
-  >
-    <div style={{ marginTop: "0.2rem", color: "#455bc8", minWidth: "1.2rem" }}>
-      <Icon size={18} />
-    </div>
-    <div>
-      <div
-        style={{
-          fontSize: "0.75rem",
-          color: "#64748b",
-          marginBottom: "0.1rem",
-          fontWeight: 600,
-          textTransform: "uppercase",
-          letterSpacing: "0.02em",
-        }}
-      >
-        {label}
-      </div>
-      {href ? (
-        <a
-          href={href}
-          style={{
-            fontSize: "0.95rem",
-            color: "#1e293b",
-            fontWeight: 500,
-            textDecoration: "none",
-          }}
-        >
-          {value}
-        </a>
-      ) : (
-        <p
-          style={{
-            fontSize: "0.95rem",
-            color: "#1e293b",
-            margin: 0,
-            fontWeight: 500,
-          }}
-        >
-          {value}
-        </p>
-      )}
-    </div>
-  </div>
-);
 
 export default Footer;

@@ -9,7 +9,12 @@ import {
   FaChevronRight,
 } from "react-icons/fa";
 import homePageMeeting from "../assets/home_page_meeting.png";
+import teamMeeting from "../assets/team-meeting-consulting.png";
+import coadingImg from "../assets/coading.png";
+import techTeam from "../assets/tech-team.png";
 import "../components/GlassLayout.css";
+
+
 
 const Home = () => {
   const scrollRef = useRef(null);
@@ -149,75 +154,71 @@ const Home = () => {
               Integrated Consulting for Strategy, People, Process, and
               Technology
             </p>
+{/* BUTTONS CONTAINER */}
+<div
+  style={{
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    gap: "1rem",
+    marginTop: "2rem",
+  }}
+>
+  <Link
+    to="/contact"
+    className="primary-btn"
+    style={{
+      height: "48px", // Slightly reduced height for better proportions
+      padding: "0 1.8rem", // Horizontal padding defines the width
+      width: "auto", // Changed from 100% to auto
+      borderRadius: "9999px",
+      fontSize: "0.9rem",
+      fontWeight: "600",
+      background: "linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%)",
+      border: "2px solid transparent",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      textDecoration: "none",
+      color: "#ffffff",
+      whiteSpace: "nowrap", // Prevents text from wrapping
+    }}
+  >
+    Strategize Now
+  </Link>
 
-            {/* BUTTONS CONTAINER */}
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center",
-                gap: "1rem",
-                marginTop: "2rem",
-              }}
-            >
-              <Link
-                to="/contact"
-                className="primary-btn"
-                style={{
-                  height: "52px",
-                  padding: "0 1.5rem",
-                  /* Mobile width fix: minWidth only applies on larger screens */
-                  width: "100%",
-                  maxWidth: "320px",
-                  borderRadius: "9999px",
-                  fontSize: "0.9rem",
-                  background:
-                    "linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%)",
-                  border: "2px solid transparent",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  textDecoration: "none",
-                  color: "#ffffff",
-                }}
-              >
-                Start a Strategic Consultation Today
-              </Link>
-
-              <Link
-                to="/services"
-                style={{
-                  height: "52px",
-                  padding: "0 1.5rem",
-                  /* Mobile width fix */
-                  width: "100%",
-                  maxWidth: "320px",
-                  borderRadius: "9999px",
-                  fontSize: "0.9rem",
-                  fontWeight: "500",
-                  border: "2px solid #455bc8",
-                  color: "#455bc8",
-                  backgroundColor: "rgba(255, 255, 255, 0.6)",
-                  backdropFilter: "blur(8px)",
-                  textDecoration: "none",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  transition: "all 0.2s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#455bc8";
-                  e.currentTarget.style.color = "#ffffff";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor =
-                    "rgba(255, 255, 255, 0.6)";
-                  e.currentTarget.style.color = "#455bc8";
-                }}
-              >
-                Our Consulting & Technology Services
-              </Link>
-            </div>
+  <Link
+    to="/services"
+    style={{
+      height: "48px", // Matched height
+      padding: "0 1.8rem", // Horizontal padding defines the width
+      width: "auto", // Changed from 100% to auto
+      borderRadius: "9999px",
+      fontSize: "0.9rem",
+      fontWeight: "600",
+      border: "2px solid #455bc8",
+      color: "#455bc8",
+      backgroundColor: "rgba(255, 255, 255, 0.6)",
+      backdropFilter: "blur(8px)",
+      textDecoration: "none",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      transition: "all 0.2s ease",
+      whiteSpace: "nowrap", // Prevents text from wrapping
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.backgroundColor = "#455bc8";
+      e.currentTarget.style.color = "#ffffff";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.6)";
+      e.currentTarget.style.color = "#455bc8";
+    }}
+  >
+    Our Expertise
+  </Link>
+</div>
 
             {/* STATS CARDS */}
             <div
@@ -251,60 +252,68 @@ const Home = () => {
         </div>
       </section>
 
-      {/* INTRO SECTION */}
-      <section className="bg-accent2" style={{ padding: "0 0 1rem 0" }}>
-        <div className="wrapper">
-          <div className="grid-2" style={{ alignItems: "center", gap: "2rem" }}>
-            <div style={{ maxWidth: "32rem" }}>
-              <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
-                <div
-                  className="gradient-rounded-text-box"
-                  style={{ display: "inline-block" }}
-                >
-                  Intro
-                </div>
-              </div>
-              <h2
-                className="heading-2 text-gradient"
-                style={{ marginBottom: "1.5rem", textAlign: "center" }}
-              >
-                Integrated Consulting for Strategy, People, Process, and
-                Technology
-              </h2>
-
-              <p
-                className="desc"
-                style={{ marginBottom: "1.25rem", lineHeight: 1.7 }}
-              >
-                Zenrax helps businesses build structure and confidence through
-                strategy, governance, documentation, finance control, and
-                technology delivery—so growth stays compliant, repeatable, and
-                scalable. Integrated consulting across Strategy, People, Process
-                & Technology, Strong focus on Governance, HR, SOPs & Audit,
-                Long-term advisory partnership approach
-              </p>
-            </div>
-
-            <div
-              style={{ width: "100%", height: "auto", position: "relative" }}
-            >
-              <img
-                src={homePageMeeting}
-                alt="Team collaborating"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  maxHeight: "450px",
-                  objectFit: "cover",
-                  borderRadius: "0.375rem",
-                  boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
-                  display: "block",
-                }}
-              />
-            </div>
+{/* INTRO SECTION */}
+<section className="bg-accent2" style={{ padding: "0 0 1rem 0" }}>
+  <div className="wrapper">
+    <div className="grid-2" style={{ alignItems: "center", gap: "2rem" }}>
+      <div style={{ maxWidth: "32rem" }}>
+        
+        {/* We change 'center' to 'left' here to move the box to the left side */}
+        <div style={{ textAlign: "left", marginBottom: "1.5rem" }}>
+          <div
+            className="gradient-rounded-text-box"
+            style={{ display: "inline-flex" , alignConte:'center',               
+              margin: "0 auto",
+              background: "rgba(69, 91, 200, 0.08)",
+              color: "#455bc8",
+              border: "1px solid rgba(69, 91, 200, 0.15)" }} // Kept exactly as your original code
+          >
+            Intro
           </div>
         </div>
-      </section>
+        <h2
+          className="heading-2 text-gradient"
+          style={{ marginBottom: "1.5rem", textAlign: "left" }}
+        >
+          Integrated Consulting for Strategy, People, Process, and
+          Technology
+        </h2>
+
+        <p
+          className="desc"
+          style={{ 
+            marginBottom: "1.25rem", 
+            lineHeight: 1.7, 
+            textAlign: "left" 
+          }}
+        >
+          Zenrax helps businesses build structure and confidence through
+          strategy, governance, documentation, finance control, and
+          technology delivery—so growth stays compliant, repeatable, and
+          scalable. Integrated consulting across Strategy, People, Process
+          & Technology, Strong focus on Governance, HR, SOPs & Audit,
+          Long-term advisory partnership approach
+        </p>
+      </div>
+
+      <div style={{ width: "100%", height: "auto", position: "relative" }}>
+        <img
+          src={homePageMeeting}
+          alt="Team collaborating"
+          style={{
+            width: "100%",
+            height: "auto",
+            maxHeight: "450px",
+            objectFit: "cover",
+            borderRadius: "0.375rem",
+            boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
+            display: "block",
+          }}
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* SERVICES SHOWCASE */}
       <section
@@ -329,34 +338,34 @@ const Home = () => {
           </div>
 
           <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: "2rem",
-            }}
-          >
-            <ShowcaseCard
-              title="Business Consulting"
-              subtitle="Strategy, HRM & Governance"
-              image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800"
-              description="Build clear processes, role clarity, and strong controls to stay disciplined as you scale."
-              to="/consulting"
-            />
-            <ShowcaseCard
-              title="IT Development"
-              subtitle="Custom Software & Cloud"
-              image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800"
-              description="Modern, responsive applications engineered for performance, stability, and growth."
-              to="/it-development"
-            />
-            <ShowcaseCard
-              title="vCIO & vCFO"
-              subtitle="Strategic Leadership"
-              image="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800"
-              description="Executive advisory support to improve decisions, governance, and financial visibility."
-              to="/vcio-vcfo"
-            />
-          </div>
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+    gap: "2rem",
+  }}
+>
+  <ShowcaseCard
+    title="Business Consulting"
+    subtitle="Strategy, HRM & Governance"
+    image={teamMeeting}
+    description="Build clear processes, role clarity, and strong controls to stay disciplined as you scale."
+    to="/consulting"
+  />
+  <ShowcaseCard
+    title="IT Development"
+    subtitle="Custom Software & Cloud"
+    image={coadingImg}
+    description="Modern, responsive applications engineered for performance, stability, and growth."
+    to="/it-development"
+  />
+  <ShowcaseCard
+    title="vCIO & vCFO"
+    subtitle="Strategic Leadership"
+    image={techTeam}
+    description="Executive advisory support to improve decisions, governance, and financial visibility."
+    to="/vcio-vcfo"
+  />
+</div>
         </div>
       </section>
 
@@ -469,108 +478,94 @@ const Home = () => {
         </div>
 
         <style jsx>{`
-          .testimonial-grid-container {
-            display: flex;
-            gap: 1.5rem;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            padding: 1rem 0.5rem 2rem;
-          }
+  .testimonial-grid-container {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 1rem 0.5rem 2rem;
+  }
 
-          .testimonial-grid-container::-webkit-scrollbar {
-            display: none;
-          }
+  .testimonial-grid-container::-webkit-scrollbar {
+    display: none;
+  }
 
-          .testimonial-card-item {
-            flex: 0 0 100%;
-            scroll-snap-align: center;
-          }
+  .testimonial-card-item {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+  }
 
-          .home-testimonial-card {
-            background: #ffffff;
-            border: 1px solid #ecedf6;
-            border-radius: 0.375rem;
-            padding: 1.75rem;
-            box-shadow: 0 10px 25px rgba(69, 91, 200, 0.05);
-            height: 100%;
-          }
+.home-testimonial-card {
+    background: #ffffff;
+    border: 1px solid #ecedf6;
+    border-radius: 0.375rem;
+    padding: 1.75rem;
+    /* Increased blur and spread for a "glowy" look */
+    box-shadow: 0 10px 30px rgba(69, 91, 200, 0.08); 
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+    .home-testimonial-card:hover {
+    border-color: #455bc8;
+    /* Stronger brand-colored glow on hover */
+    box-shadow: 0 15px 35px rgba(69, 91, 200, 0.15); 
+    transform: translateY(-5px);
+  }
 
-          .home-nav-btn {
-            position: absolute;
-            bottom: -65px;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            border: 1px solid #ecedf6;
-            background: white;
-            color: #455bc8;
-            cursor: pointer;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.3s;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-          }
+  /* NEW: Updated Arrow Positioning */
+  .home-nav-btn {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Offset for perfect center */
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid #ecedf6;
+    background: white;
+    color: #455bc8;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
 
-          .home-nav-btn:hover {
-            background: #455bc8;
-            color: white;
-            border-color: #455bc8;
-          }
+  .home-nav-btn:hover {
+    background: #455bc8;
+    color: white;
+    border-color: #455bc8;
+  }
 
-          .home-nav-btn.left {
-            left: 25%;
-          }
-          .home-nav-btn.right {
-            right: 25%;
-          }
+  /* Half-on/Half-off offsets */
+  .home-nav-btn.left {
+    left: -21px; /* Exactly half of button width */
+  }
+  .home-nav-btn.right {
+    right: -21px; /* Exactly half of button width */
+  }
 
-          @media (min-width: 1024px) {
-            .testimonial-grid-container {
-              display: grid;
-              grid-template-columns: repeat(3, 1fr);
-              overflow-x: visible;
-              gap: 2rem;
-            }
+  @media (min-width: 1024px) {
+    .testimonial-grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      overflow-x: visible;
+      gap: 2rem;
+    }
+    .testimonial-card-item { flex: none; }
+    .home-nav-btn { display: none; }
+    .home-testimonial-card { padding: 2.25rem; }
+  }
 
-            .testimonial-card-item {
-              flex: none;
-            }
-
-            .home-nav-btn {
-              display: none;
-            }
-
-            .home-testimonial-card {
-              padding: 2.25rem;
-            }
-          }
-
-          .home-testimonial-card {
-            /* ... keep your existing styles ... */
-            border: 1px solid #ecedf6; /* Default border */
-            transition: all 0.3s ease; /* Ensures smooth transition */
-          }
-
-          .home-testimonial-card:hover {
-            border-color: #455bc8; /* Changes to your brand blue on hover */
-            border-width: 1px; /* Keeps size consistent */
-            box-shadow: 0 15px 35px rgba(69, 91, 200, 0.12); /* Adds a soft brand-colored glow */
-            transform: translateY(-5px); /* Optional: slight lift effect */
-          }
-
-          @media (max-width: 480px) {
-            .home-nav-btn.left {
-              left: 20%;
-            }
-            .home-nav-btn.right {
-              right: 20%;
-            }
-          }
-        `}</style>
+  @media (max-width: 480px) {
+    /* Keep arrows slightly visible on small mobile */
+    .home-nav-btn.left { left: -10px; }
+    .home-nav-btn.right { right: -10px; }
+  }
+`}</style>
       </section>
     </>
   );
