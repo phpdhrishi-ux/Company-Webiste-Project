@@ -1,13 +1,14 @@
 // src/components/Footer.jsx
+import { Link } from "react-router-dom"; // Added for internal navigation
 import "./GlassLayout.css";
 import logo from "../assets/logo2.png";
-import { FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa"; // Added Facebook Icon
+import { FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 
 const SOCIAL_LINKS = [
-  { href: "https://linkedin.com/company/zenrax-it-services", Icon: FaLinkedinIn },
+  { href: "https://www.linkedin.com/company/zenrax-consultancy-services/", Icon: FaLinkedinIn },
   { href: "https://instagram.com/zenraxservices", Icon: FaInstagram },
-  { href: "https://facebook.com/zenraxservices", Icon: FaFacebookF }, // Facebook Added
+  { href: "https://facebook.com/zenraxservices", Icon: FaFacebookF },
 ];
 
 const QUICK_LINKS = [
@@ -26,7 +27,6 @@ const SERVICES = [
 
 const ContactRow = ({ label, value, href, Icon }) => (
   <div style={{ display: "flex", alignItems: "center", gap: "0.85rem", marginBottom: "1.25rem" }}>
-    {/* Icon Container with fixed width to ensure vertical alignment of text */}
     <div style={{ color: "#455bc8", display: "flex", alignItems: "center", justifyContent: "center", minWidth: "20px" }}>
       <Icon size={19} />
     </div>
@@ -74,7 +74,9 @@ const Footer = () => {
           <div className="footer-grid">
             {/* Brand Section */}
             <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}>
-              <img src={logo} alt="Zenrax Logo" style={{ height: "3.2rem", width: "fit-content", objectFit: "contain" }} />
+              <Link to="/" onClick={() => window.scrollTo(0, 0)}>
+                <img src={logo} alt="Zenrax Logo" style={{ height: "3.2rem", width: "fit-content", objectFit: "contain" }} />
+              </Link>
               <p style={{ fontSize: "0.88rem", lineHeight: 1.6, color: "#475569", margin: 0, maxWidth: "260px" }}>
                 AI-first consulting + fullstack delivery for founders who scale with clarity.
               </p>
@@ -102,27 +104,37 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Quick Links */}
+            {/* Quick Links - Updated to use Link */}
             <div>
               <h3 style={{ marginBottom: "1.8rem", color: "#1e293b", fontSize: "1.05rem", fontWeight: "700" }}>Quick Links</h3>
               {QUICK_LINKS.map((link) => (
-                <a key={link.href} href={link.href} style={{ display: "block", marginBottom: "0.9rem", color: "#475569", fontSize: "0.95rem", fontWeight: 500, textDecoration: "none" }}>
+                <Link 
+                  key={link.href} 
+                  to={link.href} 
+                  onClick={() => window.scrollTo(0, 0)}
+                  style={{ display: "block", marginBottom: "0.9rem", color: "#475569", fontSize: "0.95rem", fontWeight: 500, textDecoration: "none" }}
+                >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
 
-            {/* Services */}
+            {/* Services - Updated to use Link */}
             <div>
               <h3 style={{ marginBottom: "1.8rem", color: "#1e293b", fontSize: "1.05rem", fontWeight: "700" }}>Services</h3>
               {SERVICES.map((service) => (
-                <a key={service.href} href={service.href} style={{ display: "block", marginBottom: "0.9rem", color: "#475569", fontSize: "0.95rem", fontWeight: 500, textDecoration: "none" }}>
+                <Link 
+                  key={service.href} 
+                  to={service.href} 
+                  onClick={() => window.scrollTo(0, 0)}
+                  style={{ display: "block", marginBottom: "0.9rem", color: "#475569", fontSize: "0.95rem", fontWeight: 500, textDecoration: "none" }}
+                >
                   {service.label}
-                </a>
+                </Link>
               ))}
             </div>
 
-            {/* Contact Section - Aligned Text to Icons */}
+            {/* Contact Section */}
             <div>
               <h3 style={{ marginBottom: "1.8rem", color: "#1e293b", fontSize: "1.05rem", fontWeight: "700" }}>Contact</h3>
               <ContactRow label="Phone" value="+91 98806 36948" href="tel:+919880636948" Icon={FiPhone} />
