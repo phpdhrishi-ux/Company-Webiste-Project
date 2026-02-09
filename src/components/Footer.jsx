@@ -137,9 +137,9 @@ const Footer = () => {
             {/* Contact Section */}
             <div>
               <h3 style={{ marginBottom: "1.8rem", color: "#1e293b", fontSize: "1.05rem", fontWeight: "700" }}>Contact</h3>
-              <ContactRow label="Phone" value="+91 98806 36948" href="tel:+919880636948" Icon={FiPhone} />
-              <ContactRow label="Email" value="info@Zenraxhiring.com" href="mailto:info@Zenraxhiring.com" Icon={FiMail} />
-              <ContactRow label="PUNE, MH" value="(Remote-first)" Icon={FiMapPin} />
+              <ContactRow label="Phone" value="+91 91683 83504" href="tel:+919168383504" Icon={FiPhone} />
+              <ContactRow label="Email" value="info@zenraxconsulting.com" href="mailto:info@zenraxconsulting.com" Icon={FiMail} />
+              <ContactRow label="Address" value="Pune" Icon={FiMapPin} />
             </div>
           </div>
 
