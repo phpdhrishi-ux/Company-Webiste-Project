@@ -146,7 +146,7 @@ const Footer = () => {
           {/* Copyright Section */}
           <div style={{ marginTop: "3.5rem", paddingTop: "1.5rem", borderTop: "1px solid rgba(148,163,184,0.15)", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
             <p style={{ fontSize: "0.85rem", color: "#64748b", margin: 0 }}>
-              © {new Date().getFullYear()} Zenrax Hiring and Staffing Private Limited.
+              © {new Date().getFullYear()} Zenrax Hiring and Staffing Private Limited......
             </p>
           </div>
         </div>
